@@ -189,6 +189,9 @@
   11028            05 TOTALPAJ-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11029            05 TOTALGAS-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11030            05 TOTALSAL-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
+      *>         VARIABLES FICTICIAS
+                   05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
+                   05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
   11031                                                                                                                 30/01/20
   11032        01  RR09MAE.                                                                                             20/01/20
   11033            05 R09CAS-WS PIC X(11).                                                                              20/01/20
