@@ -315,6 +315,10 @@
   19900            05 CONDIC                     PIC X      VALUE "V".                                                  20/02/17
   20000            05 TIPPRO                     PIC X      VALUE "1".                                                  20/02/17
   20100            05 ACERRAR                    PIC X      VALUE " ".                                                  28/02/17
+
+               01  POLUNITST.
+                   05 LOC-UT  PIC X(2) VALUE ='01'.
+                   05 MCO-UT  PIC X(2) VALUE ='01',
   20200                                                                                                                 19/12/16
   20300        01  WFCASOSW.                                                                                            19/12/16
   20400            05 WTEMC45       PIC X(11).                                                                          19/12/16
