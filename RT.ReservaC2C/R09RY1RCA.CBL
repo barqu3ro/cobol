@@ -459,6 +459,8 @@
   26200            PERFORM A010-PROCESO.                                                                                12/12/16
   26300                                                                                                                 26/11/16
   26400        A010-PROCESO.                                                                                            12/12/16
+
+      *>         SE LIMPIAN TABLAS DE CONTROL DE VARIABLES DEL PROCESO 
   26411            EXEC SQL                                                                                             05/02/20
   26412                DELETE FROM RY1CIF                                                                               30/01/20
   26413                WHERE RY1FEC = :WFHASTACORR                                                                      30/01/20
