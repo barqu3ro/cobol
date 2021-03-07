@@ -1,3 +1,7 @@
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    1
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
     100        IDENTIFICATION DIVISION.                                                                                 97/07/04
     200        PROGRAM-ID. R09RY1RCA.                                                                                   19/12/16
     300        AUTHOR.  Randall Vallejos Rojas.                                                                         19/11/16
@@ -51,6 +55,10 @@
    3120       *    B010-PROCESA-CASOS no lea TOdo el archivo de casos sino                                              20/02/20
    3121       *    que recorra un cursor con los casos que cumplan con                                                  16/01/20
    3122       *    una o varias de estas condiciones:                                                                   17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    2
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
    3123       *    3.1. Casos que estén en TEMMTO es decir los que tuvieron                                             20/02/20
    3124       *         pago en el mes de estudio.                                                                      16/01/20
    3125       *    3.2. Casos abierTOs en el momenTO de ejecución.                                                      20/02/20
@@ -77,9 +85,6 @@
    3148       * Respaldo R09RY1RCA2                                                                                     25/06/20
    3149       * Version V010                                                                                            25/06/20
    3150       ******************************************************************                                        25/06/20
-              * Webinar Git 
-              * Primer commit
-              * Fin de modificacion                                                                                             
    3200        ENVIRONMENT DIVISION.                                                                                    97/07/04
    3300        CONFIGURATION SECTION.                                                                                   97/07/04
    3400        SOURCE-COMPUTER.   IBM-AS400.                                                                            10/02/20
@@ -107,6 +112,10 @@
    5600                   ACCESS MODE  IS DYNAMIC                                                                       07/01/17
    5700                   RECORD KEY IS EXTERNALLY-DESCRIBED-KEY                                                        07/01/17
    5800                   FILE STATUS  IS FS-TEMFMX1.                                                                   07/01/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    3
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
    5900                                                                                                                 07/01/17
    6000            SELECT TEMMTO                                                                                        20/02/20
    6100                   ASSIGN       TO DATABASE-TEMMTO                                                               20/02/20
@@ -160,6 +169,10 @@
   10900                                                                                                                 07/01/17
   11000        WORKING-STORAGE SECTION.                                                                                 20/02/20
   11001        01  BITFIL-WS          PIC X(10) VALUES SPACES.                                                          24/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    4
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   11002        01  IND-VALIDAR-RENTA  PIC X VALUE "S".                                                                  30/03/20
   11003        01  FECHAHOY           PIC X(08).                                                                        13/02/20
   11004        01  FECHAINICIORENTA   PIC X(08).                                                                        13/02/20
@@ -189,9 +202,6 @@
   11028            05 TOTALPAJ-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11029            05 TOTALGAS-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11030            05 TOTALSAL-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
-      *>         VARIABLES FICTICIAS
-                   05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
-                   05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
   11031                                                                                                                 30/01/20
   11032        01  RR09MAE.                                                                                             20/01/20
   11033            05 R09CAS-WS PIC X(11).                                                                              20/01/20
@@ -207,7 +217,6 @@
   11043            05 R09ESR-WS PIC X.                                                                                  20/01/20
   11044            05 R09EST-WS PIC X.                                                                                  20/01/20
   11045        77  EXISTE-RCA       PIC S9(11)V99 VALUE 0.                                                              21/01/20
-               77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
   11046        77  MONTO-WS         PIC S9(11)V99 VALUE 0.                                                              20/02/20
   11047        77  SEGUIR           PIC X VALUE "S".                                                                    20/01/20
   11048        77  SALIR-R09        PIC X VALUE "N".                                                                    20/01/20
@@ -217,6 +226,10 @@
   11052        77  BITES2-WS        PIC X.                                                                              17/01/20
   11053        77  BITCA2-WS        PIC X(11).                                                                          17/01/20
   11054        77  FE3-WS           PIC X(08).                                                                          17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    5
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   11055        77  F06-WS           PIC X(08).                                                                          17/01/20
   11056        77  F08-WS           PIC X(08).                                                                          17/01/20
   11057        77  ANO-WS           PIC X(04).                                                                          17/01/20
@@ -246,7 +259,6 @@
   13000        01  WRY1RCD01T.                                                                                          17/02/17
   13100            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
   13500                                                                                                                 17/02/17
-              *-- SE AGREGAN DOS VALORES AL PUNTERO
   13600        01  FILESTATUS.                                                                                          07/01/17
   13700            05 FS-R08MAE        PIC XX.                                                                          14/01/17
   13800            05 FS-R09MAE59      PIC XX.                                                                          14/01/17
@@ -254,8 +266,6 @@
   14000            05 FS-TEMMTO        PIC XX.                                                                          20/02/20
   14100            05 FS-RY1RCA        PIC XX.                                                                          11/01/17
   14200            05 FS-RY1RCD        PIC XX.                                                                          11/01/17
-                   05 FS-VARIABLE1     PIC XX.
-                   05 FS-VARIABLE2     PIC XX.
   14300                                                                                                                 07/01/17
   14400        01  VARIABLES.                                                                                           19/12/16
   14500            05 FCURRENT.                                                                                         20/12/16
@@ -273,6 +283,10 @@
   15700            05 WCONDI                     PIC XX.                                                                30/01/17
   15800            05 INDICE                     PIC 9.                                                                 10/02/20
   15900            05 FINR09                     PIC 9.                                                                 17/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    6
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   16000            05 FIN                        PIC 9.                                                                 17/02/17
   16100            05 GASTOT                     PIC 9(11)V99 COMP-3.                                                   20/02/20
   16200            05 PAUMRU                     PIC 9(03)V99 COMP-3.                                                   20/02/20
@@ -315,10 +329,6 @@
   19900            05 CONDIC                     PIC X      VALUE "V".                                                  20/02/17
   20000            05 TIPPRO                     PIC X      VALUE "1".                                                  20/02/17
   20100            05 ACERRAR                    PIC X      VALUE " ".                                                  28/02/17
-
-               01  POLUNITST.
-                   05 LOC-UT  PIC X(2) VALUE ='01'.
-                   05 MCO-UT  PIC X(2) VALUE ='01',
   20200                                                                                                                 19/12/16
   20300        01  WFCASOSW.                                                                                            19/12/16
   20400            05 WTEMC45       PIC X(11).                                                                          19/12/16
@@ -330,6 +340,10 @@
   21000            05 WMESVIV       PIC S9(02) COMP-3.                                                                  20/02/20
   21100            05 WACTUAL       PIC X(08).                                                                          20/12/16
   21200            05 WUSERAC       PIC X(10).                                                                          20/12/16
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    7
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   21300            05 WCORRID       PIC X(08).                                                                          20/12/16
   21400            05 WFCALCU       PIC X(08).                                                                          04/01/17
   21500            05 WMESPRO       PIC X(02).                                                                          20/12/16
@@ -383,6 +397,10 @@
   24222                     INTO                                                                                        20/02/20
   24223                         :FE3-WS                                                                                 20/01/20
   24224                        ,:F06-WS                                                                                 20/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    8
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   24225                        ,:F08-WS                                                                                 20/01/20
   24226                        ,:ANO-WS                                                                                 20/01/20
   24227                        ,:MES-WS                                                                                 20/01/20
@@ -436,6 +454,10 @@
   24301                     ,:SALDORCD                                                                                  23/07/20
   24302                     ,:SALJUDIC-WS)                                                                              14/08/20
   24303            END-EXEC                                                                                             20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    9
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   24304            MOVE WFHASTACORR  TO WFDESDECORR.                                                                    20/02/20
   24400            MOVE "01"         TO WFDESDECORR(7:2).                                                               20/02/20
   24700       *                                                                                                         20/12/16
@@ -489,6 +511,10 @@
   26800            EXEC SQL                                                                                             28/02/17
   26900                 DECLARE CPARAM CURSOR FOR                                                                       27/02/17
   27000                 SELECT                                                                                          27/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   10
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   27100                        CAST(ANOSRE AS NUMERIC(2)) ANOSRE,                                                       27/02/17
   27200                        CAST(RY1MDF AS NUMERIC(2)) RY1MDF,                                                       27/02/17
   27300                        CAST(RY1MER AS NUMERIC(2)) RY1MER,                                                       27/02/17
@@ -542,6 +568,10 @@
   31500                 WHERE RY1FE6 <= :WFHASTACORR  AND                                                               27/02/17
   31600                       RY1FE7 >= :WFHASTACORR                                                                    27/02/17
   31700            END-EXEC.                                                                                            20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   11
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   31800            EXEC SQL                                                                                             27/02/17
   31900                 OPEN CPARVGR                                                                                    27/02/17
   32000            END-EXEC.                                                                                            20/02/20
@@ -652,6 +682,10 @@
   40600            EXEC SQL                                                                                             28/02/17
   40700                INSERT INTO FECINIRES                                                                            20/02/20
   40800                SELECT  DISTINCT(C.R09CAS) NUMCAS,                                                               20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   13
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   40900                        CASE WHEN FECMAX59 > R09FEC                                                              28/02/17
   41000                             THEN FECMAX59                                                                       28/02/17
   41100                        ELSE R09FEC                                                                              28/02/17
@@ -762,6 +796,10 @@
   43077                                    WHERE C.R09CAS = CASNU7) AND                                                 05/03/20
   43078                   R09FEC <> " " AND R09FEC BETWEEN :FDE AND :FHA                                                05/03/20
   43080                   AND R09ACE NOT IN("30", "31", "32") AND                                                       05/03/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   15
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   43081                   R14FRC <> " " AND R14FRC <> :WFHASTACORR                                                      05/03/20
   43082                   AND R14EST <> "2" AND R68PAG = "903"                                                          05/03/20
   43083                   GROUP BY R14CAS)                                                                              05/03/20
@@ -872,6 +910,10 @@
   58533                 R20EFI IN("1", "2", "3") AND                                                                    05/03/20
   58534                 R58FEC >= :WFDESDECORR AND R58FEC <= :WFHASTACORR                                               05/03/20
   58535                 GROUP BY R33CAS  )                                                                              05/03/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   17
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   58536                ,PAGOSCTAH AS                                                                                    05/03/20
   58537                  (SELECT "CM" TEMRBR, R14CAS TEMC47, " " TEMFEP,                                                05/03/20
   58538                   SUM(R68MNT) TEMMNT                                                                            05/03/20
@@ -925,6 +967,10 @@
   70600                                                                                                                 09/04/19
   70700            EXEC SQL                                                                                             28/02/17
   70800                 COMMIT                                                                                          28/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   18
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   70900            END-EXEC.                                                                                            20/02/20
   71000       * /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ *                                           03/01/17
   71100       * | EJECUCIÓN DE CIERRE Y ACUMULACIÓN DE PAGOS, PROVICIONES | *                                           29/12/16
@@ -978,6 +1024,10 @@
   71292                          CASOSDLN-WS                                                                            06/02/20
   71293                          CASOSDLC-WS                                                                            06/02/20
   71294                          CASOSDPL-WS                                                                            06/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   19
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   71295            EXEC SQL                                                                                             30/01/20
   71296                 SELECT COUNT(*) INTO :CASOSCAN-WS                                                               20/02/20
   71297                 FROM CASTEM                                                                                     30/01/20
@@ -1031,6 +1081,10 @@
   72336                  FROM RY1RCA, BITREC                                                                            12/02/20
   72337                  WHERE RY1CAS = BITCA2                                                                          12/02/20
   72338                  AND   RY1FMR = BITFE9                                                                          12/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   20
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   72339                  AND   BITCO1 = "LN"                                                                            12/02/20
   72340                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72341            END-EXEC                                                                                             20/02/20
@@ -1084,6 +1138,10 @@
   72389                  ,:CASOSDPL-WS                                                                                  06/02/20
   72390                  ,:TOTALPRO-WS                                                                                  20/02/20
   72391                  ,:TOTALPAJ-WS                                                                                  20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   21
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   72392                  ,:TOTALGAS-WS                                                                                  20/02/20
   72393                  ,:TOTALSAL-WS  )                                                                               20/02/20
   72394            END-EXEC                                                                                             20/02/20
@@ -1137,6 +1195,10 @@
   73916                 COMMIT                                                                                          30/01/20
   73917            END-EXEC                                                                                             20/02/20
   74200            STOP RUN.                                                                                            20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   22
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   74300        A010-PROCESO-EXIT.                                                                                       16/02/17
   74400             EXIT.                                                                                               16/02/17
   74500                                                                                                                 10/01/17
@@ -1190,6 +1252,10 @@
   79068 RLM   *            (WCASO NOT EQUAL SPACES AND ACERRAR    = 'S')) THEN                                          20/02/20
   79069 RLM   *        MOVE "N" TO ENTRA                                                                                20/02/20
   79070 RLM   *    END-IF                                                                                               20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   23
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   79071            IF ENTRA IS EQUAL "S" THEN                                                                           14/02/20
   79072                 MOVE "N" TO VARERR                                                                              20/02/20
   79073            ELSE                                                                                                 12/02/20
@@ -1243,6 +1309,10 @@
   79126            IF WCASDUP IS EQUAL SPACES THEN                                                                      20/02/20
   79127                 MOVE "N" TO DUPLICADO                                                                           20/02/20
   79128            END-IF.                                                                                              20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   24
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   79129        END-VALIDA-DUPLICADOS.                                                                                   20/02/20
   79143                                                                                                                 05/02/20
   79144        LEE-SIGUIENTE-CASO.                                                                                      05/02/20
@@ -1296,6 +1366,10 @@
   95100             EXIT.                                                                                               04/02/17
   95101       *                                                                                                         05/02/20
   95102        CIERRA-O-ABRE-CASO.                                                                                      05/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   25
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95103            MOVE "N"    TO ENTRA.                                                                                25/02/20
   95104            MOVE SPACES TO BITFIL-WS.                                                                            25/02/20
   95105            INITIALIZE ENTRA  WCONDI.                                                                            14/02/20
@@ -1349,6 +1423,10 @@
   95154                      MOVE "A" TO R09ESR-WS                                                                      20/02/20
   95155                      MOVE "S" TO ENTRA                                                                          20/02/20
   95156                  END-IF                                                                                         20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   26
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95157               END-IF                                                                                            20/02/20
   95158            END-IF.                                                                                              20/02/20
   95159        END-CIERRA-O-ABRE-CASO.                                                                                  20/02/20
@@ -1402,6 +1480,10 @@
   95207               EXEC SQL                                                                                          05/02/20
   95208                    SELECT DISTINCT R20DET.R20INC INTO:WR20IN                                                    20/02/20
   95209                    FROM   R33MAE INNER JOIN R20DET ON R33FIJ = R20FIJ                                           05/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   27
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95210                    WHERE  R20EFI IN("1", "2", "3") AND                                                          05/02/20
   95211                           R33CAS = :CAS001         AND                                                          05/02/20
   95212                           R20INC IN("1", "2", "3", "4")                                                         05/02/20
@@ -1455,6 +1537,10 @@
   95260                                            :WFHASTACORR                                                         13/02/20
   95261                         FETCH FIRST 1 ROW ONLY                                                                  13/02/20
   95262                    END-EXEC                                                                                     20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   28
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95263                    IF FECHAINICIORENTA IS EQUAL SPACES THEN                                                     20/02/20
   95264                    EXEC SQL                                                                                     13/02/20
   95265                         SELECT R54INI INTO :FECHAINICIORENTA                                                    20/02/20
@@ -1508,6 +1594,10 @@
   95321               MOVE WFTOPEM TO WFTOPE                                                                            20/02/20
   95322            END-IF.                                                                                              20/02/20
   95323            IF VIVMUE = "V" OR VIVMUE = "X"                                                                      05/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   29
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95324               MOVE WFTOPEV TO WFTOPE                                                                            20/02/20
   95325            END-IF.                                                                                              20/02/20
   95326        END-CONSULTA-R08MAE.                                                                                     20/02/20
@@ -1561,6 +1651,10 @@
   95374                    MOVE "T" TO RY1ES3 OF WRY1RCA01                                                              20/02/20
   95375               ELSE                                                                                              20/02/20
   95376                    MOVE "P" TO RY1ES3 OF WRY1RCA01                                                              20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   30
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95377               END-IF                                                                                            20/02/20
   95378               MOVE R09CON-WS TO RY1CON OF WRY1RCA01                                                             20/02/20
   95379       *--------                                                                                                 21/01/20
@@ -1614,6 +1708,10 @@
   95427       *                                                                                                         21/01/20
   95428            IF OKMONTO NOT EQUAL ZEROS                                                                           20/02/20
   95429               PERFORM B060-GASTOS-ACUMULADOS THRU B060-EXIT                                                     20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   31
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95430            END-IF.                                                                                              20/02/20
   95431       *- AQUI VA SI DEJA LOS SALDOS EN CERO POR ESTAR EN MATEMATICA                                             21/01/20
   95432       *------------------------------------------------------------                                             21/01/20
@@ -1667,6 +1765,10 @@
   95480                                   RY1FE4 OF WRY1RCD01B                                                          21/01/20
   95481                                   RY1FE4 OF WRY1RCD01C                                                          21/01/20
   95482                                   RY1FE4 OF WRY1RCD01D                                                          21/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   32
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95483                                   RY1FE4 OF WRY1RCD01T                                                          21/01/20
   95484               MOVE R09AGE-WS TO RY1AGE OF WRY1RCA01                                                             20/02/20
   95485               WRITE RRY1RCA01 FROM WRY1RCA01                                                                    20/02/20
@@ -1720,6 +1822,10 @@
   95533               READ RY1RCA01 RECORD                                                                              20/02/20
   95534               IF FS-RY1RCA = "00" OR FS-RY1RCA = "04"                                                           21/01/20
   95535                  REWRITE RRY1RCA01 FROM WRY1RCA01                                                               20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   33
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95536                     INVALID KEY                                                                                 21/01/20
   95537                     MOVE " ReWrite Enc " TO LUGARERRO                                                           20/02/20
   95538                     PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                             21/01/20
@@ -1773,6 +1879,10 @@
   95586               END-IF                                                                                            20/02/20
   95587                  MOVE "T" TO RY1COR OF RY1RCD01                                                                 20/02/20
   95588                  READ RY1RCD01 RECORD                                                                           20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   34
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95589              IF FS-RY1RCD = "00" OR FS-RY1RCD = "04"                                                            21/01/20
   95590                 REWRITE RRY1RCD01 From WRY1RCD01T                                                               21/01/20
   95591                   INVALID KEY                                                                                   21/01/20
@@ -1826,6 +1936,10 @@
  121700             EXIT.                                                                                               30/01/17
  121800       *                                                                                                         30/01/17
  121900        B050-SUMA-GASTOS.                                                                                        20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   35
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  122000            IF INDICE = 1                                                                                        10/02/20
  122100                COMPUTE RY1GAS OF WRY1RCD01A =                                                                   10/02/20
  122200                        RY1GAS OF WRY1RCD01A + TEMMNT                                                            17/02/17
@@ -1879,6 +1993,10 @@
  127100                                RY1GA1 OF WRY1RCD01B                                                             17/02/17
  127200               IF GASTOT >= RY1PR1 OF WRY1RCD01B  THEN                                                           20/02/20
  127300                  COMPUTE RY1PR1 OF WRY1RCD01B =                                                                 10/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   36
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  127400                          GASTOT + RY1PR1 OF WRY1RCD01B *                                                        20/02/20
  127500                          PAUMRU / 100                                                                           17/02/17
  127600                  COMPUTE TOTAL5 = TOTAL5 + RY1PR1 OF WRY1RCD01B                                                 20/02/20
@@ -1932,6 +2050,10 @@
  139800            IF SQLSTATE(1:2)  NOT EQUAL "00"                                                                     12/12/16
  139900            AND SQLSTATE(1:2) NOT EQUAL "01" THEN                                                                12/12/16
  140000                  DISPLAY "R09_RY1RCS - Error estado SQL: "                                                      12/12/16
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   37
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  140100               SQLSTATE                                                                                          12/12/16
  140200            END-IF.                                                                                              20/02/20
  140300        END-SQL-REVISASQLSTATE.                                                                                  20/02/20
@@ -1985,6 +2107,10 @@
  142549              CAS001 DELIMITED BY SIZE                                                                           17/01/20
  142550              INTO MENSAJE                                                                                       20/02/20
  142551              PERFORM GRABA-BITACORA                                                                             17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   38
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  142552              MOVE SPACES TO MENSAJE                                                                             20/02/20
  142553              STRING "D010-R09RY1RCA ERROR FS RY1RCD "                                                           17/01/20
  142554                             DELIMITED BY SIZE                                                                   17/01/20
@@ -2038,6 +2164,10 @@
  145306                (:FECHAMOMENTO                                                                                   20/02/20
  145307                ,:HORACORR                                                                                       17/01/20
  145308                ," "                                                                                             17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   39
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  145309                ,:MENSAJE)                                                                                       17/01/20
  145310              END-EXEC.                                                                                          20/02/20
  145311        END-GRABA-BITACORA.                                                                                      20/02/20
@@ -2091,6 +2221,10 @@
  145359                    END-EXEC                                                                                     20/02/20
  145360                    EXEC SQL                                                                                     20/01/20
  145361                      DELETE FROM RY1HVR                                                                         20/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   40
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  145362                      WHERE RY1AOD = SUBSTR(:WFHASTACORR , 1 , 4 )                                               20/01/20
  145363                      AND RY1MES = SUBSTR(:WFHASTACORR , 5 , 2 )                                                 20/01/20
  145364                    END-EXEC                                                                                     20/02/20
@@ -2144,6 +2278,10 @@
  145434                    FETCH NEXT FROM CSELCASOS INTO :RR09MAE                                                      20/02/20
  145435                END-EXEC                                                                                         20/02/20
  145436                IF SQLSTATE(1:2) IS EQUAL "00" OR                                                                27/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   41
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  145437                   SQLSTATE(1:2) IS EQUAL "01" THEN                                                              27/01/20
  145438                      PERFORM GRABA-BITREC                                                                       27/01/20
  145439                ELSE                                                                                             27/01/20
@@ -2191,3 +2329,4 @@
  145506       *=================*                                                                                       13/10/15
  145507       *- Fin de fuente -*                                                                                       13/10/15
  145600       *=================*                                                                                       13/10/15
+                                  * * * *  F I N  D E  F U E N T E  * * * *
