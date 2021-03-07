@@ -77,6 +77,9 @@
    3148       * Respaldo R09RY1RCA2                                                                                     25/06/20
    3149       * Version V010                                                                                            25/06/20
    3150       ******************************************************************                                        25/06/20
+              * Webinar Git 
+              * Primer commit
+              * Fin de modificacion                                                                                             
    3200        ENVIRONMENT DIVISION.                                                                                    97/07/04
    3300        CONFIGURATION SECTION.                                                                                   97/07/04
    3400        SOURCE-COMPUTER.   IBM-AS400.                                                                            10/02/20
