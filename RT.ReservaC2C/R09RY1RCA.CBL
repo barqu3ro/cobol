@@ -242,6 +242,7 @@
   13000        01  WRY1RCD01T.                                                                                          17/02/17
   13100            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
   13500                                                                                                                 17/02/17
+              *-- SE AGREGAN DOS VALORES AL PUNTERO
   13600        01  FILESTATUS.                                                                                          07/01/17
   13700            05 FS-R08MAE        PIC XX.                                                                          14/01/17
   13800            05 FS-R09MAE59      PIC XX.                                                                          14/01/17
@@ -249,6 +250,8 @@
   14000            05 FS-TEMMTO        PIC XX.                                                                          20/02/20
   14100            05 FS-RY1RCA        PIC XX.                                                                          11/01/17
   14200            05 FS-RY1RCD        PIC XX.                                                                          11/01/17
+                   05 FS-VARIABLE1     PIC XX.
+                   05 FS-VARIABLE2     PIC XX.
   14300                                                                                                                 07/01/17
   14400        01  VARIABLES.                                                                                           19/12/16
   14500            05 FCURRENT.                                                                                         20/12/16
