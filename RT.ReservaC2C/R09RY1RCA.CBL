@@ -207,6 +207,7 @@
   11043            05 R09ESR-WS PIC X.                                                                                  20/01/20
   11044            05 R09EST-WS PIC X.                                                                                  20/01/20
   11045        77  EXISTE-RCA       PIC S9(11)V99 VALUE 0.                                                              21/01/20
+               77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
   11046        77  MONTO-WS         PIC S9(11)V99 VALUE 0.                                                              20/02/20
   11047        77  SEGUIR           PIC X VALUE "S".                                                                    20/01/20
   11048        77  SALIR-R09        PIC X VALUE "N".                                                                    20/01/20
