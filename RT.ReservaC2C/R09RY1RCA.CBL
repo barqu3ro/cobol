@@ -572,7 +572,7 @@
   33500                 AND    SUBSTRING(RY1FMR, 5, 2) = :WMESCORRIDA                                                   28/02/17
   33600            END-EXEC.                                                                                            20/02/20
   33700       *                                                                                                         28/02/17
-  33800            EXEC SQL                                                                                             28/02/17
+  33800            EXEC SQL                                                                                              28/02/17
   33900                 DELETE FROM RY1RCD                                                                              28/02/17
   34000                 WHERE  SUBSTRING(RY1F03, 1, 4) = :WANOCORRIDA                                                   28/02/17
   34100                 AND    SUBSTRING(RY1F03, 5, 2) = :WMESCORRIDA                                                   28/02/17
@@ -602,10 +602,6 @@
   36500                 DELETE FROM TEMFMX1                                                                             28/02/17
   36600            END-EXEC.                                                                                            20/02/20
   36700            EXEC SQL                                                                                             28/02/17
-  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   12
-  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
-  MIEMBRO . . . . . . . . .  R09RY1RCA
-  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   36800                 DELETE FROM TEMFMXX                                                                             28/02/17
   36900            END-EXEC.                                                                                            20/02/20
   37000            EXEC SQL                                                                                             28/02/17
@@ -818,10 +814,7 @@
   56400                DELETE FROM TEMFMXX WHERE TEMC45 IN                                                              09/04/19
   56500                (SELECT R09CAS FROM R09MAE                                                                       09/04/19
   56600                WHERE R09POL = "NEMAGON")                                                                        09/04/19
-  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   16
-  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
-  MIEMBRO . . . . . . . . .  R09RY1RCA
-  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+
   56700            END-EXEC                                                                                             20/02/20
   56800       *==================V006==========================================                                         09/04/19
   56900            EXEC SQL                                                                                             09/04/19
@@ -2009,6 +2002,8 @@
  142800        D010-EXIT.                                                                                               11/01/17
  142900             EXIT.                                                                                               11/01/17
  143000       *                                                                                                         25/02/17
+
+      *>       INICIALIZACION DE VARIABLES
  143100        D020-INICIALIZA.                                                                                         25/02/17
  143200            MOVE ZEROS TO                                                                                        20/02/20
  143300            RY1PRO OF WRY1RCD01A RY1PRO OF WRY1RCD01B                                                            25/02/17
@@ -2032,7 +2027,8 @@
  145001        END-D020-INICIALIZA.                                                                                     25/02/20
  145100        D020-EXIT.                                                                                               25/02/17
  145200             EXIT.                                                                                               25/02/17
- 145300       *                                                                                                         25/02/17
+ 145300       
+      *>         INICIO GRABA BITACORA 
  145301        GRABA-BITACORA.                                                                                          17/01/20
  145302              ACCEPT FECHAMOMENTO    FROM DATE                                                                   20/02/20
  145303              ACCEPT HORACORR        FROM TIME                                                                   17/01/20
@@ -2043,7 +2039,8 @@
  145308                ," "                                                                                             17/01/20
  145309                ,:MENSAJE)                                                                                       17/01/20
  145310              END-EXEC.                                                                                          20/02/20
- 145311        END-GRABA-BITACORA.                                                                                      20/02/20
+ 145311        END-GRABA-BITACORA.     
+      *>         FIN GRABA BITACORA  
  145312                                                                                                                 17/01/20
  145313        RECUPERACIONDATOS.                                                                                       20/02/20
  145314            MOVE SPACES TO FE3-WS F06-WS F08-WS ANO-WS MES-WS USU-WS                                             20/02/20
