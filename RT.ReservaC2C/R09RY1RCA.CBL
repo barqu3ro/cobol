@@ -985,6 +985,7 @@
   72301            MOVE "N" TO SALIR-R09                                                                                20/02/20
   72302            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   72303            MOVE "A PUNTO DE RECORRER CASOS" TO MENSAJE                                                          20/02/20
+      *>             Graba en bitácora que va a iniciar la ejecución
   72304            PERFORM GRABA-BITACORA                                                                               21/01/20
   72305            PERFORM B010-PROCESA-CADA-CASO UNTIL SALIR-R09 = "S"                                                 20/01/20
   72306            MOVE SPACES                          TO MENSAJE                                                      20/02/20
@@ -1004,6 +1005,7 @@
   72316                  AND BITEFI = "C"                                                                               12/02/20
   72317                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72318            END-EXEC                                                                                             20/02/20
+      *>             Realiza conteo de casos abiertos para la ejecución
   72319            EXEC SQL                                                                                             12/02/20
   72320                  SELECT COUNT(*) INTO :ABIERTOS-WS                                                              20/02/20
   72321                  FROM BITREC                                                                                    12/02/20
@@ -1011,6 +1013,8 @@
   72323                  AND BITEFI = "A"                                                                               12/02/20
   72324                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72325            END-EXEC                                                                                             20/02/20
+                       
+                   Realiza conteo de casos 
   72326            EXEC SQL                                                                                             12/02/20
   72327                  SELECT COUNT(*) INTO :CASOSALC-WS                                                              20/02/20
   72328                  FROM RY1RCA, BITREC                                                                            12/02/20
