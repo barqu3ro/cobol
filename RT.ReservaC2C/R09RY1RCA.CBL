@@ -2042,9 +2042,13 @@
  145311        END-GRABA-BITACORA.     
       *>         FIN GRABA BITACORA  
  145312                                                                                                                 17/01/20
+
+      *>        Inicia proceso de recuperación de datos 
  145313        RECUPERACIONDATOS.                                                                                       20/02/20
  145314            MOVE SPACES TO FE3-WS F06-WS F08-WS ANO-WS MES-WS USU-WS                                             20/02/20
- 145315            MOVE ZEROS TO SALJUDIC-WS                                                                            14/08/20
+ 145315            MOVE ZEROS TO SALJUDIC-WS            
+ 
+      *>         Obtiene los parámetros del archivo 
  145316            EXEC SQL                                                                                             17/01/20
  145317                SELECT BITF02                                                                                    20/01/20
  145318                    ,BITF03                                                                                      20/01/20
@@ -2063,7 +2067,8 @@
  145331                FROM BITREC                                                                                      17/01/20
  145332                WHERE BITFE9 = :WFHASTACORR                                                                      17/01/20
  145333                AND   BITCA2 = "PARAMETROS"                                                                      20/01/20
- 145334            END-EXEC.                                                                                            20/02/20
+ 145334            END-EXEC.   
+      *>          Evalua si el sql retornó registros 
  145335            IF SQLSTATE(1:2) EQUAL "00"                                                                          17/01/20
  145336            OR SQLSTATE(1:2) EQUAL "01" THEN                                                                     17/01/20
  145337                EXEC SQL                                                                                         17/01/20
