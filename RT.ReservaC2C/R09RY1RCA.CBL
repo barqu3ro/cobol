@@ -2118,8 +2118,9 @@
  145381                    END-EXEC                                                                                     20/02/20
  145382                END-IF                                                                                           20/02/20
  145383            END-IF.                                                                                              20/02/20
- 145384        END-RECUPACIONDATOS.                                                                                     20/02/20
- 145385                                                                                                                 17/01/20
+ 145384        END-RECUPACIONDATOS.
+      *>         Fin de recuperación de datos         
+  145385                                                                                                                 17/01/20
  145386        RECUPERACADACASO.                                                                                        17/01/20
  145387            EXEC SQL                                                                                             17/01/20
  145388                 FETCH NEXT FROM CBITREC INTO                                                                    20/02/20
