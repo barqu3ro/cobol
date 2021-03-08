@@ -1014,7 +1014,9 @@
   72324                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72325            END-EXEC                                                                                             20/02/20
                        
-                   Realiza conteo de casos 
+
+      *>             Realiza conteo de casos ALC
+
   72326            EXEC SQL                                                                                             12/02/20
   72327                  SELECT COUNT(*) INTO :CASOSALC-WS                                                              20/02/20
   72328                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1023,6 +1025,7 @@
   72331                  AND   BITCO1 = "LC"                                                                            12/02/20
   72332                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72333            END-EXEC                                                                                             20/02/20
+      *>             Realiza conteo de casos ALN
   72334            EXEC SQL                                                                                             12/02/20
   72335                  SELECT COUNT(*) INTO :CASOSALN-WS                                                              20/02/20
   72336                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1031,6 +1034,8 @@
   72339                  AND   BITCO1 = "LN"                                                                            12/02/20
   72340                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72341            END-EXEC                                                                                             20/02/20
+
+      *>             Realiza conteo de casos Aplicados
   72342            EXEC SQL                                                                                             12/02/20
   72343                  SELECT COUNT(*) INTO :CASOSAPL-WS                                                              20/02/20
   72344                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1038,7 +1043,8 @@
   72346                  AND   RY1FMR = BITFE9                                                                          12/02/20
   72347                  AND   BITCO1 = "PL"                                                                            12/02/20
   72348                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
-  72349            END-EXEC                                                                                             20/02/20
+  72349            END-EXEC                                                                                             20/02/
+      *>             Realiza conteo de casos declinados       
   72350            EXEC SQL                                                                                             12/02/20
   72351                  SELECT COUNT(*) INTO :CASOSDLC-WS                                                              20/02/20
   72352                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1047,6 +1053,7 @@
   72355                  AND   BITCFI = "LC"                                                                            12/02/20
   72356                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72357            END-EXEC                                                                                             20/02/20
+
   72358            EXEC SQL                                                                                             12/02/20
   72359                  SELECT COUNT(*) INTO :CASOSDLN-WS                                                              20/02/20
   72360                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1065,6 +1072,8 @@
   72373            END-EXEC                                                                                             20/02/20
   72374            MOVE ZEROS TO TOTALPRO-WS TOTALGAS-WS                                                                20/02/20
   72375                          TOTALPAJ-WS TOTALSAL-WS                                                                20/02/20
+
+      *>             Inserta en la tabla de control los valores recolectados en los counts anteriores
   72376            EXEC SQL                                                                                             30/01/20
   72377                  INSERT INTO RY1CIF VALUES                                                                      20/02/20
   72378                  (:RY1FEC-WS                                                                                    30/01/20
@@ -1084,6 +1093,7 @@
   72392                  ,:TOTALGAS-WS                                                                                  20/02/20
   72393                  ,:TOTALSAL-WS  )                                                                               20/02/20
   72394            END-EXEC                                                                                             20/02/20
+      *>             limpia y setea variables para ver en spool, graba en bitacora y cierra archivos
   72395            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   72396            MOVE "FIN GRABA CIFRAS DE CONTROL" TO MENSAJE                                                        20/02/20
   72397            PERFORM GRABA-BITACORA                                                                               12/02/20
@@ -1091,6 +1101,8 @@
   72402            EXEC SQL                                                                                             20/01/20
   72403                 CLOSE CSELCASOS                                                                                 20/01/20
   72404            END-EXEC                                                                                             20/02/20
+
+      *>             Revisa los files status y finaliza el proceso con normalidad
   72500            PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT.                                                     11/01/17
   72600            DISPLAY                                                                                              28/02/17
   72700            "._______________________________________." UPON CONSOLE                                             28/02/17
@@ -1171,6 +1183,7 @@
   79011            END-IF.                                                                                              20/02/20
   79038        END-PROCESA-CASO.                                                                                        20/02/20
   79039                                                                                                                 05/02/20
+      *>         Actualizacion de bitácora 
   79040        ACTUALIZA-BITREC.                                                                                        05/02/20
   79041            ADD 1 TO CASOSTOM-WS                                                                                 20/02/20
   79056            IF R09CTV-WS IS EQUAL "S" THEN                                                                       05/02/20
@@ -1183,11 +1196,8 @@
   79063                         ADD 1 TO CASOSDLN-WS                                                                    20/02/20
   79064            WHEN "PL"                                                                                            06/02/20
   79065                         ADD 1 TO CASOSDPL-WS                                                                    20/02/20
-  79066            END-EVALUATE                                                                                         20/02/20
-  79067 RLM   *    IF NOT ((WCASO NOT EQUAL SPACES AND R09ESR-WS  = 'A') OR                                             20/02/20
-  79068 RLM   *            (WCASO NOT EQUAL SPACES AND ACERRAR    = 'S')) THEN                                          20/02/20
-  79069 RLM   *        MOVE "N" TO ENTRA                                                                                20/02/20
-  79070 RLM   *    END-IF                                                                                               20/02/20
+  79066            END-EVALUATE                                                                                         20/02/2
+      *>             EVALUA SI EL CASO DEBE ENTRAR EN EL PROCESO DE ACTUALIZACION DE BITACORA
   79071            IF ENTRA IS EQUAL "S" THEN                                                                           14/02/20
   79072                 MOVE "N" TO VARERR                                                                              20/02/20
   79073            ELSE                                                                                                 12/02/20
@@ -1213,6 +1223,7 @@
   79093                          TOTALGAS-WS TOTALSAL-WS                                                                24/02/20
   79099        END-ACTUALIZA-BITREC.                                                                                    20/02/20
   79100                                                                                                                 05/02/20
+      *>         Valida la fecha actual
   79101        VALIDA-FEC-ACC.                                                                                          05/02/20
   79102       *---- RUTINAS PARA VERIFICAR LA FECHA DE ACCIDENTE                                                        05/02/20
   79103             MOVE R09FEC-WS TO WFECHA                                                                            20/02/20
@@ -1227,7 +1238,8 @@
   79112                  MOVE "N" TO FECHAVALIDA                                                                        20/02/20
   79113              END-IF.                                                                                            20/02/20
   79114        END-VALIDA-FEC-ACC.                                                                                      20/02/20
-  79115                                                                                                                 05/02/20
+  79115           
+      *>         Validación de duplicados
   79116        VALIDA-DUPLICADOS.                                                                                       05/02/20
   79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
   79118            MOVE "S"       TO DUPLICADO                                                                          20/02/20
@@ -1242,7 +1254,8 @@
   79127                 MOVE "N" TO DUPLICADO                                                                           20/02/20
   79128            END-IF.                                                                                              20/02/20
   79129        END-VALIDA-DUPLICADOS.                                                                                   20/02/20
-  79143                                                                                                                 05/02/20
+
+      *>         Lee siguiente caso para procesar
   79144        LEE-SIGUIENTE-CASO.                                                                                      05/02/20
   79145            MOVE SPACES TO RR09MAE BITFIL-WS                                                                     24/02/20
   79146            MOVE ZEROS  TO SQLSTATE                                                                              20/02/20
