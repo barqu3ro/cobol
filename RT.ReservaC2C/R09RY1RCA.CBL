@@ -808,7 +808,9 @@
   55800            END-EXEC.                                                                                            20/02/20
   55900       *                                                                                                         27/02/17
   56000       *==================V006===========================================                                        09/04/19
-  56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
+  56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                          
+  
+              
   56200       * 'NEMAGON'                                                                                               09/04/19
   56300            EXEC SQL                                                                                             09/04/19
   56400                DELETE FROM TEMFMXX WHERE TEMC45 IN                                                              09/04/19
@@ -1139,7 +1141,7 @@
   74600        B010-PROCESA-CADA-CASO.                                                                                  30/01/17
   75100            PERFORM VALIDA-FEC-ACC                                                                               05/02/20
   75101            PERFORM VALIDA-DUPLICADOS                                                                            
-      *>             El caso tiene una fecha valida y no está duplicadoP
+      *>             El caso tiene una fecha valida y no está duplicado
   77100            IF FECHAVALIDA IS EQUAL "S" AND                                                                      05/02/20
   77200               DUPLICADO IS EQUAL "N" THEN                                                                       05/02/20
   77202                  PERFORM PROCESA-CASO                                                                           05/02/20
