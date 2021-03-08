@@ -470,7 +470,9 @@
   26417            END-EXEC                                                                                             20/02/20
   26426            EXEC SQL                                                                                             10/07/19
   26427                DELETE FROM RY1ACT                                                                               10/07/19
-  26428            END-EXEC                                                                                             20/02/20
+  26428            END-EXEC   
+  
+      *>         Se agrega a la tabla de control la fecha hasta para controlar el rango de ejecucion del proceso 
   26429            EXEC SQL                                                                                             10/07/19
   26430                INSERT INTO RY1ACT                                                                               20/02/20
   26431                VALUES                                                                                           10/07/19
@@ -480,6 +482,7 @@
   26435             COMMIT                                                                                              29/01/20
   26436            END-EXEC                                                                                             20/02/20
   26500       *...... ACTUALIZA EL ESTADO DEL SIMA A RT MASIVAMENTE .....*                                              20/02/17
+      *>         Variables de spool?
   26501            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   26502            MOVE "INICIA RY1PBRCS" TO MENSAJE                                                                    20/02/20
   26503            PERFORM GRABA-BITACORA                                                                               06/02/20
@@ -505,7 +508,9 @@
   28200                 FETCH NEXT FROM CPARAM INTO                                                                     20/02/20
   28300                       :WANORES, :WMESDEF, :WMESVIV, :WACTUAL,                                                   27/02/17
   28400                       :WUSERAC, :WCORRID, :WFCALCU, :WMESPRO, :WANOPRO                                          27/02/17
-  28500            END-EXEC.                                                                                            20/02/20
+  28500            END-EXEC.  
+  
+                 
   28600       *==================================================                                                       09/01/17
   28700       * Obtiene los meses de gracias vivo y muerTOs para efecTOs de                                             20/02/20
   28800       * cerrar o no un caso. De momenTO están 2 meses vivos y 4 muerTO                                          20/02/20
@@ -706,11 +711,7 @@
   43022                 GROUP BY R14CAS)                                                                                05/03/20
   43023               ,FMAXPERMH AS                                                                                     05/03/20
   43024               (SELECT  DISTINCT "IP",  R14CAS, MAX(R14FRC) FECMAX                                               05/03/20
-  43025                FROM (R09MAE59 C INNER JOIN R14DET70 ON C.R09CAS =                                               05/03/20
-  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   14
-  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
-  MIEMBRO . . . . . . . . .  R09RY1RCA
-  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+  43025                FROM (R09MAE59 C INNER JOIN R14DET70 ON C.R09CAS =                                               05/03/20 
   43026               R14CAS                                                                                            05/03/20
   43027                INNER JOIN R68DET51 ON R14CAS = R68CAS AND R14REC =                                              05/03/20
   43028               R68REC)                                                                                           05/03/20
