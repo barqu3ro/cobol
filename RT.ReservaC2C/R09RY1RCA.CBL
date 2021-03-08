@@ -1138,7 +1138,8 @@
   74500                                                                                                                 10/01/17
   74600        B010-PROCESA-CADA-CASO.                                                                                  30/01/17
   75100            PERFORM VALIDA-FEC-ACC                                                                               05/02/20
-  75101            PERFORM VALIDA-DUPLICADOS                                                                            05/02/20
+  75101            PERFORM VALIDA-DUPLICADOS                                                                            
+      *>             El caso tiene una fecha valida y no está duplicadoP
   77100            IF FECHAVALIDA IS EQUAL "S" AND                                                                      05/02/20
   77200               DUPLICADO IS EQUAL "N" THEN                                                                       05/02/20
   77202                  PERFORM PROCESA-CASO                                                                           05/02/20
