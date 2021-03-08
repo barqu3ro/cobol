@@ -910,16 +910,7 @@
   58573                SELECT * FROM PAGOSCTA                                                                           05/03/20
   58574                UNION                                                                                            05/03/20
   58575                SELECT * FROM PAGOSINDM                                                                          05/03/20
-  58577            END-EXEC.                                                                                            05/03/20
-  69700       *==================V006===========================================                                        09/04/19
-  69800       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
-  69900       * 'NEMAGON'                                                                                               09/04/19
-  70000            EXEC SQL                                                                                             09/04/19
-  70100                DELETE FROM TEMMTO WHERE TEMC47 IN                                                               20/02/20
-  70200                (SELECT R09CAS FROM R09MAE                                                                       09/04/19
-  70300                WHERE R09POL = "NEMAGON")                                                                        09/04/19
-  70400            END-EXEC                                                                                             20/02/20
-  70500       *==================V006==========================================                                         09/04/19
+  58577            END-EXEC.                 
   70600                                                                                                                 09/04/19
   70700            EXEC SQL                                                                                             28/02/17
   70800                 COMMIT                                                                                          28/02/17
@@ -1001,7 +992,11 @@
   72308            PERFORM GRABA-BITACORA                                                                               12/02/20
   72309            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   72310            MOVE "INICIA GRABA CIFRAS DE CONTROL" TO MENSAJE                                                     20/02/20
+
+      *>             Graba en bitácora 
   72311            PERFORM GRABA-BITACORA                                                                               12/02/20
+
+      *>             Realiza conteo de casos cerrados para la ejecución 
   72312            EXEC SQL                                                                                             12/02/20
   72313                  SELECT COUNT(*) INTO :CERRADOS-WS                                                              20/02/20
   72314                  FROM BITREC                                                                                    12/02/20
