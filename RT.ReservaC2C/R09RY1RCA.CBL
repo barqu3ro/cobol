@@ -1014,7 +1014,9 @@
   72324                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72325            END-EXEC                                                                                             20/02/20
                        
+
       *>             Realiza conteo de casos ALC
+
   72326            EXEC SQL                                                                                             12/02/20
   72327                  SELECT COUNT(*) INTO :CASOSALC-WS                                                              20/02/20
   72328                  FROM RY1RCA, BITREC                                                                            12/02/20
