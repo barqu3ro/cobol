@@ -2083,15 +2083,15 @@
  145346                IF SQLSTATE(1:2) EQUAL "00"                                                                      17/01/20
  145347                OR SQLSTATE(1:2) EQUAL "01" THEN                                                                 17/01/20
  145348                    EXEC SQL                                                                                     17/01/20
- 145349                      DELETE FROM RY1PRV                                                                         17/01/20
+ 145349                      DELETE FROM RY2PRV                                                                         17/01/20
  145350                      WHERE RY1FPV = :WFHASTACORR                                                                17/01/20
  145351                    END-EXEC                                                                                     20/02/20
  145352                    EXEC SQL                                                                                     20/01/20
- 145353                      DELETE FROM RY1RCA                                                                         20/01/20
+ 145353                      DELETE FROM RY2RCA                                                                         20/01/20
  145354                      WHERE RY1FMR = :WFHASTACORR                                                                20/01/20
  145355                    END-EXEC                                                                                     20/02/20
  145356                    EXEC SQL                                                                                     20/01/20
- 145357                      DELETE FROM RY1RCD                                                                         20/01/20
+ 145357                      DELETE FROM RY2RCD                                                                         20/01/20
  145358                      WHERE RY1F03 = :WFHASTACORR                                                                20/01/20
  145359                    END-EXEC                                                                                     20/02/20
  145360                    EXEC SQL                                                                                     20/01/20
