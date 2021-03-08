@@ -572,7 +572,7 @@
   33500                 AND    SUBSTRING(RY1FMR, 5, 2) = :WMESCORRIDA                                                   28/02/17
   33600            END-EXEC.                                                                                            20/02/20
   33700       *                                                                                                         28/02/17
-  33800            EXEC SQL                                                                                             28/02/17
+  33800            EXEC SQL                                                                                              28/02/17
   33900                 DELETE FROM RY1RCD                                                                              28/02/17
   34000                 WHERE  SUBSTRING(RY1F03, 1, 4) = :WANOCORRIDA                                                   28/02/17
   34100                 AND    SUBSTRING(RY1F03, 5, 2) = :WMESCORRIDA                                                   28/02/17
@@ -602,10 +602,6 @@
   36500                 DELETE FROM TEMFMX1                                                                             28/02/17
   36600            END-EXEC.                                                                                            20/02/20
   36700            EXEC SQL                                                                                             28/02/17
-  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   12
-  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
-  MIEMBRO . . . . . . . . .  R09RY1RCA
-  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   36800                 DELETE FROM TEMFMXX                                                                             28/02/17
   36900            END-EXEC.                                                                                            20/02/20
   37000            EXEC SQL                                                                                             28/02/17
@@ -818,10 +814,7 @@
   56400                DELETE FROM TEMFMXX WHERE TEMC45 IN                                                              09/04/19
   56500                (SELECT R09CAS FROM R09MAE                                                                       09/04/19
   56600                WHERE R09POL = "NEMAGON")                                                                        09/04/19
-  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   16
-  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
-  MIEMBRO . . . . . . . . .  R09RY1RCA
-  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+
   56700            END-EXEC                                                                                             20/02/20
   56800       *==================V006==========================================                                         09/04/19
   56900            EXEC SQL                                                                                             09/04/19
@@ -2009,6 +2002,8 @@
  142800        D010-EXIT.                                                                                               11/01/17
  142900             EXIT.                                                                                               11/01/17
  143000       *                                                                                                         25/02/17
+
+      *>       INICIALIZACION DE VARIABLES
  143100        D020-INICIALIZA.                                                                                         25/02/17
  143200            MOVE ZEROS TO                                                                                        20/02/20
  143300            RY1PRO OF WRY1RCD01A RY1PRO OF WRY1RCD01B                                                            25/02/17
@@ -2032,7 +2027,8 @@
  145001        END-D020-INICIALIZA.                                                                                     25/02/20
  145100        D020-EXIT.                                                                                               25/02/17
  145200             EXIT.                                                                                               25/02/17
- 145300       *                                                                                                         25/02/17
+ 145300       
+      *>         INICIO GRABA BITACORA 
  145301        GRABA-BITACORA.                                                                                          17/01/20
  145302              ACCEPT FECHAMOMENTO    FROM DATE                                                                   20/02/20
  145303              ACCEPT HORACORR        FROM TIME                                                                   17/01/20
@@ -2043,11 +2039,16 @@
  145308                ," "                                                                                             17/01/20
  145309                ,:MENSAJE)                                                                                       17/01/20
  145310              END-EXEC.                                                                                          20/02/20
- 145311        END-GRABA-BITACORA.                                                                                      20/02/20
+ 145311        END-GRABA-BITACORA.     
+      *>         FIN GRABA BITACORA  
  145312                                                                                                                 17/01/20
+
+      *>        Inicia proceso de recuperación de datos 
  145313        RECUPERACIONDATOS.                                                                                       20/02/20
  145314            MOVE SPACES TO FE3-WS F06-WS F08-WS ANO-WS MES-WS USU-WS                                             20/02/20
- 145315            MOVE ZEROS TO SALJUDIC-WS                                                                            14/08/20
+ 145315            MOVE ZEROS TO SALJUDIC-WS            
+ 
+      *>         Obtiene los parámetros del archivo 
  145316            EXEC SQL                                                                                             17/01/20
  145317                SELECT BITF02                                                                                    20/01/20
  145318                    ,BITF03                                                                                      20/01/20
@@ -2066,7 +2067,8 @@
  145331                FROM BITREC                                                                                      17/01/20
  145332                WHERE BITFE9 = :WFHASTACORR                                                                      17/01/20
  145333                AND   BITCA2 = "PARAMETROS"                                                                      20/01/20
- 145334            END-EXEC.                                                                                            20/02/20
+ 145334            END-EXEC.   
+      *>          Evalua si el sql retornó registros 
  145335            IF SQLSTATE(1:2) EQUAL "00"                                                                          17/01/20
  145336            OR SQLSTATE(1:2) EQUAL "01" THEN                                                                     17/01/20
  145337                EXEC SQL                                                                                         17/01/20
@@ -2081,15 +2083,15 @@
  145346                IF SQLSTATE(1:2) EQUAL "00"                                                                      17/01/20
  145347                OR SQLSTATE(1:2) EQUAL "01" THEN                                                                 17/01/20
  145348                    EXEC SQL                                                                                     17/01/20
- 145349                      DELETE FROM RY1PRV                                                                         17/01/20
+ 145349                      DELETE FROM RY2PRV                                                                         17/01/20
  145350                      WHERE RY1FPV = :WFHASTACORR                                                                17/01/20
  145351                    END-EXEC                                                                                     20/02/20
  145352                    EXEC SQL                                                                                     20/01/20
- 145353                      DELETE FROM RY1RCA                                                                         20/01/20
+ 145353                      DELETE FROM RY2RCA                                                                         20/01/20
  145354                      WHERE RY1FMR = :WFHASTACORR                                                                20/01/20
  145355                    END-EXEC                                                                                     20/02/20
  145356                    EXEC SQL                                                                                     20/01/20
- 145357                      DELETE FROM RY1RCD                                                                         20/01/20
+ 145357                      DELETE FROM RY2RCD                                                                         20/01/20
  145358                      WHERE RY1F03 = :WFHASTACORR                                                                20/01/20
  145359                    END-EXEC                                                                                     20/02/20
  145360                    EXEC SQL                                                                                     20/01/20
@@ -2116,8 +2118,9 @@
  145381                    END-EXEC                                                                                     20/02/20
  145382                END-IF                                                                                           20/02/20
  145383            END-IF.                                                                                              20/02/20
- 145384        END-RECUPACIONDATOS.                                                                                     20/02/20
- 145385                                                                                                                 17/01/20
+ 145384        END-RECUPACIONDATOS.
+      *>         Fin de recuperación de datos         
+  145385                                                                                                                 17/01/20
  145386        RECUPERACADACASO.                                                                                        17/01/20
  145387            EXEC SQL                                                                                             17/01/20
  145388                 FETCH NEXT FROM CBITREC INTO                                                                    20/02/20
