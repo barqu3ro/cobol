@@ -572,10 +572,10 @@
   32500                       :RY1IXM, :RY1PIM, :RY1CA1, :RY1CSA,                                                       27/02/17
   32600                       :RY1PO3, :RY1FE9, :RY1F01, :RY1US2                                                        27/02/17
   32700            END-EXEC.                                                                                            20/02/20
-  32800       *=======================================================*                                                 20/02/17
-  32900       *=======================================================*                                                 20/02/17
-  33000       * LIMPIA LOS ARCHIVOS DE TRABAJO y LOS ARCHIVOS DESTINO *                                                 20/02/17
-  33100       *=======================================================*                                                 20/02/17
+  *> 32800       *=======================================================*                                                 20/02/17
+  *> 32900       *=======================================================*                                                 20/02/17
+  *> 33000       * LIMPIA LOS ARCHIVOS DE TRABAJO y LOS ARCHIVOS DESTINO *                                                 20/02/17
+  *> 33100       *=======================================================*                                                 20/02/17
   33101            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   33102            MOVE "INICIO LIMPIANDO ARCHIVOS" TO MENSAJE                                                          20/02/20
   33103            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -584,13 +584,13 @@
   33400                 WHERE  SUBSTRING(RY1FMR, 1, 4) = :WANOCORRIDA                                                   28/02/17
   33500                 AND    SUBSTRING(RY1FMR, 5, 2) = :WMESCORRIDA                                                   28/02/17
   33600            END-EXEC.                                                                                            20/02/20
-  33700       *                                                                                                         28/02/17
+  *> 33700       *                                                                                                         28/02/17
   33800            EXEC SQL                                                                                              28/02/17
   33900                 DELETE FROM RY1RCD                                                                              28/02/17
   34000                 WHERE  SUBSTRING(RY1F03, 1, 4) = :WANOCORRIDA                                                   28/02/17
   34100                 AND    SUBSTRING(RY1F03, 5, 2) = :WMESCORRIDA                                                   28/02/17
   34200            END-EXEC.                                                                                            20/02/20
-  34300       *                                                                                                         28/02/17
+  *> 34300       *                                                                                                         28/02/17
   34400            EXEC SQL                                                                                             28/02/17
   34500                 DELETE FROM RY1HVR                                                                              28/02/17
   34600                 WHERE  RY1AOD = :WANOCORRIDA                                                                    28/02/17
@@ -631,11 +631,11 @@
   38001            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   38002            MOVE "FIN LIMPIANDO ARCHIVOS" TO MENSAJE                                                             20/02/20
   38003            PERFORM GRABA-BITACORA                                                                               21/01/20
-  38100       *=======================================================*                                                 20/02/17
-  38200       *=======================================================*                                                 20/02/17
-  38300       *----------------------------                                                                             08/01/17
-  38400       * QUERY PARA OBTENER LOS CASOS DUPLICADOS DIFERENTE AGENCIA                                               05/03/20
-  38500       * ESTOS SE EXCLUIRAN DE PROCESO                                                                           20/02/20
+  *> 38100       *=======================================================*                                                 20/02/17
+  *> 38200       *=======================================================*                                                 20/02/17
+  *> 38300       *----------------------------                                                                             08/01/17
+  *> 38400       * QUERY PARA OBTENER LOS CASOS DUPLICADOS DIFERENTE AGENCIA                                               05/03/20
+  *> 38500       * ESTOS SE EXCLUIRAN DE PROCESO                                                                           20/02/20
   38501            MOVE SPACES               TO MENSAJE                                                                 20/02/20
   38502            MOVE "OBTIENE DUPLICADOS" TO MENSAJE                                                                 20/02/20
   38503            PERFORM GRABA-BITACORA                                                                               21/01/20
