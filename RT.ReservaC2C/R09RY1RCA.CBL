@@ -83,7 +83,7 @@
       *>        * Fin de modificacion      
       *>        * Jorge Barquero - Webinar ISI 9-3-2021                                                               
 
-      *>     DIVISION 1: DIVISION DE AMBIENTE                        
+      *>     DIVISION 2: DIVISION DE AMBIENTE                        
    3200        ENVIRONMENT DIVISION.                                                                                    97/07/04
    3300        CONFIGURATION SECTION.                                                                                   97/07/04
    3400        SOURCE-COMPUTER.   IBM-AS400.                                                                            10/02/20
@@ -136,7 +136,7 @@
    8000                   WITH DUPLICATES                                                                               17/02/17
    8100                   FILE STATUS  IS FS-RY1RCD.                                                                    11/01/17
    8200                           
-      *>     DIVISIÓN 2: DIVISIÓN DE DATOS                                                                                      11/01/17
+      *>     DIVISIÓN 3: DIVISIÓN DE DATOS                                                                                      11/01/17
    8300        DATA DIVISION.                                                                                           97/07/04
    8400        FILE SECTION.                                                                                            97/07/04
    8401                                                                                                                 20/01/20
@@ -163,7 +163,9 @@
   10600        FD  RY1RCD01.                                                                                            17/02/17
   10700        01  RRY1RCD01.                                                                                           17/02/17
   10800            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
-  10900                                                                                                                 07/01/17
+  10900                
+  
+      *>     administración de variables                                                                                                 07/01/17
   11000        WORKING-STORAGE SECTION.                                                                                 20/02/20
   11001        01  BITFIL-WS          PIC X(10) VALUES SPACES.                                                          24/02/20
   11002        01  IND-VALIDAR-RENTA  PIC X VALUE "S".                                                                  30/03/20
@@ -196,8 +198,8 @@
   11029            05 TOTALGAS-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11030            05 TOTALSAL-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
       *>         VARIABLES FICTICIAS
-                   05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
-                   05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
+      *>             05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
+      *>             05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
   11031                                                                                                                 30/01/20
   11032        01  RR09MAE.                                                                                             20/01/20
   11033            05 R09CAS-WS PIC X(11).                                                                              20/01/20
@@ -213,7 +215,7 @@
   11043            05 R09ESR-WS PIC X.                                                                                  20/01/20
   11044            05 R09EST-WS PIC X.                                                                                  20/01/20
   11045        77  EXISTE-RCA       PIC S9(11)V99 VALUE 0.                                                              21/01/20
-               77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
+      *>         77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
   11046        77  MONTO-WS         PIC S9(11)V99 VALUE 0.                                                              20/02/20
   11047        77  SEGUIR           PIC X VALUE "S".                                                                    20/01/20
   11048        77  SALIR-R09        PIC X VALUE "N".                                                                    20/01/20
@@ -252,7 +254,7 @@
   13000        01  WRY1RCD01T.                                                                                          17/02/17
   13100            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
   13500                                                                                                                 17/02/17
-              *-- SE AGREGAN DOS VALORES AL PUNTERO
+      *>        *-- SE AGREGAN DOS VALORES AL PUNTERO
   13600        01  FILESTATUS.                                                                                          07/01/17
   13700            05 FS-R08MAE        PIC XX.                                                                          14/01/17
   13800            05 FS-R09MAE59      PIC XX.                                                                          14/01/17
