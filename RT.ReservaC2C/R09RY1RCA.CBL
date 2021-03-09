@@ -1238,11 +1238,11 @@
   79100                                                                                                                 05/02/20
       *>         Valida la fecha actual
   79101        VALIDA-FEC-ACC.                                                                                          05/02/20
-  79102       *---- RUTINAS PARA VERIFICAR LA FECHA DE ACCIDENTE                                                        05/02/20
+  *> 79102       *---- RUTINAS PARA VERIFICAR LA FECHA DE ACCIDENTE                                                        05/02/20
   79103             MOVE R09FEC-WS TO WFECHA                                                                            20/02/20
-  79104       *---- QDESFEC - Desinvierte DDMMAAAA                                                                      05/02/20
+  *> 79104       *---- QDESFEC - Desinvierte DDMMAAAA                                                                      05/02/20
   79105             CALL "F009SNAP" USING WFECHA.                                                                       05/02/20
-  79106       *---- QVALFEC - Valida la fecha                                                                           05/02/20
+  *> 79106       *---- QVALFEC - Valida la fecha                                                                           05/02/20
   79107             CALL "F007SNAP" USING WFECHA INDICA.                                                                05/02/20
   79108              IF R09FEC-WS >= FDE AND R09FEC-WS <= WFHASTACORR AND                                               05/02/20
   79109                INDICA = "0" THEN                                                                                05/02/20
