@@ -1353,13 +1353,13 @@
   95134            ELSE                                                                                                 05/02/20
   95135               IF FS-TEMFMX1 = "00" OR FS-TEMFMX1 = "04" Then                                                    05/02/20
   95136                  IF TEMMAX LESS THAN WFTOPE                                                                     20/02/20
-  95137       *- Caso estaba abierTO, pero en esta corrida se va a cerrar...                                            20/02/20
+  *> 95137       *- Caso estaba abierTO, pero en esta corrida se va a cerrar...                                            20/02/20
   95138                      IF R09ESR-WS = "A"                                                                         05/02/20
-  95139       *                 Si está abierTO en SIMA, permanecerá abierTO                                            20/02/20
+  *> 95139       *                 Si está abierTO en SIMA, permanecerá abierTO                                            20/02/20
   95140                         IF R09ESS-WS = "A" THEN                                                                 05/02/20
   95141                            MOVE "S" TO ENTRA                                                                    20/02/20
   95142                         ELSE                                                                                    11/02/20
-  95143       *                    Se cerrará el caso, solo deja último cerrado                                         05/02/20
+  *> 95143       *                    Se cerrará el caso, solo deja último cerrado                                         05/02/20
   95144                            MOVE "C" TO R09ESR-WS                                                                20/02/20
   95145                            MOVE "S" TO ENTRA                                                                    20/02/20
   95146                            MOVE "S" TO ACERRAR                                                                  20/02/20
