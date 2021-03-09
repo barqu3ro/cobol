@@ -1842,7 +1842,8 @@
  121600        B040-EXIT.                                                                                               30/01/17
  121700             EXIT.                                                                                               30/01/17
  *> 121800       *                  
-      *>       Suma de gastos                                                                                       30/01/17
+      *>       Suma de gastos 
+           Documentación de proceso de suma de gastos                                                                                      30/01/17
  121900        B050-SUMA-GASTOS.                                                                                        20/02/20
  122000            IF INDICE = 1                                                                                        10/02/20
  122100                COMPUTE RY1GAS OF WRY1RCD01A =                                                                   10/02/20
