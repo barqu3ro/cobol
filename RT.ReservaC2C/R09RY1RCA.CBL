@@ -1564,14 +1564,15 @@
   95360            MOVE R09CAS-WS TO RY1CAS OF RY1RCA01.                                                                20/02/20
   95361            MOVE HIGH-VALUES TO RY1FMR OF RY1RCA01.                                                              20/02/20
   95362            START RY1RCA01 KEY IS NOT LESS EXTERNALLY-DESCRIBED-KEY.                                             21/01/20
-  95363       *    READ RY1RCA01 PRIOR  RECORD inTO WRY1RCA01                                                           20/02/20
-  95364            READ RY1RCA01 NEXT   RECORD inTO WRY1RCA01                                                           20/02/20
+  *> 95363       *    READ RY1RCA01 PRIOR  RECORD inTO WRY1RCA01                                                           20/02/20
+  95364            READ RY1RCA01 NEXT   RECORD inTO WRY1RCA01                                                           
+      *>         Si no es 00 o 04 es un error, se guarda donde se dio el erro, y sale del programa
   95365            IF FS-RY1RCA NOT = "00" AND FS-RY1RCA NOT = "04"                                                     20/02/20
   95366                 MOVE " READ 1 RY1CA " TO LugarErro                                                              20/02/20
   95367                 PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                                 21/01/20
   95368            END-IF.                                                                                              20/02/20
   95369            IF RY1CAS OF WRY1RCA01 = R09CAS-WS                                                                   20/02/20
-  95370       *       Actualiza los estados del RY1RCA con los del R09MAE                                               21/01/20
+  *> 95370       *       Actualiza los estados del RY1RCA con los del R09MAE                                               21/01/20
   95371               MOVE R09ESS-WS TO RY1EST OF WRY1RCA01                                                             20/02/20
   95372               MOVE R09ESR-WS TO RY1ES1 OF WRY1RCA01                                                             20/02/20
   95373               IF   R09ESR-WS = "C" THEN                                                                         20/02/20
@@ -1580,7 +1581,7 @@
   95376                    MOVE "P" TO RY1ES3 OF WRY1RCA01                                                              20/02/20
   95377               END-IF                                                                                            20/02/20
   95378               MOVE R09CON-WS TO RY1CON OF WRY1RCA01                                                             20/02/20
-  95379       *--------                                                                                                 21/01/20
+  *> 95379       *--------                                                                                                 21/01/20
   95380               MOVE RY1CAS OF RY1RCA01 TO RY1CAD OF RY1RCD01                                                     20/02/20
   95381               MOVE RY1FMR OF RY1RCA01 TO RY1F03 OF RY1RCD01                                                     20/02/20
   95382               MOVE "A"                TO RY1COR OF RY1RCD01                                                     20/02/20
@@ -1593,10 +1594,11 @@
   95389                  PERFORM B040-CARGA-DETALLE THRU B040-EXIT UNTIL                                                21/01/20
   95390                          FIN = 1                                                                                21/01/20
   95391               END-IF                                                                                            20/02/20
-  95392            END-IF.                                                                                              20/02/20
+  95392            END-IF.
+      *>         Setea totales a cero                                                                                              20/02/20
   95393            MOVE ZEROS TO TOTALPRO-WS TOTALPAJ-WS                                                                20/02/20
   95394                          TOTALGAS-WS TOTALSAL-WS                                                                20/02/20
-  95395       *                                                                                                         21/01/20
+  *> 95395       *                                                                                                         21/01/20
   95396            MOVE "IT"      TO TEMRBR.                                                                            20/02/20
   95397            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95398            READ TEMMTO Record.                                                                                  20/02/20
@@ -1604,7 +1606,7 @@
   95400               MOVE TEMMNT TO TOTALPRO-WS                                                                        20/02/20
   95401               MOVE 1 TO INDICE                                                                                  20/02/20
   95402               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  95403       *                                                                                                         21/01/20
+  *> 95403       *                                                                                                         21/01/20
   95404            MOVE "IP"      TO TEMRBR.                                                                            20/02/20
   95405            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95406            READ TEMMTO RECORD.                                                                                  20/02/20
@@ -1612,7 +1614,7 @@
   95408               MOVE TEMMNT TO TOTALPAJ-WS                                                                        20/02/20
   95409               MOVE 2 TO INDICE                                                                                  20/02/20
   95410               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  95411       *                                                                                                         21/01/20
+  *> 95411       *                                                                                                         21/01/20
   95412            MOVE "CM"      TO TEMRBR.                                                                            20/02/20
   95413            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95414            READ TEMMTO RECORD.                                                                                  20/02/20
@@ -1620,7 +1622,7 @@
   95416               MOVE TEMMNT TO TOTALGAS-WS                                                                        20/02/20
   95417               MOVE 3 TO INDICE                                                                                  20/02/20
   95418               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  95419       *                                                                                                         21/01/20
+  *> 95419       *                                                                                                         21/01/20
   95420            MOVE "IM"      TO TEMRBR.                                                                            20/02/20
   95421            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95422            READ TEMMTO RECORD.                                                                                  20/02/20
@@ -1628,7 +1630,7 @@
   95424               MOVE TEMMNT TO TOTALSAL-WS                                                                        20/02/20
   95425               MOVE 4 TO INDICE                                                                                  20/02/20
   95426               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  95427       *                                                                                                         21/01/20
+  *> 95427       *                                                                                                         21/01/20
   95428            IF OKMONTO NOT EQUAL ZEROS                                                                           20/02/20
   95429               PERFORM B060-GASTOS-ACUMULADOS THRU B060-EXIT                                                     20/02/20
   95430            END-IF.                                                                                              20/02/20
