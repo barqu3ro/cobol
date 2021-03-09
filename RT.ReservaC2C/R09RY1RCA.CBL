@@ -1249,7 +1249,7 @@
   79115           
       *>         Validación de duplicados
   79116        VALIDA-DUPLICADOS.                                                                                       05/02/20
-  79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
+  *> 79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
   79118            MOVE "S"       TO DUPLICADO                                                                          20/02/20
   79119            MOVE R09CAS-WS TO CAS001.                                                                            20/02/20
   79120            MOVE SPACES TO WCASDUP.                                                                              20/02/20
@@ -1285,18 +1285,18 @@
   79162                PERFORM GRABA-BITACORA                                                                           05/02/20
   79163            END-IF.                                                                                              20/02/20
   79164        END-LEE-SIGUIENTE-CASO.                                                                                  20/02/20
-  79165       *                                                                                                         17/01/17
+  *> 79165       *                                                                                                         17/01/17
   79200        B020-REVISA-ESTADOS.                                                                                     29/01/20
   79300            MOVE SPACES TO VIVMUE OKCTV ENTRA NUEVO ACERRAR.                                                     24/02/20
-  79400       *                           Determina cual fecha usa como TOpe                                            20/02/20
+  *> 79400       *                           Determina cual fecha usa como TOpe                                            20/02/20
   79401            PERFORM CONSULTA-R08MAE                                                                              05/02/20
-  81600       *-- Revisa si no existe en RY1RCA y RY1RCD, sino lo crea                                                  27/02/17
+  *> 81600       *-- Revisa si no existe en RY1RCA y RY1RCD, sino lo crea                                                  27/02/17
   81700            MOVE SPACES TO WCASO.                                                                                20/02/20
   81800            EXEC SQL                                                                                             27/02/17
   81900               SELECT DISTINCT RY1CAS INTO:WCASO                                                                 20/02/20
   82000               FROM RY1RCA WHERE RY1CAS = :CAS001                                                                27/02/17
   82100            END-EXEC                                                                                             20/02/20
-  82200       *-- Cierra o abre el caso                                                                                 18/01/17
+  *> 82200       *-- Cierra o abre el caso                                                                                 18/01/17
   82201            PERFORM CIERRA-O-ABRE-CASO                                                                           05/02/20
   88000            PERFORM CALCULA-MONTO-A-SUMAR                                                                        20/02/20
   91001            PERFORM ACTUALIZA-R09MAE                                                                             05/02/20
