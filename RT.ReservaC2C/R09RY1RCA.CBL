@@ -1630,20 +1630,20 @@
   95424               MOVE TEMMNT TO TOTALSAL-WS                                                                        20/02/20
   95425               MOVE 4 TO INDICE                                                                                  20/02/20
   95426               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95427       *                                                                                                         21/01/20
+  *> 95427       * Esto no sé que hace                                                                                                        21/01/20
   95428            IF OKMONTO NOT EQUAL ZEROS                                                                           20/02/20
   95429               PERFORM B060-GASTOS-ACUMULADOS THRU B060-EXIT                                                     20/02/20
   95430            END-IF.                                                                                              20/02/20
-  95431       *- AQUI VA SI DEJA LOS SALDOS EN CERO POR ESTAR EN MATEMATICA                                             21/01/20
-  95432       *------------------------------------------------------------                                             21/01/20
+  *> 95431       *- AQUI VA SI DEJA LOS SALDOS EN CERO POR ESTAR EN MATEMATICA                                             21/01/20
+  *> 95432       *------------------------------------------------------------                                             21/01/20
   95433               If WR20IN >= '1' AND WR20IN <= '4'                                                                21/01/20
-  95434       *                     Solo queda Cuenta Médica                                                            21/01/20
+  *> 95434       *                     Solo queda Cuenta Médica                                                            21/01/20
   95435                  MOVE ZEROS TO RY1SAL OF WRY1RCD01A                                                             20/02/20
   95436                  MOVE ZEROS TO RY1SAL OF WRY1RCD01B                                                             20/02/20
   95437                  MOVE ZEROS TO RY1SAL OF WRY1RCD01D                                                             20/02/20
   95438                  MOVE ZEROS TO RY1SAL OF WRY1RCD01T                                                             20/02/20
   95439               END-If                                                                                            20/02/20
-  95440       *--  Si es Permanente Mensual. No reserva, ya que va a Matemática                                         21/01/20
+  *> 95440       *--  Si es Permanente Mensual. No reserva, ya que va a Matemática                                         21/01/20
   95441               If WR54EF NOT = ' '                                                                               21/01/20
   95442                  MOVE ZEROS TO RY1SAL OF WRY1RCD01A                                                             20/02/20
   95443                  MOVE ZEROS TO RY1SAL OF WRY1RCD01B                                                             20/02/20
@@ -1651,7 +1651,8 @@
   95445                  MOVE ZEROS TO RY1SAL OF WRY1RCD01D                                                             20/02/20
   95446                  MOVE ZEROS TO RY1SAL OF WRY1RCD01T                                                             20/02/20
   95447               END-If                                                                                            20/02/20
-  95448                                                                                                                 21/01/20
+  95448               
+      *>             Realiza todos los calculos matemáticos                                                                                                  21/01/20
   95449               COMPUTE RY1GAS OF WRY1RCD01T =                                                                    10/02/20
   95450                       RY1GAS OF WRY1RCD01A +                                                                    21/01/20
   95451                       RY1GAS OF WRY1RCD01B +                                                                    21/01/20
@@ -1672,8 +1673,8 @@
   95466                       RY1SAL OF WRY1RCD01B +                                                                    21/01/20
   95467                       RY1SAL OF WRY1RCD01C +                                                                    21/01/20
   95468                       RY1SAL OF WRY1RCD01D                                                                      21/01/20
-  95469       *------------------------------------------------------------                                             21/01/20
-  95470       *--  Grabar o regraba el registro RY1RCA y los RY1RCD                                                     21/01/20
+  *> 95469       *------------------------------------------------------------                                             21/01/20
+  *> 95470       *--  Grabar o regraba el registro RY1RCA y los RY1RCD                                                     21/01/20
   95471            IF (WCASO NOT EQUAL SPACES AND R09ESR-WS  = 'A') OR                                                  20/02/20
   95472               (WCASO NOT EQUAL SPACES AND ACERRAR = 'S')                                                        20/02/20
   95473               MOVE WFHASTACORR TO RY1FMR OF WRY1RCA01                                                           20/02/20
@@ -1687,15 +1688,20 @@
   95481                                   RY1FE4 OF WRY1RCD01C                                                          21/01/20
   95482                                   RY1FE4 OF WRY1RCD01D                                                          21/01/20
   95483                                   RY1FE4 OF WRY1RCD01T                                                          21/01/20
-  95484               MOVE R09AGE-WS TO RY1AGE OF WRY1RCA01                                                             20/02/20
+  95484               MOVE R09AGE-WS TO RY1AGE OF WRY1RCA01  
+      *>             Escritura de encabezados                                                           20/02/20
   95485               WRITE RRY1RCA01 FROM WRY1RCA01                                                                    20/02/20
   95486                     INVALID KEY                                                                                 21/01/20
   95487                     MOVE " Write Enc " TO LUGARERRO                                                             20/02/20
   95488                     PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                             21/01/20
-  95489               END-WRITE                                                                                         20/02/20
+  95489               END-WRITE            
+  
+      *>             asigna parámetros a otro puntero                                                             20/02/20
   95490               MOVE R09CAS-WS TO RY1CAD OF WRY1RCD01A                                                            20/02/20
   95491               MOVE "A"       TO RY1COR OF WRY1RCD01A                                                            20/02/20
   95492               MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01A                                                            20/02/20
+
+
   95493               WRITE RRY1RCD01 FROM WRY1RCD01A                                                                   20/02/20
   95494                     INVALID KEY                                                                                 21/01/20
   95495                     MOVE " Write Det1" TO LUGARERRO                                                             20/02/20
