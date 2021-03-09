@@ -1796,8 +1796,10 @@
   95598        B030-EXIT.                                                                                               21/01/20
   95599             EXIT.                                                                                               21/01/20
  118400       *
-           Inicio de proceso de carga de detalles                                                                                                          31/01/17
- 118500        B040-CARGA-DETALLE.                                                                                      30/01/17
+
+      *>     Inicio de proceso de carga de detalles                                                                                                          31/01/17
+ 118500        B040-CARGA-DETALLE.      
+      *>     Switch de rubros                                                                                30/01/17
  118600            IF RY1COR OF RY1RCD01 = "A"                                                                          17/02/17
  118700               MOVE CORRESPONDING RRY1RCD01 TO WRY1RCD01A                                                        20/02/20
  118800               MOVE WFHASTACORR TO RY1F03 OF WRY1RCD01A                                                          20/02/20
@@ -1818,7 +1820,9 @@
  119900               MOVE CORRESPONDING RRY1RCD01 TO WRY1RCD01T                                                        20/02/20
  120000               MOVE WFHASTACORR TO RY1F03 OF WRY1RCD01T                                                          20/02/20
  120001            END-IF                                                                                               20/02/20
- 120100            READ RY1RCD01 NEXT RECORD                                                                            20/02/20
+ 120100            READ RY1RCD01 NEXT RECORD  
+ 
+      *>         Evalua códigos de error                                                                          20/02/20
  120200            IF FS-RY1RCD = "00" OR FS-RY1RCD = "04"                                                              27/02/17
  120300               IF RY1CAS OF WRY1RCA01 = RY1CAD OF RY1RCD01 AND                                                   27/02/17
  120400                  RY1FMR OF WRY1RCA01 = RY1F03 OF RY1RCD01                                                       27/02/17
@@ -1833,10 +1837,12 @@
  121300                  PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                                27/02/17
  121400               END-IF                                                                                            20/02/20
  121500            END-IF.                                                                                              20/02/20
- 121501        END-B040-CARGA-DETALLE.                                                                                  25/02/20
+ 121501        END-B040-CARGA-DETALLE.
+      *>     Fin de carga detalle                                                                                  25/02/20
  121600        B040-EXIT.                                                                                               30/01/17
  121700             EXIT.                                                                                               30/01/17
- 121800       *                                                                                                         30/01/17
+ *> 121800       *                  
+      *>       Suma de gastos                                                                                       30/01/17
  121900        B050-SUMA-GASTOS.                                                                                        20/02/20
  122000            IF INDICE = 1                                                                                        10/02/20
  122100                COMPUTE RY1GAS OF WRY1RCD01A =                                                                   10/02/20
