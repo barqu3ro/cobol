@@ -1604,7 +1604,8 @@
   95398            READ TEMMTO Record.                                                                                  20/02/20
   95399            IF FS-TEMMTO = "00" OR FS-TEMMTO = "04" AND TEMMNT NOT = 0                                           20/02/20
   95400               MOVE TEMMNT TO TOTALPRO-WS                                                                        20/02/20
-  95401               MOVE 1 TO INDICE                                                                                  20/02/20
+  95401               MOVE 1 TO INDICE  
+      *>             Llama a proceso de suma de gastos                                                                                20/02/20
   95402               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
   *> 95403       * Suma los rubros IP - Indice 2                                                                                                       21/01/20
   95404            MOVE "IP"      TO TEMRBR.                                                                            20/02/20
@@ -1612,7 +1613,8 @@
   95406            READ TEMMTO RECORD.                                                                                  20/02/20
   95407            IF FS-TEMMTO = "00" OR FS-TEMMTO = "04" AND TEMMNT NOT = 0                                           20/02/20
   95408               MOVE TEMMNT TO TOTALPAJ-WS                                                                        20/02/20
-  95409               MOVE 2 TO INDICE                                                                                  20/02/20
+  95409               MOVE 2 TO INDICE                
+      *>         llama a proceso de suma de gastos                                                                  20/02/20
   95410               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
   *> 95411       * Suma los rubros CM - Indice 3                                                                                                        21/01/20
   95412            MOVE "CM"      TO TEMRBR.                                                                            20/02/20
@@ -1620,7 +1622,8 @@
   95414            READ TEMMTO RECORD.                                                                                  20/02/20
   95415            IF FS-TEMMTO = "00" OR FS-TEMMTO = "04" AND TEMMNT NOT = 0                                           20/02/20
   95416               MOVE TEMMNT TO TOTALGAS-WS                                                                        20/02/20
-  95417               MOVE 3 TO INDICE                                                                                  20/02/20
+  95417               MOVE 3 TO INDICE            
+      *>         llama a proceso de suma de gastos                                                                       20/02/20
   95418               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
   *> 95419       * Suma los rubros IM - Indice 4                                                                                                        21/01/20
   95420            MOVE "IM"      TO TEMRBR.                                                                            20/02/20
