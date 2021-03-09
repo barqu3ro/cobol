@@ -1,4 +1,5 @@
-    100        IDENTIFICATION DIVISION.                                                                                 97/07/04
+    *> 100        DIVISION 1: IDENTIFICACION DEL PROGRAMA Y AUTOR
+               IDENTIFICATION DIVISION.                                                                                 97/07/04
     200        PROGRAM-ID. R09RY1RCA.                                                                                   19/12/16
     300        AUTHOR.  Randall Vallejos Rojas.                                                                         19/11/16
     400        INSTALLATION.  INSTITUTO NACIONAL DE SEGUROS.                                                            20/02/20
@@ -80,12 +81,15 @@
       *>        * Webinar Git 
       *>        * Primer commit
       *>        * Fin de modificacion      
-      *>        * Jorge Barquero - Webinar ISI 9-3-2021                                                                                      
+      *>        * Jorge Barquero - Webinar ISI 9-3-2021                                                               
+
+      *>     DIVISION 2: DIVISION DE AMBIENTE                        
    3200        ENVIRONMENT DIVISION.                                                                                    97/07/04
    3300        CONFIGURATION SECTION.                                                                                   97/07/04
    3400        SOURCE-COMPUTER.   IBM-AS400.                                                                            10/02/20
    3500        OBJECT-COMPUTER.   IBM-AS400.                                                                            10/02/20
-   3600        INPUT-OUTPUT SECTION.                                                                                    97/07/04
+   3600        INPUT-OUTPUT SECTION.          
+      *>         Archivos a utilizar                                                                          97/07/04
    3700        FILE-CONTROL.                                                                                            27/07/15
    3701            SELECT R09MAE59                                                                                      20/01/20
    3702                   ASSIGN       TO DATABASE-R09MAE59                                                             20/02/20
@@ -131,7 +135,8 @@
    7900                   RECORD KEY IS EXTERNALLY-DESCRIBED-KEY                                                        11/01/17
    8000                   WITH DUPLICATES                                                                               17/02/17
    8100                   FILE STATUS  IS FS-RY1RCD.                                                                    11/01/17
-   8200                                                                                                                 11/01/17
+   8200                           
+      *>     DIVISIÓN 3: DIVISIÓN DE DATOS                                                                                      11/01/17
    8300        DATA DIVISION.                                                                                           97/07/04
    8400        FILE SECTION.                                                                                            97/07/04
    8401                                                                                                                 20/01/20
@@ -158,7 +163,9 @@
   10600        FD  RY1RCD01.                                                                                            17/02/17
   10700        01  RRY1RCD01.                                                                                           17/02/17
   10800            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
-  10900                                                                                                                 07/01/17
+  10900                
+  
+      *>     administración de variables                                                                                                 07/01/17
   11000        WORKING-STORAGE SECTION.                                                                                 20/02/20
   11001        01  BITFIL-WS          PIC X(10) VALUES SPACES.                                                          24/02/20
   11002        01  IND-VALIDAR-RENTA  PIC X VALUE "S".                                                                  30/03/20
@@ -191,8 +198,8 @@
   11029            05 TOTALGAS-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11030            05 TOTALSAL-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
       *>         VARIABLES FICTICIAS
-                   05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
-                   05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
+      *>             05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
+      *>             05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
   11031                                                                                                                 30/01/20
   11032        01  RR09MAE.                                                                                             20/01/20
   11033            05 R09CAS-WS PIC X(11).                                                                              20/01/20
@@ -208,7 +215,7 @@
   11043            05 R09ESR-WS PIC X.                                                                                  20/01/20
   11044            05 R09EST-WS PIC X.                                                                                  20/01/20
   11045        77  EXISTE-RCA       PIC S9(11)V99 VALUE 0.                                                              21/01/20
-               77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
+      *>         77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
   11046        77  MONTO-WS         PIC S9(11)V99 VALUE 0.                                                              20/02/20
   11047        77  SEGUIR           PIC X VALUE "S".                                                                    20/01/20
   11048        77  SALIR-R09        PIC X VALUE "N".                                                                    20/01/20
@@ -247,7 +254,7 @@
   13000        01  WRY1RCD01T.                                                                                          17/02/17
   13100            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
   13500                                                                                                                 17/02/17
-              *-- SE AGREGAN DOS VALORES AL PUNTERO
+      *>        *-- SE AGREGAN DOS VALORES AL PUNTERO
   13600        01  FILESTATUS.                                                                                          07/01/17
   13700            05 FS-R08MAE        PIC XX.                                                                          14/01/17
   13800            05 FS-R09MAE59      PIC XX.                                                                          14/01/17
@@ -264,54 +271,59 @@
   14700               10 AMDHASTA-WS             PIC s9(06).                                                            20/12/16
   14800            05 FDESDE-CURRENT             PIC s9(08).                                                            20/12/16
   14900            05 FCURRENT-WS                PIC s9(08).                                                            20/12/16
-  15000       *-- LOS RANGOS MENSUALES DE EJECUCIÓN                                                                     29/12/16
+  *> 15000       *-- LOS RANGOS MENSUALES DE EJECUCIÓN                                                                     29/12/16
   15100            05 FDE                        PIC X(08).                                                             19/12/16
   15200            05 FHA                        PIC X(08).                                                             19/12/16
   15300            05 VIVMUE                     PIC X.                                                                 17/01/17
   15400            05 OKCTV                      PIC X.                                                                 18/01/17
   15500            05 ENTRA                      PIC X.                                                                 14/02/20
   15600            05 OKMONTO                    PIC S9(11)V99 COMP-3.                                                  20/02/20
-  15700            05 WCONDI                     PIC XX.                                                                30/01/17
+  15700            05 WCONDI                     PIC XX.      
+      *>           Indice                                                          30/01/17
   15800            05 INDICE                     PIC 9.                                                                 10/02/20
   15900            05 FINR09                     PIC 9.                                                                 17/02/17
-  16000            05 FIN                        PIC 9.                                                                 17/02/17
+  16000            05 FIN                        PIC 9.                 
+      *>           Gastos totales                                                17/02/17
   16100            05 GASTOT                     PIC 9(11)V99 COMP-3.                                                   20/02/20
   16200            05 PAUMRU                     PIC 9(03)V99 COMP-3.                                                   20/02/20
-  16300       *------ TOtal Provision inicial                                                                           20/02/20
+  *> 16300       *------ TOtal Provision inicial                                                                           20/02/20
   16400            05 TOTAL1                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  16500       *------ TOtal GasTOs Acumulados                                                                           20/02/20
+  *> 16500       *------ TOtal GasTOs Acumulados                                                                           20/02/20
   16600            05 TOTAL2                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  16700       *------ TOtal GasTOs Administrativos                                                                      20/02/20
+  *> 16700       *------ TOtal GasTOs Administrativos                                                                      20/02/20
   16800            05 TOTAL3                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  16900       *------ TOtal AumenTO Acumulado                                                                           20/02/20
+  *> 16900       *------ TOtal AumenTO Acumulado                                                                           20/02/20
   17000            05 TOTAL4                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  17100       *------ TOtal Provisiòn Ajustada                                                                          20/02/20
+  *> 17100       *------ TOtal Provisiòn Ajustada                                                                          20/02/20
   17200            05 TOTAL5                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  17300       *------ TOtal Saldo de la Provisiòn                                                                       20/02/20
+  *> 17300       *------ TOtal Saldo de la Provisiòn                                                                       20/02/20
   17400            05 TOTAL6                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  17500       *--                                                                                                       14/02/17
+  *> 17500       *--                                                                                                       14/02/17
   17600            05 WFTOPEV                    PIC X(08).                                                             20/02/20
   17700            05 WFTOPEM                    PIC X(08).                                                             20/02/20
   17800            05 WFTOPE                     PIC X(08).                                                             20/02/20
   17900            05 WMESNUM                    PIC 99.                                                                09/01/17
-  18000            05 WMESESNUM                  PIC 9(2) COMP-3.                                                       20/02/20
+  18000            05 WMESESNUM                  PIC 9(2) COMP-3. 
+      *>         Año y mes de corrida                                                      20/02/20
   18100            05 WMESCORRIDA                PIC X(2).                                                              20/12/16
   18200            05 WANOCORRIDA                PIC X(4).                                                              20/02/17
   18300            05 WANOMESCORR.                                                                                      20/02/17
   18400               07 MESCORR                 PIC XX.                                                                20/02/17
   18500               07 FILLER                  PIC X VALUE "-".                                                       20/02/17
   18600               07 ANOCORR                 PIC XXXX.                                                              20/02/17
-  18700            05 WANOMESCORRIDA             PIC X(7).                                                              20/02/17
+  18700            05 WANOMESCORRIDA             PIC X(7). 
+      *>         Usuario                                                             20/02/17
   18800            05 WUSUARIO                   PIC X(10).                                                             20/12/16
   18900            05 CAS001                     PIC X(11).                                                             16/02/17
   19000            05 WCASDUP                    PIC X(11).                                                             16/02/17
-  19100       *--     indicador de error 0 si está OK                                                                   12/01/17
+  *> 19100       *--     indicador de error 0 si está OK                                                                   12/01/17
   19200            05 WFECHA                     PIC X(8).                                                              12/01/17
   19300            05 INDICA                     PIC X(1).                                                              12/01/17
   19400            05 WR20IN                     PIC X(1).                                                              04/02/17
   19500            05 WR54EF                     PIC X(1).                                                              04/02/17
   19600            05 WCASO                      PIC X(11).                                                             27/02/17
-  19700            05 NUEVO                      PIC X(1).                                                              20/02/17
+  19700            05 NUEVO                      PIC X(1).  
+      *>         Condiciones                                                             20/02/17
   19800            05 TIPCOR                     PIC X(1)   VALUE "M".                                                  20/02/17
   19900            05 CONDIC                     PIC X      VALUE "V".                                                  20/02/17
   20000            05 TIPPRO                     PIC X      VALUE "1".                                                  20/02/17
