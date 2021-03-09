@@ -1598,7 +1598,7 @@
       *>         Setea totales a cero                                                                                              20/02/20
   95393            MOVE ZEROS TO TOTALPRO-WS TOTALPAJ-WS                                                                20/02/20
   95394                          TOTALGAS-WS TOTALSAL-WS                                                                20/02/20
-  *> 95395       *                                                                                                         21/01/20
+  *> 95395       * Suma los rubros IT - Indice 1                                                                                                        21/01/20
   95396            MOVE "IT"      TO TEMRBR.                                                                            20/02/20
   95397            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95398            READ TEMMTO Record.                                                                                  20/02/20
@@ -1606,7 +1606,7 @@
   95400               MOVE TEMMNT TO TOTALPRO-WS                                                                        20/02/20
   95401               MOVE 1 TO INDICE                                                                                  20/02/20
   95402               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95403       *                                                                                                         21/01/20
+  *> 95403       * Suma los rubros IP - Indice 2                                                                                                       21/01/20
   95404            MOVE "IP"      TO TEMRBR.                                                                            20/02/20
   95405            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95406            READ TEMMTO RECORD.                                                                                  20/02/20
@@ -1614,7 +1614,7 @@
   95408               MOVE TEMMNT TO TOTALPAJ-WS                                                                        20/02/20
   95409               MOVE 2 TO INDICE                                                                                  20/02/20
   95410               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95411       *                                                                                                         21/01/20
+  *> 95411       * Suma los rubros CM - Indice 3                                                                                                        21/01/20
   95412            MOVE "CM"      TO TEMRBR.                                                                            20/02/20
   95413            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95414            READ TEMMTO RECORD.                                                                                  20/02/20
@@ -1622,7 +1622,7 @@
   95416               MOVE TEMMNT TO TOTALGAS-WS                                                                        20/02/20
   95417               MOVE 3 TO INDICE                                                                                  20/02/20
   95418               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95419       *                                                                                                         21/01/20
+  *> 95419       * Suma los rubros IM - Indice 4                                                                                                        21/01/20
   95420            MOVE "IM"      TO TEMRBR.                                                                            20/02/20
   95421            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95422            READ TEMMTO RECORD.                                                                                  20/02/20
