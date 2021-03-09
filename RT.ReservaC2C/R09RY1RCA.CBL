@@ -824,14 +824,14 @@
   *> 56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                          
   
               
-  56200       * 'NEMAGON'                                                                                               09/04/19
+  *> 56200       * 'NEMAGON'                                                                                               09/04/19
   56300            EXEC SQL                                                                                             09/04/19
   56400                DELETE FROM TEMFMXX WHERE TEMC45 IN                                                              09/04/19
   56500                (SELECT R09CAS FROM R09MAE                                                                       09/04/19
   56600                WHERE R09POL = "NEMAGON")                                                                        09/04/19
 
   56700            END-EXEC                                                                                             20/02/20
-  56800       *==================V006==========================================                                         09/04/19
+  *> 56800       *==================V006==========================================                                         09/04/19
   56900            EXEC SQL                                                                                             09/04/19
   57000                 INSERT INTO TEMFMX                                                                              20/02/20
   57100                 SELECT DISTINCT TEMRUB, TEMC45, MAX(TEMMAX) FecMax                                              28/02/17
@@ -845,10 +845,10 @@
   57900                 FROM TEMFMX                                                                                     28/02/17
   58000                 GROUP BY TEMC45                                                                                 28/02/17
   58100            END-EXEC.                                                                                            20/02/20
-  58200       *=========================================================*                                               08/01/17
-  58300       *-- QUERYS PARA OBTENER LOS PAGOS REALIZADOS POR RUBRO EN UN                                              08/01/17
-  58400       *-- PERIODO DADO DE INICIO A FIN DE MES                                                                   19/12/16
-  58500       ** ==> ARCHIVO PAGOS INCAPACIDAD TEMPORAL                                                                 12/01/17
+  *> 58200       *=========================================================*                                               08/01/17
+  *> 58300       *-- QUERYS PARA OBTENER LOS PAGOS REALIZADOS POR RUBRO EN UN                                              08/01/17
+  *> 58400       *-- PERIODO DADO DE INICIO A FIN DE MES                                                                   19/12/16
+  *> 58500       ** ==> ARCHIVO PAGOS INCAPACIDAD TEMPORAL                                                                 12/01/17
   58501            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   58502            MOVE "GRABANDO TEMMTO TEMPOR" TO MENSAJE                                                             20/02/20
   58503            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -928,9 +928,9 @@
   70700            EXEC SQL                                                                                             28/02/17
   70800                 COMMIT                                                                                          28/02/17
   70900            END-EXEC.                                                                                            20/02/20
-  71000       * /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ *                                           03/01/17
-  71100       * | EJECUCIÓN DE CIERRE Y ACUMULACIÓN DE PAGOS, PROVICIONES | *                                           29/12/16
-  71200       * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\////////////////////////////// *                                           03/01/17
+  *> 71000       * /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ *                                           03/01/17
+  *> 71100       * | EJECUCIÓN DE CIERRE Y ACUMULACIÓN DE PAGOS, PROVICIONES | *                                           29/12/16
+  *> 71200       * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\////////////////////////////// *                                           03/01/17
   71202            MOVE SPACES                        TO MENSAJE                                                        20/02/20
   71203            MOVE "OBTENIENDO CASOS A ESTUDIAR" TO MENSAJE                                                        20/02/20
   71204            PERFORM GRABA-BITACORA                                                                               21/01/20
