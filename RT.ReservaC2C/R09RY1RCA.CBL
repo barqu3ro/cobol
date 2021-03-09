@@ -271,10 +271,12 @@
   15400            05 OKCTV                      PIC X.                                                                 18/01/17
   15500            05 ENTRA                      PIC X.                                                                 14/02/20
   15600            05 OKMONTO                    PIC S9(11)V99 COMP-3.                                                  20/02/20
-  15700            05 WCONDI                     PIC XX.                                                                30/01/17
+  15700            05 WCONDI                     PIC XX.      
+      *>           Indice                                                          30/01/17
   15800            05 INDICE                     PIC 9.                                                                 10/02/20
   15900            05 FINR09                     PIC 9.                                                                 17/02/17
-  16000            05 FIN                        PIC 9.                                                                 17/02/17
+  16000            05 FIN                        PIC 9.                 
+      *>           Gastos totales                                                17/02/17
   16100            05 GASTOT                     PIC 9(11)V99 COMP-3.                                                   20/02/20
   16200            05 PAUMRU                     PIC 9(03)V99 COMP-3.                                                   20/02/20
   *> 16300       *------ TOtal Provision inicial                                                                           20/02/20
@@ -294,14 +296,16 @@
   17700            05 WFTOPEM                    PIC X(08).                                                             20/02/20
   17800            05 WFTOPE                     PIC X(08).                                                             20/02/20
   17900            05 WMESNUM                    PIC 99.                                                                09/01/17
-  18000            05 WMESESNUM                  PIC 9(2) COMP-3.                                                       20/02/20
+  18000            05 WMESESNUM                  PIC 9(2) COMP-3. 
+      *>         Año y mes de corrida                                                      20/02/20
   18100            05 WMESCORRIDA                PIC X(2).                                                              20/12/16
   18200            05 WANOCORRIDA                PIC X(4).                                                              20/02/17
   18300            05 WANOMESCORR.                                                                                      20/02/17
   18400               07 MESCORR                 PIC XX.                                                                20/02/17
   18500               07 FILLER                  PIC X VALUE "-".                                                       20/02/17
   18600               07 ANOCORR                 PIC XXXX.                                                              20/02/17
-  18700            05 WANOMESCORRIDA             PIC X(7).                                                              20/02/17
+  18700            05 WANOMESCORRIDA             PIC X(7). 
+      *>         Usuario                                                             20/02/17
   18800            05 WUSUARIO                   PIC X(10).                                                             20/12/16
   18900            05 CAS001                     PIC X(11).                                                             16/02/17
   19000            05 WCASDUP                    PIC X(11).                                                             16/02/17
@@ -311,7 +315,8 @@
   19400            05 WR20IN                     PIC X(1).                                                              04/02/17
   19500            05 WR54EF                     PIC X(1).                                                              04/02/17
   19600            05 WCASO                      PIC X(11).                                                             27/02/17
-  19700            05 NUEVO                      PIC X(1).                                                              20/02/17
+  19700            05 NUEVO                      PIC X(1).  
+      *>         Condiciones                                                             20/02/17
   19800            05 TIPCOR                     PIC X(1)   VALUE "M".                                                  20/02/17
   19900            05 CONDIC                     PIC X      VALUE "V".                                                  20/02/17
   20000            05 TIPPRO                     PIC X      VALUE "1".                                                  20/02/17
