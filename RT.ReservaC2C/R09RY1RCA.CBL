@@ -1701,7 +1701,7 @@
   95491               MOVE "A"       TO RY1COR OF WRY1RCD01A                                                            20/02/20
   95492               MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01A                                                            20/02/20
 
-      *>             Escritura de detalle 
+      *>             Escritura de detalle l
   95493               WRITE RRY1RCD01 FROM WRY1RCD01A                                                                   20/02/20
   95494                     INVALID KEY                                                                                 21/01/20
   95495                     MOVE " Write Det1" TO LUGARERRO                                                             20/02/20
