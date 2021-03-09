@@ -1,4 +1,5 @@
-    100        IDENTIFICATION DIVISION.                                                                                 97/07/04
+    *> 100        DIVISION 1: IDENTIFICACION DEL PROGRAMA Y AUTOR
+               IDENTIFICATION DIVISION.                                                                                 97/07/04
     200        PROGRAM-ID. R09RY1RCA.                                                                                   19/12/16
     300        AUTHOR.  Randall Vallejos Rojas.                                                                         19/11/16
     400        INSTALLATION.  INSTITUTO NACIONAL DE SEGUROS.                                                            20/02/20
@@ -80,12 +81,15 @@
       *>        * Webinar Git 
       *>        * Primer commit
       *>        * Fin de modificacion      
-      *>        * Jorge Barquero - Webinar ISI 9-3-2021                                                                                      
+      *>        * Jorge Barquero - Webinar ISI 9-3-2021                                                               
+
+      *>     DIVISION 1: DIVISION DE AMBIENTE                        
    3200        ENVIRONMENT DIVISION.                                                                                    97/07/04
    3300        CONFIGURATION SECTION.                                                                                   97/07/04
    3400        SOURCE-COMPUTER.   IBM-AS400.                                                                            10/02/20
    3500        OBJECT-COMPUTER.   IBM-AS400.                                                                            10/02/20
-   3600        INPUT-OUTPUT SECTION.                                                                                    97/07/04
+   3600        INPUT-OUTPUT SECTION.          
+      *>         Archivos a utilizar                                                                          97/07/04
    3700        FILE-CONTROL.                                                                                            27/07/15
    3701            SELECT R09MAE59                                                                                      20/01/20
    3702                   ASSIGN       TO DATABASE-R09MAE59                                                             20/02/20
@@ -131,7 +135,8 @@
    7900                   RECORD KEY IS EXTERNALLY-DESCRIBED-KEY                                                        11/01/17
    8000                   WITH DUPLICATES                                                                               17/02/17
    8100                   FILE STATUS  IS FS-RY1RCD.                                                                    11/01/17
-   8200                                                                                                                 11/01/17
+   8200                           
+      *>     DIVISIÓN 2: DIVISIÓN DE DATOS                                                                                      11/01/17
    8300        DATA DIVISION.                                                                                           97/07/04
    8400        FILE SECTION.                                                                                            97/07/04
    8401                                                                                                                 20/01/20
