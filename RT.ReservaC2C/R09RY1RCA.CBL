@@ -1290,12 +1290,12 @@
   79162                PERFORM GRABA-BITACORA                                                                           05/02/20
   79163            END-IF.                                                                                              20/02/20
   79164        END-LEE-SIGUIENTE-CASO.                                                                                  20/02/20
-  79165       *                                                                                                         17/01/17
+  *> 79165       *                                                                                                         17/01/17
   79200        B020-REVISA-ESTADOS.                                                                                     29/01/20
   79300            MOVE SPACES TO VIVMUE OKCTV ENTRA NUEVO ACERRAR.                                                     24/02/20
-  79400       *                           Determina cual fecha usa como TOpe                                            20/02/20
+  *> 79400       *                           Determina cual fecha usa como TOpe                                            20/02/20
   79401            PERFORM CONSULTA-R08MAE                                                                              05/02/20
-  81600       *-- Revisa si no existe en RY1RCA y RY1RCD, sino lo crea                                                  27/02/17
+  *> 81600       *-- Revisa si no existe en RY1RCA y RY1RCD, sino lo crea                                                  27/02/17
   81700            MOVE SPACES TO WCASO.                                                                                20/02/20
   81800            EXEC SQL                                                                                             27/02/17
   81900               SELECT DISTINCT RY1CAS INTO:WCASO                                                                 20/02/20
