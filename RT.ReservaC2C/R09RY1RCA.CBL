@@ -2176,7 +2176,8 @@
  145445                UPON CONSOLE                                                                                     27/01/20
  145446            END-IF.                                                                                              20/02/20
  145447        END-SELECCION-CASOS-INTERES.                                                                             20/02/20
- 145455                                                                                                                 20/01/20
+ 145455                    
+      *>     Inicio de grabación en bitácora                                                                                             20/01/20
  145456        GRABA-BITREC.                                                                                            20/01/20
  145465            EXEC SQL                                                                                             20/02/20
  145466                INSERT INTO BITREC VALUES                                                                        20/02/20
@@ -2208,7 +2209,8 @@
  145492                     ,:SALDORCD                                                                                  23/07/20
  145493                     ,:SALJUDIC-WS)                                                                              14/08/20
  145494            END-EXEC.                                                                                            20/02/20
- 145496        END-GRABA-BITREC.                                                                                        20/02/20
- 145506       *=================*                                                                                       13/10/15
- 145507       *- Fin de fuente -*                                                                                       13/10/15
- 145600       *=================*                                                                                       13/10/15
+ 145496        END-GRABA-BITREC.                       
+      *>     Fin de grabación de bitácora                                                                 20/02/20
+ *> 145506       *=================*                                                                                       13/10/15
+ *> 145507       *- Fin de fuente -*                                                                                       13/10/15
+ *> 145600       *=================*                                                                                       13/10/15
