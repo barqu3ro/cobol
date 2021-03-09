@@ -1376,14 +1376,14 @@
   95157               END-IF                                                                                            20/02/20
   95158            END-IF.                                                                                              20/02/20
   95159        END-CIERRA-O-ABRE-CASO.                                                                                  20/02/20
-  95160       *                                                                                                         05/02/20
+  *> 95160       *                                                                                                         05/02/20
   95161        CALCULA-MONTO-A-SUMAR.                                                                                   20/02/20
   95162            MOVE ZEROS TO OKMONTO.                                                                               20/02/20
   95163            EXEC SQL                                                                                             05/02/20
   95164               SELECT DISTINCT TEMMNT INTO:OKMONTO                                                               20/02/20
   95165               FROM TEMMTO WHERE TEMC47 = :CAS001                                                                20/02/20
   95166            END-EXEC                                                                                             20/02/20
-  95167       *                                                                                                         05/02/20
+  *> 95167       *                                                                                                         05/02/20
   95168            IF R09CTV-WS = "S"                                                                                   05/02/20
   95169               MOVE "S" TO ENTRA                                                                                 20/02/20
   95170               MOVE "LC" TO R09CON-WS                                                                            19/03/20
@@ -1395,7 +1395,7 @@
   95176                  MOVE "LN" TO R09CON-WS                                                                         20/02/20
   95177               END-IF                                                                                            20/02/20
   95178            END-IF.                                                                                              20/02/20
-  95179       *                                                                                                         05/02/20
+  *> 95179       *                                                                                                         05/02/20
   95180            IF R09ESR-WS IS EQUAL "C"                                                                            11/02/20
   95181            AND OKMONTO IS NOT EQUAL ZEROS THEN                                                                  20/02/20
   95182                 MOVE "A" TO R09ESR-WS                                                                           20/02/20
@@ -1416,11 +1416,11 @@
   95197               END-IF                                                                                            20/02/20
   95198            END-IF.                                                                                              20/02/20
   95199        END-CALCULA-MONTO-A-SUMAR.                                                                               20/02/20
-  95200       *                                                                                                         05/02/20
+  *> 95200       *                                                                                                         05/02/20
   95201        BUSCA-SI-ES-RENTA-MENSUAL.                                                                               05/02/20
-  95202       * -- Determina SI REVISA SI TIENE RENTRA MENSUAL TRABAJADOR                                               05/02/20
-  95203       * -- o Beneficiario ya que esTOs no entran en la reserva ya que                                           20/02/20
-  95204       * -- se acumula en la reserva matematica                                                                  05/02/20
+  *> 95202       * -- Determina SI REVISA SI TIENE RENTRA MENSUAL TRABAJADOR                                               05/02/20
+  *> 95203       * -- o Beneficiario ya que esTOs no entran en la reserva ya que                                           20/02/20
+  *> 95204       * -- se acumula en la reserva matematica                                                                  05/02/20
   95205            MOVE SPACES TO WR20IN WR54EF.                                                                        20/02/20
   95206            IF ENTRA = "S" THEN                                                                                  14/02/20
   95207               EXEC SQL                                                                                          05/02/20
