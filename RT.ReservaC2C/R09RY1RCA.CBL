@@ -679,7 +679,8 @@
   41700            END-EXEC.                                                                                            20/02/20
   41800            EXEC SQL                                                                                             28/02/17
   41900                DELETE FROM FECINIRES WHERE FECXXX = " "                                                         28/02/17
-  42000            END-EXEC.                                                                                            20/02/20
+  42000            END-EXEC.                                      
+      *>         Fin de proceso de obtención de fechas maximas                                                      20/02/20
   42001            MOVE SPACES                          TO MENSAJE                                                      20/02/20
   42002            MOVE "FIN OBTENIENDO FECHAS MAXIMAS" TO MENSAJE                                                      20/02/20
   42003            PERFORM GRABA-BITACORA                                                                               21/01/20
