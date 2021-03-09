@@ -1117,7 +1117,7 @@
   72900            "| R09RY1RCA - | Fin Normal del Programa |" UPON CONSOLE                                             28/02/17
   73000            DISPLAY                                                                                              28/02/17
   73100            "|_______________________________________|" UPON CONSOLE                                             28/02/17
-  73200       *                                                                                                         01/03/17
+  *> 73200       *                                                                                                         01/03/17
   73201            MOVE SPACES                           TO MENSAJE                                                     20/02/20
   73202            MOVE "INICIANDO GENERACION DE RY1HVR" TO MENSAJE                                                     20/02/20
   73203            PERFORM GRABA-BITACORA                                                                               05/02/20
@@ -1129,6 +1129,7 @@
   73305            MOVE SPACES                          TO MENSAJE                                                      05/02/21
   73306            MOVE "FINALIZA GENERACION DE RY2HVR" TO MENSAJE                                                      05/02/21
   73307            PERFORM GRABA-BITACORA                                                                               05/02/21
+      *>         Fin normal del programA
   73400            DISPLAY                                                                                              01/03/17
   73500            "._______________________________________." UPON CONSOLE                                             01/03/17
   73600            DISPLAY                                                                                              01/03/17
