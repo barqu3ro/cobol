@@ -639,14 +639,7 @@
   38501            MOVE SPACES               TO MENSAJE                                                                 20/02/20
   38502            MOVE "OBTIENE DUPLICADOS" TO MENSAJE                                                                 20/02/20
   38503            PERFORM GRABA-BITACORA                                                                               21/01/20
-  38600            EXEC SQL                                                                                             28/02/17
-  38700                 INSERT INTO RY1DUP                                                                              20/02/20
-  38800                 SELECT R09CAS CASNU7, COUNT(1) CASCAN                                                           20/02/20
-  38900                 FROM R09MAE                                                                                     20/02/20
-  39000                 WHERE R09POL <> "NEMAGON"                                                                       09/04/19
-  39100                 GROUP BY R09CAS                                                                                 28/02/17
-  39200                 HAVING COUNT(1) > 1                                                                             20/02/20
-  39300            END-EXEC.                                                                                            20/02/20
+  38600                                                                                                      20/02/20
   39301            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   39302            MOVE "FIN OBTIENE DUPLICADOS" TO MENSAJE                                                             20/02/20
   39303            PERFORM GRABA-BITACORA                                                                               21/01/20
