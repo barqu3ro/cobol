@@ -572,10 +572,10 @@
   32500                       :RY1IXM, :RY1PIM, :RY1CA1, :RY1CSA,                                                       27/02/17
   32600                       :RY1PO3, :RY1FE9, :RY1F01, :RY1US2                                                        27/02/17
   32700            END-EXEC.                                                                                            20/02/20
-  32800       *=======================================================*                                                 20/02/17
-  32900       *=======================================================*                                                 20/02/17
-  33000       * LIMPIA LOS ARCHIVOS DE TRABAJO y LOS ARCHIVOS DESTINO *                                                 20/02/17
-  33100       *=======================================================*                                                 20/02/17
+  *> 32800       *=======================================================*                                                 20/02/17
+  *> 32900       *=======================================================*                                                 20/02/17
+  *> 33000       * LIMPIA LOS ARCHIVOS DE TRABAJO y LOS ARCHIVOS DESTINO *                                                 20/02/17
+  *> 33100       *=======================================================*                                                 20/02/17
   33101            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   33102            MOVE "INICIO LIMPIANDO ARCHIVOS" TO MENSAJE                                                          20/02/20
   33103            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -584,13 +584,13 @@
   33400                 WHERE  SUBSTRING(RY1FMR, 1, 4) = :WANOCORRIDA                                                   28/02/17
   33500                 AND    SUBSTRING(RY1FMR, 5, 2) = :WMESCORRIDA                                                   28/02/17
   33600            END-EXEC.                                                                                            20/02/20
-  33700       *                                                                                                         28/02/17
+  *> 33700       *                                                                                                         28/02/17
   33800            EXEC SQL                                                                                              28/02/17
   33900                 DELETE FROM RY1RCD                                                                              28/02/17
   34000                 WHERE  SUBSTRING(RY1F03, 1, 4) = :WANOCORRIDA                                                   28/02/17
   34100                 AND    SUBSTRING(RY1F03, 5, 2) = :WMESCORRIDA                                                   28/02/17
   34200            END-EXEC.                                                                                            20/02/20
-  34300       *                                                                                                         28/02/17
+  *> 34300       *                                                                                                         28/02/17
   34400            EXEC SQL                                                                                             28/02/17
   34500                 DELETE FROM RY1HVR                                                                              28/02/17
   34600                 WHERE  RY1AOD = :WANOCORRIDA                                                                    28/02/17
@@ -631,22 +631,15 @@
   38001            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   38002            MOVE "FIN LIMPIANDO ARCHIVOS" TO MENSAJE                                                             20/02/20
   38003            PERFORM GRABA-BITACORA                                                                               21/01/20
-  38100       *=======================================================*                                                 20/02/17
-  38200       *=======================================================*                                                 20/02/17
-  38300       *----------------------------                                                                             08/01/17
-  38400       * QUERY PARA OBTENER LOS CASOS DUPLICADOS DIFERENTE AGENCIA                                               05/03/20
-  38500       * ESTOS SE EXCLUIRAN DE PROCESO                                                                           20/02/20
+  *> 38100       *=======================================================*                                                 20/02/17
+  *> 38200       *=======================================================*                                                 20/02/17
+  *> 38300       *----------------------------                                                                             08/01/17
+  *> 38400       * QUERY PARA OBTENER LOS CASOS DUPLICADOS DIFERENTE AGENCIA                                               05/03/20
+  *> 38500       * ESTOS SE EXCLUIRAN DE PROCESO                                                                           20/02/20
   38501            MOVE SPACES               TO MENSAJE                                                                 20/02/20
   38502            MOVE "OBTIENE DUPLICADOS" TO MENSAJE                                                                 20/02/20
   38503            PERFORM GRABA-BITACORA                                                                               21/01/20
-  38600            EXEC SQL                                                                                             28/02/17
-  38700                 INSERT INTO RY1DUP                                                                              20/02/20
-  38800                 SELECT R09CAS CASNU7, COUNT(1) CASCAN                                                           20/02/20
-  38900                 FROM R09MAE                                                                                     20/02/20
-  39000                 WHERE R09POL <> "NEMAGON"                                                                       09/04/19
-  39100                 GROUP BY R09CAS                                                                                 28/02/17
-  39200                 HAVING COUNT(1) > 1                                                                             20/02/20
-  39300            END-EXEC.                                                                                            20/02/20
+  38600                                                                                                      20/02/20
   39301            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   39302            MOVE "FIN OBTIENE DUPLICADOS" TO MENSAJE                                                             20/02/20
   39303            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -679,7 +672,8 @@
   41700            END-EXEC.                                                                                            20/02/20
   41800            EXEC SQL                                                                                             28/02/17
   41900                DELETE FROM FECINIRES WHERE FECXXX = " "                                                         28/02/17
-  42000            END-EXEC.                                                                                            20/02/20
+  42000            END-EXEC.                                      
+      *>         Fin de proceso de obtención de fechas maximas                                                      20/02/20
   42001            MOVE SPACES                          TO MENSAJE                                                      20/02/20
   42002            MOVE "FIN OBTENIENDO FECHAS MAXIMAS" TO MENSAJE                                                      20/02/20
   42003            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -1123,7 +1117,7 @@
   72900            "| R09RY1RCA - | Fin Normal del Programa |" UPON CONSOLE                                             28/02/17
   73000            DISPLAY                                                                                              28/02/17
   73100            "|_______________________________________|" UPON CONSOLE                                             28/02/17
-  73200       *                                                                                                         01/03/17
+  *> 73200       *                                                                                                         01/03/17
   73201            MOVE SPACES                           TO MENSAJE                                                     20/02/20
   73202            MOVE "INICIANDO GENERACION DE RY1HVR" TO MENSAJE                                                     20/02/20
   73203            PERFORM GRABA-BITACORA                                                                               05/02/20
@@ -1135,6 +1129,7 @@
   73305            MOVE SPACES                          TO MENSAJE                                                      05/02/21
   73306            MOVE "FINALIZA GENERACION DE RY2HVR" TO MENSAJE                                                      05/02/21
   73307            PERFORM GRABA-BITACORA                                                                               05/02/21
+      *>         Fin normal del programA
   73400            DISPLAY                                                                                              01/03/17
   73500            "._______________________________________." UPON CONSOLE                                             01/03/17
   73600            DISPLAY                                                                                              01/03/17
