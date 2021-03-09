@@ -1843,7 +1843,8 @@
  121700             EXIT.                                                                                               30/01/17
  *> 121800       *                  
       *>       Suma de gastos 
-           Documentación de proceso de suma de gastos                                                                                      30/01/17
+      *>     Documentación de proceso de suma de gastos
+      *>     Switch basado en el índice                                                                                      30/01/17
  121900        B050-SUMA-GASTOS.                                                                                        20/02/20
  122000            IF INDICE = 1                                                                                        10/02/20
  122100                COMPUTE RY1GAS OF WRY1RCD01A =                                                                   10/02/20
@@ -1864,7 +1865,8 @@
  123600                   END-IF                                                                                        20/02/20
  123700                END-IF                                                                                           20/02/20
  123800            END-IF.                                                                                              20/02/20
- 123801        END-B050-SUMA-GASTOS.                                                                                    25/02/20
+ 123801        END-B050-SUMA-GASTOS.                   
+      *>     Fin suma de gastos                                                                 25/02/20
  124100        B050-EXIT.                                                                                               20/02/20
  124200             EXIT.                                                                                               20/02/20
  124300       *                                                                                                         14/02/17
