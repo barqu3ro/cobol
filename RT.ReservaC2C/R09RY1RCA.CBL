@@ -1254,7 +1254,7 @@
   79115           
       *>         Validación de duplicados
   79116        VALIDA-DUPLICADOS.                                                                                       05/02/20
-  79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
+  *> 79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
   79118            MOVE "S"       TO DUPLICADO                                                                          20/02/20
   79119            MOVE R09CAS-WS TO CAS001.                                                                            20/02/20
   79120            MOVE SPACES TO WCASDUP.                                                                              20/02/20
