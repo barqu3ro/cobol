@@ -2142,7 +2142,8 @@
  145383            END-IF.                                                                                              20/02/20
  145384        END-RECUPACIONDATOS.
       *>         Fin de recuperación de datos         
-  145385                                                                                                                 17/01/20
+  145385                   
+      *>     Proceso de recuperación de caso                                                                                              17/01/20
  145386        RECUPERACADACASO.                                                                                        17/01/20
  145387            EXEC SQL                                                                                             17/01/20
  145388                 FETCH NEXT FROM CBITREC INTO                                                                    20/02/20
@@ -2159,8 +2160,9 @@
  145399                END-EXEC                                                                                         20/02/20
  145400            ELSE                                                                                                 17/01/20
  145401                MOVE "S" TO SALIR-BITREC                                                                         20/02/20
- 145402            END-IF.                                                                                              20/02/20
- 145403        END-RECUPERACADACASO.                                                                                    20/02/20
+ 145402            END-IF.                                                                                              20/02/2
+ 145403        END-RECUPERACADACASO. 
+      *>     Fin de proceso de recuperacion de caso                                                                                   20/02/20
  145404                                                                                                                 20/01/20
  145405        SELECCION-CASOS-INTERES.                                                                                 20/01/20
  145428            EXEC SQL                                                                                             20/01/20
