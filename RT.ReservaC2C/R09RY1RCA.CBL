@@ -650,11 +650,11 @@
   39301            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   39302            MOVE "FIN OBTIENE DUPLICADOS" TO MENSAJE                                                             20/02/20
   39303            PERFORM GRABA-BITACORA                                                                               21/01/20
-  39400       *----------------------------                                                                             08/01/17
-  39500       * QUERY PARA DETERMINAR FECXXX QUE SERÁ LA DE PIVOTE PARA                                                 19/12/16
-  39600       * REVISAR FECHA DE PAGO > QUE ÉSTA                                                                        19/12/16
-  39700       * SELECCIONA ENTRE LA FECHA DE ACCIDENTE O LA FECHA DE AVISO                                              19/12/16
-  39800       * MÁXIMA SI EXISTE EN CASO NO AMPARADO                                                                    19/12/16
+  *> 39400       *----------------------------                                                                             08/01/17
+  *> 39500       * QUERY PARA DETERMINAR FECXXX QUE SERÁ LA DE PIVOTE PARA                                                 19/12/16
+  *> 39600       * REVISAR FECHA DE PAGO > QUE ÉSTA                                                                        19/12/16
+  *> 39700       * SELECCIONA ENTRE LA FECHA DE ACCIDENTE O LA FECHA DE AVISO                                              19/12/16
+  *> 39800       * MÁXIMA SI EXISTE EN CASO NO AMPARADO                                                                    19/12/16
   39801            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   39802            MOVE "OBTENIENDO FECHAS MAXIMAS" TO MENSAJE                                                          20/02/20
   39803            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -683,9 +683,9 @@
   42001            MOVE SPACES                          TO MENSAJE                                                      20/02/20
   42002            MOVE "FIN OBTENIENDO FECHAS MAXIMAS" TO MENSAJE                                                      20/02/20
   42003            PERFORM GRABA-BITACORA                                                                               21/01/20
-  42100       *===================V006==========================                                                        09/04/19
-  42200       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
-  42300       * 'NEMAGON'                                                                                               09/04/19
+  *> 42100       *===================V006==========================                                                        09/04/19
+  *> 42200       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
+  *> 42300       * 'NEMAGON'                                                                                               09/04/19
   42400            EXEC SQL                                                                                             09/04/19
   42500                DELETE FROM FECINIRES WHERE                                                                      05/03/20
   42501                EXISTS                                                                                           05/03/20
@@ -693,11 +693,11 @@
   42700                 WHERE R09CAS = NUMCAS                                                                           05/03/20
   42701                 AND   R09POL = "NEMAGON")                                                                       05/03/20
   42800            END-EXEC                                                                                             20/02/20
-  42900       *===================V006==========================                                                        09/04/19
+  *> 42900       *===================V006==========================                                                        09/04/19
   42901            MOVE SPACES                            TO MENSAJE                                                    20/02/20
   42902            MOVE "INICIA GRABA TEMFMXX TEMPORALES" TO MENSAJE                                                    20/02/20
   42903            PERFORM GRABA-BITACORA                                                                               21/01/20
-  43000       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              29/12/16
+  *> 43000       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              29/12/16
   43001               EXEC SQL                                                                                          05/03/20
   43002               INSERT INTO TEMFMXX                                                                               05/03/20
   43003               WITH                                                                                              05/03/20
@@ -814,14 +814,14 @@
   43122                UNION                                                                                            05/03/20
   43123                SELECT * FROM FMAXINDH                                                                           05/03/20
   43124            END-EXEC.                                                                                            05/03/20
-  43125       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              05/03/20
-  43126       *                                                                                                         05/03/20
+  *> 43125       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              05/03/20
+  *> 43126       *                                                                                                         05/03/20
   55600            EXEC SQL                                                                                             28/02/17
   55700                DELETE FROM TEMFMXX WHERE TEMMAX = " "                                                           28/02/17
   55800            END-EXEC.                                                                                            20/02/20
-  55900       *                                                                                                         27/02/17
-  56000       *==================V006===========================================                                        09/04/19
-  56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                          
+  *> 55900       *                                                                                                         27/02/17
+  *> 56000       *==================V006===========================================                                        09/04/19
+  *> 56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                          
   
               
   56200       * 'NEMAGON'                                                                                               09/04/19
