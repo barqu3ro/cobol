@@ -1305,7 +1305,7 @@
   82201            PERFORM CIERRA-O-ABRE-CASO                                                                           05/02/20
   88000            PERFORM CALCULA-MONTO-A-SUMAR                                                                        20/02/20
   91001            PERFORM ACTUALIZA-R09MAE                                                                             05/02/20
-  91700       *- Revisar si el caso es nuevo buscando movTOs en RY1RCA                                                  20/02/20
+  *> 91700       *- Revisar si el caso es nuevo buscando movTOs en RY1RCA                                                  20/02/20
   91800            IF WCASO = SPACES AND R09ESR-WS = 'A' THEN                                                           20/02/20
   91900               MOVE "S" TO NUEVO                                                                                 20/02/20
   92000               MOVE "S" TO ENTRA                                                                                 20/02/20
@@ -1318,7 +1318,7 @@
   93001        END-B020-REVISA-ESTADOS.                                                                                 25/02/20
   95000        B020-EXIT.                                                                                               04/02/17
   95100             EXIT.                                                                                               04/02/17
-  95101       *                                                                                                         05/02/20
+  *> 95101       *                                                                                                         05/02/20
   95102        CIERRA-O-ABRE-CASO.                                                                                      05/02/20
   95103            MOVE "N"    TO ENTRA.                                                                                25/02/20
   95104            MOVE SPACES TO BITFIL-WS.                                                                            25/02/20
@@ -1327,7 +1327,7 @@
   95107               MOVE "A" TO R09ESR-WS                                                                             20/02/20
   95108               MOVE "S" TO ENTRA                                                                                 20/02/20
   95109            END-IF.                                                                                              20/02/20
-  95110       *                           Verifica si Caso está Controvertido                                           05/02/20
+  *> 95110       *                           Verifica si Caso está Controvertido                                           05/02/20
   95111            IF R09CTV-WS = "S" THEN                                                                              05/02/20
   95112               MOVE R09CTV-WS TO OKCTV                                                                           20/02/20
   95114               MOVE "S"       TO ENTRA                                                                           20/02/20
