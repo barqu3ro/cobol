@@ -1552,8 +1552,14 @@
   95354            END-IF                                                                                               20/02/20
   95355            CLOSE R09MAE59.                                                                                      05/02/20
   95356        END-ACTUALIZA-R09MAE.                                                                                    20/02/20
-  95357       *                                                                                                         04/02/17
-  95358        B030-ACUMULA-MONTOS.                                                                                     25/02/20
+  95357       * 
+
+      *>         Proceso de acumulación de montos.
+  95358        B030-ACUMULA-MONTOS.               
+  
+      *>         1. Inicializa los punteros
+      *>         2. Mueve el caso al puntero, asigna valores maximos.
+               
   95359            PERFORM D020-INICIALIZA THRU D020-EXIT.                                                              21/01/20
   95360            MOVE R09CAS-WS TO RY1CAS OF RY1RCA01.                                                                20/02/20
   95361            MOVE HIGH-VALUES TO RY1FMR OF RY1RCA01.                                                              20/02/20
