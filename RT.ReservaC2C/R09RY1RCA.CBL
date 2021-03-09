@@ -1795,7 +1795,8 @@
   95597        END-B030-ACUMULA-MONTOS.                                                                                 25/02/20
   95598        B030-EXIT.                                                                                               21/01/20
   95599             EXIT.                                                                                               21/01/20
- 118400       *                                                                                                         31/01/17
+ 118400       *
+           Inicio de proceso de carga de detalles                                                                                                          31/01/17
  118500        B040-CARGA-DETALLE.                                                                                      30/01/17
  118600            IF RY1COR OF RY1RCD01 = "A"                                                                          17/02/17
  118700               MOVE CORRESPONDING RRY1RCD01 TO WRY1RCD01A                                                        20/02/20
