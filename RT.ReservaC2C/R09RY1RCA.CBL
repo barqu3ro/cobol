@@ -1701,7 +1701,7 @@
   95491               MOVE "A"       TO RY1COR OF WRY1RCD01A                                                            20/02/20
   95492               MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01A                                                            20/02/20
 
-      *>             Escritura de detalle l
+      *>             Escritura de detalle 
   95493               WRITE RRY1RCD01 FROM WRY1RCD01A                                                                   20/02/20
   95494                     INVALID KEY                                                                                 21/01/20
   95495                     MOVE " Write Det1" TO LUGARERRO                                                             20/02/20
@@ -1709,7 +1709,8 @@
   95497               END-WRITE                                                                                         20/02/20
   95498                  MOVE R09CAS-WS TO RY1CAD OF WRY1RCD01B                                                         20/02/20
   95499                  MOVE "B"       TO RY1COR OF WRY1RCD01B                                                         20/02/20
-  95500                  MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01B                                                         20/02/20
+  95500                  MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01B 
+                                                                           20/02/20
   95501                  WRITE RRY1RCD01 FROM WRY1RCD01B                                                                20/02/20
   95502                        INVALID KEY                                                                              21/01/20
   95503                        MOVE " Write Det1" TO LUGARERRO                                                          20/02/20
@@ -1806,7 +1807,9 @@
   95594                 END-REWRITE                                                                                     20/02/20
   95595              END-iF                                                                                             20/02/20
   95596            END-IF.                                                                                              20/02/20
-  95597        END-B030-ACUMULA-MONTOS.                                                                                 25/02/20
+  95597        END-B030-ACUMULA-MONTOS.     
+      *>     Fin de proceso de acumulación de montos 
+                                                                                           25/02/20
   95598        B030-EXIT.                                                                                               21/01/20
   95599             EXIT.                                                                                               21/01/20
  118400       *                                                                                                         31/01/17
