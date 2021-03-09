@@ -264,7 +264,7 @@
   14700               10 AMDHASTA-WS             PIC s9(06).                                                            20/12/16
   14800            05 FDESDE-CURRENT             PIC s9(08).                                                            20/12/16
   14900            05 FCURRENT-WS                PIC s9(08).                                                            20/12/16
-  15000       *-- LOS RANGOS MENSUALES DE EJECUCIÓN                                                                     29/12/16
+  *> 15000       *-- LOS RANGOS MENSUALES DE EJECUCIÓN                                                                     29/12/16
   15100            05 FDE                        PIC X(08).                                                             19/12/16
   15200            05 FHA                        PIC X(08).                                                             19/12/16
   15300            05 VIVMUE                     PIC X.                                                                 17/01/17
@@ -277,19 +277,19 @@
   16000            05 FIN                        PIC 9.                                                                 17/02/17
   16100            05 GASTOT                     PIC 9(11)V99 COMP-3.                                                   20/02/20
   16200            05 PAUMRU                     PIC 9(03)V99 COMP-3.                                                   20/02/20
-  16300       *------ TOtal Provision inicial                                                                           20/02/20
+  *> 16300       *------ TOtal Provision inicial                                                                           20/02/20
   16400            05 TOTAL1                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  16500       *------ TOtal GasTOs Acumulados                                                                           20/02/20
+  *> 16500       *------ TOtal GasTOs Acumulados                                                                           20/02/20
   16600            05 TOTAL2                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  16700       *------ TOtal GasTOs Administrativos                                                                      20/02/20
+  *> 16700       *------ TOtal GasTOs Administrativos                                                                      20/02/20
   16800            05 TOTAL3                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  16900       *------ TOtal AumenTO Acumulado                                                                           20/02/20
+  *> 16900       *------ TOtal AumenTO Acumulado                                                                           20/02/20
   17000            05 TOTAL4                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  17100       *------ TOtal Provisiòn Ajustada                                                                          20/02/20
+  *> 17100       *------ TOtal Provisiòn Ajustada                                                                          20/02/20
   17200            05 TOTAL5                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  17300       *------ TOtal Saldo de la Provisiòn                                                                       20/02/20
+  *> 17300       *------ TOtal Saldo de la Provisiòn                                                                       20/02/20
   17400            05 TOTAL6                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  17500       *--                                                                                                       14/02/17
+  *> 17500       *--                                                                                                       14/02/17
   17600            05 WFTOPEV                    PIC X(08).                                                             20/02/20
   17700            05 WFTOPEM                    PIC X(08).                                                             20/02/20
   17800            05 WFTOPE                     PIC X(08).                                                             20/02/20
@@ -305,7 +305,7 @@
   18800            05 WUSUARIO                   PIC X(10).                                                             20/12/16
   18900            05 CAS001                     PIC X(11).                                                             16/02/17
   19000            05 WCASDUP                    PIC X(11).                                                             16/02/17
-  19100       *--     indicador de error 0 si está OK                                                                   12/01/17
+  *> 19100       *--     indicador de error 0 si está OK                                                                   12/01/17
   19200            05 WFECHA                     PIC X(8).                                                              12/01/17
   19300            05 INDICA                     PIC X(1).                                                              12/01/17
   19400            05 WR20IN                     PIC X(1).                                                              04/02/17
