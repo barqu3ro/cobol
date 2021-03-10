@@ -551,7 +551,7 @@
   30400            EXEC SQL                                                                                             27/02/17
   30500                 CLOSE CPARAM                                                                                    27/02/17
   30600            END-EXEC.                                                                                            20/02/20
-  30700       * QUERY PARA OBTENER RY1VGR, VALORES GENERALES DE RESERVA ACTUAL                                          19/02/17
+  *> 30700       * QUERY PARA OBTENER RY1VGR, VALORES GENERALES DE RESERVA ACTUAL                                          19/02/17
   30800            EXEC SQL                                                                                             27/02/17
   30900                 DECLARE CPARVGR CURSOR FOR                                                                      27/02/17
   31000                 SELECT RY1FE6, RY1FE7, RY1ITM, RY1PAT,                                                          27/02/17
