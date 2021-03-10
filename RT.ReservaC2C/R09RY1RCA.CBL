@@ -524,11 +524,11 @@
   28500            END-EXEC.  
   
                  
-  28600       *==================================================                                                       09/01/17
-  28700       * Obtiene los meses de gracias vivo y muerTOs para efecTOs de                                             20/02/20
-  28800       * cerrar o no un caso. De momenTO están 2 meses vivos y 4 muerTO                                          20/02/20
-  28900       * Resta n cantidad e meses a la fecha de corrida.                                                         21/02/17
-  29000       *--> Resta Meses a una Fecha y obtiene nueva fecha                                                        21/02/17
+  *> 28600       *==================================================                                                       09/01/17
+  *> 28700       * Obtiene los meses de gracias vivo y muerTOs para efecTOs de                                             20/02/20
+  *> 28800       * cerrar o no un caso. De momenTO están 2 meses vivos y 4 muerTO                                          20/02/20
+  *> 28900       * Resta n cantidad e meses a la fecha de corrida.                                                         21/02/17
+  *> 29000       *--> Resta Meses a una Fecha y obtiene nueva fecha                                                        21/02/17
   29001            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   29002            MOVE "INICIA RY1FTOPE" TO MENSAJE                                                                    20/02/20
   29003            PERFORM GRABA-BITACORA                                                                               06/02/20
@@ -536,7 +536,7 @@
   29101            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   29102            MOVE "FIN RY1FTOPE"    TO MENSAJE                                                                    20/02/20
   29103            PERFORM GRABA-BITACORA                                                                               06/02/20
-  29200       *==================================================                                                       09/01/17
+  *> 29200       *==================================================                                                       09/01/17
   29300       *ACT - F.ACTUAL, USUARIO, F.CORRIDA, FCALCUL, MES.PROC, ANO.PROC.                                         20/12/16
   29400            EXEC SQL                                                                                             27/02/17
   29500                 UPDATE RY1PVH                                                                                   27/02/17
