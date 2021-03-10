@@ -1,5 +1,8 @@
-    *> 100        DIVISION 1: IDENTIFICACION DEL PROGRAMA Y AUTOR
-               IDENTIFICATION DIVISION.                                                                                 97/07/04
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    1
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+    100        IDENTIFICATION DIVISION.                                                                                 97/07/04
     200        PROGRAM-ID. R09RY1RCA.                                                                                   19/12/16
     300        AUTHOR.  Randall Vallejos Rojas.                                                                         19/11/16
     400        INSTALLATION.  INSTITUTO NACIONAL DE SEGUROS.                                                            20/02/20
@@ -52,6 +55,10 @@
    3120       *    B010-PROCESA-CASOS no lea TOdo el archivo de casos sino                                              20/02/20
    3121       *    que recorra un cursor con los casos que cumplan con                                                  16/01/20
    3122       *    una o varias de estas condiciones:                                                                   17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    2
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
    3123       *    3.1. Casos que estén en TEMMTO es decir los que tuvieron                                             20/02/20
    3124       *         pago en el mes de estudio.                                                                      16/01/20
    3125       *    3.2. Casos abierTOs en el momenTO de ejecución.                                                      20/02/20
@@ -78,18 +85,11 @@
    3148       * Respaldo R09RY1RCA2                                                                                     25/06/20
    3149       * Version V010                                                                                            25/06/20
    3150       ******************************************************************                                        25/06/20
-      *>        * Webinar Git 
-      *>        * Primer commit
-      *>        * Fin de modificacion      
-      *>        * Jorge Barquero - Webinar ISI 9-3-2021                                                               
-
-      *>     DIVISION 2: DIVISION DE AMBIENTE                        
    3200        ENVIRONMENT DIVISION.                                                                                    97/07/04
    3300        CONFIGURATION SECTION.                                                                                   97/07/04
    3400        SOURCE-COMPUTER.   IBM-AS400.                                                                            10/02/20
    3500        OBJECT-COMPUTER.   IBM-AS400.                                                                            10/02/20
-   3600        INPUT-OUTPUT SECTION.          
-      *>         Archivos a utilizar                                                                          97/07/04
+   3600        INPUT-OUTPUT SECTION.                                                                                    97/07/04
    3700        FILE-CONTROL.                                                                                            27/07/15
    3701            SELECT R09MAE59                                                                                      20/01/20
    3702                   ASSIGN       TO DATABASE-R09MAE59                                                             20/02/20
@@ -112,6 +112,10 @@
    5600                   ACCESS MODE  IS DYNAMIC                                                                       07/01/17
    5700                   RECORD KEY IS EXTERNALLY-DESCRIBED-KEY                                                        07/01/17
    5800                   FILE STATUS  IS FS-TEMFMX1.                                                                   07/01/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    3
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
    5900                                                                                                                 07/01/17
    6000            SELECT TEMMTO                                                                                        20/02/20
    6100                   ASSIGN       TO DATABASE-TEMMTO                                                               20/02/20
@@ -135,8 +139,7 @@
    7900                   RECORD KEY IS EXTERNALLY-DESCRIBED-KEY                                                        11/01/17
    8000                   WITH DUPLICATES                                                                               17/02/17
    8100                   FILE STATUS  IS FS-RY1RCD.                                                                    11/01/17
-   8200                           
-      *>     DIVISIÓN 3: DIVISIÓN DE DATOS                                                                                      11/01/17
+   8200                                                                                                                 11/01/17
    8300        DATA DIVISION.                                                                                           97/07/04
    8400        FILE SECTION.                                                                                            97/07/04
    8401                                                                                                                 20/01/20
@@ -160,16 +163,16 @@
   10300        01  RRY1RCA01.                                                                                           30/01/17
   10400            COPY DDS-ALL-FORMATS OF RY1RCA01.                                                                    30/01/17
   10500                                                                                                                 11/01/17
-                                                                                                               07/01/17
-=======
   10600        FD  RY1RCD01.                                                                                            17/02/17
   10700        01  RRY1RCD01.                                                                                           17/02/17
-  10800            COPY DDS-ALL-FORMATS  OF RY1RCD01.                                                                    17/02/17
-  10900                
-  
-
+  10800            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
+  10900                                                                                                                 07/01/17
   11000        WORKING-STORAGE SECTION.                                                                                 20/02/20
   11001        01  BITFIL-WS          PIC X(10) VALUES SPACES.                                                          24/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    4
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   11002        01  IND-VALIDAR-RENTA  PIC X VALUE "S".                                                                  30/03/20
   11003        01  FECHAHOY           PIC X(08).                                                                        13/02/20
   11004        01  FECHAINICIORENTA   PIC X(08).                                                                        13/02/20
@@ -199,9 +202,6 @@
   11028            05 TOTALPAJ-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11029            05 TOTALGAS-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
   11030            05 TOTALSAL-WS    PIC S9(14)V99 VALUE 0.                                                             20/02/20
-      *>         VARIABLES FICTICIAS
-      *>             05 TOTCOMMITS     PIC S9(14)V99 VALUE 0. 
-      *>             05 TOTCAMBIOS     PIC S9(14)V99 VALUE 0.
   11031                                                                                                                 30/01/20
   11032        01  RR09MAE.                                                                                             20/01/20
   11033            05 R09CAS-WS PIC X(11).                                                                              20/01/20
@@ -217,7 +217,6 @@
   11043            05 R09ESR-WS PIC X.                                                                                  20/01/20
   11044            05 R09EST-WS PIC X.                                                                                  20/01/20
   11045        77  EXISTE-RCA       PIC S9(11)V99 VALUE 0.                                                              21/01/20
-      *>         77  NO-EXISTE-RCA    PIC S9(11)V99 VALUE 1.
   11046        77  MONTO-WS         PIC S9(11)V99 VALUE 0.                                                              20/02/20
   11047        77  SEGUIR           PIC X VALUE "S".                                                                    20/01/20
   11048        77  SALIR-R09        PIC X VALUE "N".                                                                    20/01/20
@@ -227,6 +226,10 @@
   11052        77  BITES2-WS        PIC X.                                                                              17/01/20
   11053        77  BITCA2-WS        PIC X(11).                                                                          17/01/20
   11054        77  FE3-WS           PIC X(08).                                                                          17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    5
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   11055        77  F06-WS           PIC X(08).                                                                          17/01/20
   11056        77  F08-WS           PIC X(08).                                                                          17/01/20
   11057        77  ANO-WS           PIC X(04).                                                                          17/01/20
@@ -256,7 +259,6 @@
   13000        01  WRY1RCD01T.                                                                                          17/02/17
   13100            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
   13500                                                                                                                 17/02/17
-      *>        *-- SE AGREGAN DOS VALORES AL PUNTERO
   13600        01  FILESTATUS.                                                                                          07/01/17
   13700            05 FS-R08MAE        PIC XX.                                                                          14/01/17
   13800            05 FS-R09MAE59      PIC XX.                                                                          14/01/17
@@ -264,8 +266,6 @@
   14000            05 FS-TEMMTO        PIC XX.                                                                          20/02/20
   14100            05 FS-RY1RCA        PIC XX.                                                                          11/01/17
   14200            05 FS-RY1RCD        PIC XX.                                                                          11/01/17
-                   05 FS-VARIABLE1     PIC XX.
-                   05 FS-VARIABLE2     PIC XX.
   14300                                                                                                                 07/01/17
   14400        01  VARIABLES.                                                                                           19/12/16
   14500            05 FCURRENT.                                                                                         20/12/16
@@ -273,67 +273,62 @@
   14700               10 AMDHASTA-WS             PIC s9(06).                                                            20/12/16
   14800            05 FDESDE-CURRENT             PIC s9(08).                                                            20/12/16
   14900            05 FCURRENT-WS                PIC s9(08).                                                            20/12/16
-  *> 15000       *-- LOS RANGOS MENSUALES DE EJECUCIÓN                                                                     29/12/16
+  15000       *-- LOS RANGOS MENSUALES DE EJECUCIÓN                                                                     29/12/16
   15100            05 FDE                        PIC X(08).                                                             19/12/16
   15200            05 FHA                        PIC X(08).                                                             19/12/16
   15300            05 VIVMUE                     PIC X.                                                                 17/01/17
   15400            05 OKCTV                      PIC X.                                                                 18/01/17
   15500            05 ENTRA                      PIC X.                                                                 14/02/20
   15600            05 OKMONTO                    PIC S9(11)V99 COMP-3.                                                  20/02/20
-  15700            05 WCONDI                     PIC XX.      
-      *>           Indice                                                          30/01/17
+  15700            05 WCONDI                     PIC XX.                                                                30/01/17
   15800            05 INDICE                     PIC 9.                                                                 10/02/20
   15900            05 FINR09                     PIC 9.                                                                 17/02/17
-  16000            05 FIN                        PIC 9.                 
-      *>           Gastos totales                                                17/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    6
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+  16000            05 FIN                        PIC 9.                                                                 17/02/17
   16100            05 GASTOT                     PIC 9(11)V99 COMP-3.                                                   20/02/20
   16200            05 PAUMRU                     PIC 9(03)V99 COMP-3.                                                   20/02/20
-  *> 16300       *------ TOtal Provision inicial                                                                           20/02/20
+  16300       *------ TOtal Provision inicial                                                                           20/02/20
   16400            05 TOTAL1                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  *> 16500       *------ TOtal GasTOs Acumulados                                                                           20/02/20
+  16500       *------ TOtal GasTOs Acumulados                                                                           20/02/20
   16600            05 TOTAL2                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  *> 16700       *------ TOtal GasTOs Administrativos                                                                      20/02/20
+  16700       *------ TOtal GasTOs Administrativos                                                                      20/02/20
   16800            05 TOTAL3                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  *> 16900       *------ TOtal AumenTO Acumulado                                                                           20/02/20
+  16900       *------ TOtal AumenTO Acumulado                                                                           20/02/20
   17000            05 TOTAL4                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  *> 17100       *------ TOtal Provisiòn Ajustada                                                                          20/02/20
+  17100       *------ TOtal Provisiòn Ajustada                                                                          20/02/20
   17200            05 TOTAL5                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  *> 17300       *------ TOtal Saldo de la Provisiòn                                                                       20/02/20
+  17300       *------ TOtal Saldo de la Provisiòn                                                                       20/02/20
   17400            05 TOTAL6                     PIC 9(11)V99 COMP-3.                                                   20/02/20
-  *> 17500       *--                                                                                                       14/02/17
+  17500       *--                                                                                                       14/02/17
   17600            05 WFTOPEV                    PIC X(08).                                                             20/02/20
   17700            05 WFTOPEM                    PIC X(08).                                                             20/02/20
   17800            05 WFTOPE                     PIC X(08).                                                             20/02/20
   17900            05 WMESNUM                    PIC 99.                                                                09/01/17
-  18000            05 WMESESNUM                  PIC 9(2) COMP-3. 
-      *>         Año y mes de corrida                                                      20/02/20
+  18000            05 WMESESNUM                  PIC 9(2) COMP-3.                                                       20/02/20
   18100            05 WMESCORRIDA                PIC X(2).                                                              20/12/16
   18200            05 WANOCORRIDA                PIC X(4).                                                              20/02/17
   18300            05 WANOMESCORR.                                                                                      20/02/17
   18400               07 MESCORR                 PIC XX.                                                                20/02/17
   18500               07 FILLER                  PIC X VALUE "-".                                                       20/02/17
   18600               07 ANOCORR                 PIC XXXX.                                                              20/02/17
-  18700            05 WANOMESCORRIDA             PIC X(7). 
-      *>         Usuario                                                             20/02/17
+  18700            05 WANOMESCORRIDA             PIC X(7).                                                              20/02/17
   18800            05 WUSUARIO                   PIC X(10).                                                             20/12/16
   18900            05 CAS001                     PIC X(11).                                                             16/02/17
   19000            05 WCASDUP                    PIC X(11).                                                             16/02/17
-  *> 19100       *--     indicador de error 0 si está OK                                                                   12/01/17
+  19100       *--     indicador de error 0 si está OK                                                                   12/01/17
   19200            05 WFECHA                     PIC X(8).                                                              12/01/17
   19300            05 INDICA                     PIC X(1).                                                              12/01/17
   19400            05 WR20IN                     PIC X(1).                                                              04/02/17
   19500            05 WR54EF                     PIC X(1).                                                              04/02/17
   19600            05 WCASO                      PIC X(11).                                                             27/02/17
-  19700            05 NUEVO                      PIC X(1).  
-      *>         Condiciones                                                             20/02/17
+  19700            05 NUEVO                      PIC X(1).                                                              20/02/17
   19800            05 TIPCOR                     PIC X(1)   VALUE "M".                                                  20/02/17
   19900            05 CONDIC                     PIC X      VALUE "V".                                                  20/02/17
   20000            05 TIPPRO                     PIC X      VALUE "1".                                                  20/02/17
   20100            05 ACERRAR                    PIC X      VALUE " ".                                                  28/02/17
-
-               01  POLUNITST.
-                   05 LOC-UT  PIC X(2) VALUE ='01'.
-                   05 MCO-UT  PIC X(2) VALUE ='01',
   20200                                                                                                                 19/12/16
   20300        01  WFCASOSW.                                                                                            19/12/16
   20400            05 WTEMC45       PIC X(11).                                                                          19/12/16
@@ -345,6 +340,10 @@
   21000            05 WMESVIV       PIC S9(02) COMP-3.                                                                  20/02/20
   21100            05 WACTUAL       PIC X(08).                                                                          20/12/16
   21200            05 WUSERAC       PIC X(10).                                                                          20/12/16
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    7
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   21300            05 WCORRID       PIC X(08).                                                                          20/12/16
   21400            05 WFCALCU       PIC X(08).                                                                          04/01/17
   21500            05 WMESPRO       PIC X(02).                                                                          20/12/16
@@ -398,6 +397,10 @@
   24222                     INTO                                                                                        20/02/20
   24223                         :FE3-WS                                                                                 20/01/20
   24224                        ,:F06-WS                                                                                 20/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    8
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   24225                        ,:F08-WS                                                                                 20/01/20
   24226                        ,:ANO-WS                                                                                 20/01/20
   24227                        ,:MES-WS                                                                                 20/01/20
@@ -451,6 +454,10 @@
   24301                     ,:SALDORCD                                                                                  23/07/20
   24302                     ,:SALJUDIC-WS)                                                                              14/08/20
   24303            END-EXEC                                                                                             20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.    9
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   24304            MOVE WFHASTACORR  TO WFDESDECORR.                                                                    20/02/20
   24400            MOVE "01"         TO WFDESDECORR(7:2).                                                               20/02/20
   24700       *                                                                                                         20/12/16
@@ -474,8 +481,6 @@
   26200            PERFORM A010-PROCESO.                                                                                12/12/16
   26300                                                                                                                 26/11/16
   26400        A010-PROCESO.                                                                                            12/12/16
-
-      *>         SE LIMPIAN TABLAS DE CONTROL DE VARIABLES DEL PROCESO 
   26411            EXEC SQL                                                                                             05/02/20
   26412                DELETE FROM RY1CIF                                                                               30/01/20
   26413                WHERE RY1FEC = :WFHASTACORR                                                                      30/01/20
@@ -485,9 +490,7 @@
   26417            END-EXEC                                                                                             20/02/20
   26426            EXEC SQL                                                                                             10/07/19
   26427                DELETE FROM RY1ACT                                                                               10/07/19
-  26428            END-EXEC   
-  
-      *>         Se agrega a la tabla de control la fecha hasta para controlar el rango de ejecucion del proceso 
+  26428            END-EXEC                                                                                             20/02/20
   26429            EXEC SQL                                                                                             10/07/19
   26430                INSERT INTO RY1ACT                                                                               20/02/20
   26431                VALUES                                                                                           10/07/19
@@ -497,7 +500,6 @@
   26435             COMMIT                                                                                              29/01/20
   26436            END-EXEC                                                                                             20/02/20
   26500       *...... ACTUALIZA EL ESTADO DEL SIMA A RT MASIVAMENTE .....*                                              20/02/17
-      *>         Variables de spool?
   26501            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   26502            MOVE "INICIA RY1PBRCS" TO MENSAJE                                                                    20/02/20
   26503            PERFORM GRABA-BITACORA                                                                               06/02/20
@@ -509,6 +511,10 @@
   26800            EXEC SQL                                                                                             28/02/17
   26900                 DECLARE CPARAM CURSOR FOR                                                                       27/02/17
   27000                 SELECT                                                                                          27/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   10
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   27100                        CAST(ANOSRE AS NUMERIC(2)) ANOSRE,                                                       27/02/17
   27200                        CAST(RY1MDF AS NUMERIC(2)) RY1MDF,                                                       27/02/17
   27300                        CAST(RY1MER AS NUMERIC(2)) RY1MER,                                                       27/02/17
@@ -523,14 +529,12 @@
   28200                 FETCH NEXT FROM CPARAM INTO                                                                     20/02/20
   28300                       :WANORES, :WMESDEF, :WMESVIV, :WACTUAL,                                                   27/02/17
   28400                       :WUSERAC, :WCORRID, :WFCALCU, :WMESPRO, :WANOPRO                                          27/02/17
-  28500            END-EXEC.  
-  
-                 
-  *> 28600       *==================================================                                                       09/01/17
-  *> 28700       * Obtiene los meses de gracias vivo y muerTOs para efecTOs de                                             20/02/20
-  *> 28800       * cerrar o no un caso. De momenTO están 2 meses vivos y 4 muerTO                                          20/02/20
-  *> 28900       * Resta n cantidad e meses a la fecha de corrida.                                                         21/02/17
-  *> 29000       *--> Resta Meses a una Fecha y obtiene nueva fecha                                                        21/02/17
+  28500            END-EXEC.                                                                                            20/02/20
+  28600       *==================================================                                                       09/01/17
+  28700       * Obtiene los meses de gracias vivo y muerTOs para efecTOs de                                             20/02/20
+  28800       * cerrar o no un caso. De momenTO están 2 meses vivos y 4 muerTO                                          20/02/20
+  28900       * Resta n cantidad e meses a la fecha de corrida.                                                         21/02/17
+  29000       *--> Resta Meses a una Fecha y obtiene nueva fecha                                                        21/02/17
   29001            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   29002            MOVE "INICIA RY1FTOPE" TO MENSAJE                                                                    20/02/20
   29003            PERFORM GRABA-BITACORA                                                                               06/02/20
@@ -538,12 +542,22 @@
   29101            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   29102            MOVE "FIN RY1FTOPE"    TO MENSAJE                                                                    20/02/20
   29103            PERFORM GRABA-BITACORA                                                                               06/02/20
-
+  29200       *==================================================                                                       09/01/17
+  29300       *ACT - F.ACTUAL, USUARIO, F.CORRIDA, FCALCUL, MES.PROC, ANO.PROC.                                         20/12/16
+  29400            EXEC SQL                                                                                             27/02/17
+  29500                 UPDATE RY1PVH                                                                                   27/02/17
+  29600                 SET  RY1FE3 = :FCURRENT-WS,                                                                     27/02/17
+  29700                      RY1US4 = :WUSUARIO,                                                                        27/02/17
+  29800                      RY1F06 = :FCURRENT-WS,                                                                     27/02/17
+  29900                      RY1F08 = :WFHASTACORR,                                                                     27/02/17
+  30000                      RY1ME1 = :WMESCORRIDA,                                                                     27/02/17
+  30100                      RY1ANO = :WANOCORRIDA                                                                      27/02/17
+  30200                 WHERE RY1FPR = "20160101"                                                                       27/02/17
   30300            END-EXEC.                                                                                            20/02/20
   30400            EXEC SQL                                                                                             27/02/17
   30500                 CLOSE CPARAM                                                                                    27/02/17
   30600            END-EXEC.                                                                                            20/02/20
-  *> 30700       * QUERY PARA OBTENER RY1VGR, VALORES GENERALES DE RESERVA ACTUAL                                          19/02/17
+  30700       * QUERY PARA OBTENER RY1VGR, VALORES GENERALES DE RESERVA ACTUAL                                          19/02/17
   30800            EXEC SQL                                                                                             27/02/17
   30900                 DECLARE CPARVGR CURSOR FOR                                                                      27/02/17
   31000                 SELECT RY1FE6, RY1FE7, RY1ITM, RY1PAT,                                                          27/02/17
@@ -554,7 +568,12 @@
   31500                 WHERE RY1FE6 <= :WFHASTACORR  AND                                                               27/02/17
   31600                       RY1FE7 >= :WFHASTACORR                                                                    27/02/17
   31700            END-EXEC.                                                                                            20/02/20
-  31800                                                                                             27/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   11
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+  31800            EXEC SQL                                                                                             27/02/17
+  31900                 OPEN CPARVGR                                                                                    27/02/17
   32000            END-EXEC.                                                                                            20/02/20
   32100            EXEC SQL                                                                                             27/02/17
   32200                 FETCH NEXT FROM CPARVGR INTO                                                                    20/02/20
@@ -563,10 +582,10 @@
   32500                       :RY1IXM, :RY1PIM, :RY1CA1, :RY1CSA,                                                       27/02/17
   32600                       :RY1PO3, :RY1FE9, :RY1F01, :RY1US2                                                        27/02/17
   32700            END-EXEC.                                                                                            20/02/20
-  *> 32800       *=======================================================*                                                 20/02/17
-  *> 32900       *=======================================================*                                                 20/02/17
-  *> 33000       * LIMPIA LOS ARCHIVOS DE TRABAJO y LOS ARCHIVOS DESTINO *                                                 20/02/17
-  *> 33100       *=======================================================*                                                 20/02/17
+  32800       *=======================================================*                                                 20/02/17
+  32900       *=======================================================*                                                 20/02/17
+  33000       * LIMPIA LOS ARCHIVOS DE TRABAJO y LOS ARCHIVOS DESTINO *                                                 20/02/17
+  33100       *=======================================================*                                                 20/02/17
   33101            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   33102            MOVE "INICIO LIMPIANDO ARCHIVOS" TO MENSAJE                                                          20/02/20
   33103            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -575,19 +594,43 @@
   33400                 WHERE  SUBSTRING(RY1FMR, 1, 4) = :WANOCORRIDA                                                   28/02/17
   33500                 AND    SUBSTRING(RY1FMR, 5, 2) = :WMESCORRIDA                                                   28/02/17
   33600            END-EXEC.                                                                                            20/02/20
-  *> 33700       *                                                                                                         28/02/17
-  33800            EXEC SQL                                                                                              28/02/17
+  33700       *                                                                                                         28/02/17
+  33800            EXEC SQL                                                                                             28/02/17
   33900                 DELETE FROM RY1RCD                                                                              28/02/17
   34000                 WHERE  SUBSTRING(RY1F03, 1, 4) = :WANOCORRIDA                                                   28/02/17
   34100                 AND    SUBSTRING(RY1F03, 5, 2) = :WMESCORRIDA                                                   28/02/17
   34200            END-EXEC.                                                                                            20/02/20
-  *> 34300       *                                                                                                         28/02/17
+  34300       *                                                                                                         28/02/17
   34400            EXEC SQL                                                                                             28/02/17
   34500                 DELETE FROM RY1HVR                                                                              28/02/17
   34600                 WHERE  RY1AOD = :WANOCORRIDA                                                                    28/02/17
   34700                 AND    RY1MES = :WMESCORRIDA                                                                    28/02/17
   34800            END-EXEC.                                                                                            20/02/20
-  34900                                                                                                      20/02/20
+  34900            EXEC SQL                                                                                             28/02/17
+  35000                 DELETE FROM RY2HVR                                                                              28/02/17
+  35100            END-EXEC.                                                                                            20/02/20
+  35200            EXEC SQL                                                                                             28/02/17
+  35300                 DELETE FROM RY1DUP                                                                              28/02/17
+  35400            END-EXEC.                                                                                            20/02/20
+  35500            EXEC SQL                                                                                             28/02/17
+  35600                 DELETE FROM FECINIRES1                                                                          28/02/17
+  35700            END-EXEC.                                                                                            20/02/20
+  35800            EXEC SQL                                                                                             28/02/17
+  35900                 DELETE FROM FECINIRES                                                                           28/02/17
+  36000            END-EXEC.                                                                                            20/02/20
+  36100            EXEC SQL                                                                                             28/02/17
+  36200                 DELETE FROM TEMFMX                                                                              28/02/17
+  36300            END-EXEC.                                                                                            20/02/20
+  36400            EXEC SQL                                                                                             28/02/17
+  36500                 DELETE FROM TEMFMX1                                                                             28/02/17
+  36600            END-EXEC.                                                                                            20/02/20
+  36700            EXEC SQL                                                                                             28/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   12
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
+  36800                 DELETE FROM TEMFMXX                                                                             28/02/17
+  36900            END-EXEC.                                                                                            20/02/20
   37000            EXEC SQL                                                                                             28/02/17
   37100                 DELETE FROM TEMMTO                                                                              20/02/20
   37200            END-EXEC.                                                                                            20/02/20
@@ -602,23 +645,30 @@
   38001            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   38002            MOVE "FIN LIMPIANDO ARCHIVOS" TO MENSAJE                                                             20/02/20
   38003            PERFORM GRABA-BITACORA                                                                               21/01/20
-  *> 38100       *=======================================================*                                                 20/02/17
-  *> 38200       *=======================================================*                                                 20/02/17
-  *> 38300       *----------------------------                                                                             08/01/17
-  *> 38400       * QUERY PARA OBTENER LOS CASOS DUPLICADOS DIFERENTE AGENCIA                                               05/03/20
-  *> 38500       * ESTOS SE EXCLUIRAN DE PROCESO                                                                           20/02/20
+  38100       *=======================================================*                                                 20/02/17
+  38200       *=======================================================*                                                 20/02/17
+  38300       *----------------------------                                                                             08/01/17
+  38400       * QUERY PARA OBTENER LOS CASOS DUPLICADOS DIFERENTE AGENCIA                                               05/03/20
+  38500       * ESTOS SE EXCLUIRAN DE PROCESO                                                                           20/02/20
   38501            MOVE SPACES               TO MENSAJE                                                                 20/02/20
   38502            MOVE "OBTIENE DUPLICADOS" TO MENSAJE                                                                 20/02/20
   38503            PERFORM GRABA-BITACORA                                                                               21/01/20
-  38600                                                                                                      20/02/20
+  38600            EXEC SQL                                                                                             28/02/17
+  38700                 INSERT INTO RY1DUP                                                                              20/02/20
+  38800                 SELECT R09CAS CASNU7, COUNT(1) CASCAN                                                           20/02/20
+  38900                 FROM R09MAE                                                                                     20/02/20
+  39000                 WHERE R09POL <> "NEMAGON"                                                                       09/04/19
+  39100                 GROUP BY R09CAS                                                                                 28/02/17
+  39200                 HAVING COUNT(1) > 1                                                                             20/02/20
+  39300            END-EXEC.                                                                                            20/02/20
   39301            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   39302            MOVE "FIN OBTIENE DUPLICADOS" TO MENSAJE                                                             20/02/20
   39303            PERFORM GRABA-BITACORA                                                                               21/01/20
-  *> 39400       *----------------------------                                                                             08/01/17
-  *> 39500       * QUERY PARA DETERMINAR FECXXX QUE SERÁ LA DE PIVOTE PARA                                                 19/12/16
-  *> 39600       * REVISAR FECHA DE PAGO > QUE ÉSTA                                                                        19/12/16
-  *> 39700       * SELECCIONA ENTRE LA FECHA DE ACCIDENTE O LA FECHA DE AVISO                                              19/12/16
-  *> 39800       * MÁXIMA SI EXISTE EN CASO NO AMPARADO                                                                    19/12/16
+  39400       *----------------------------                                                                             08/01/17
+  39500       * QUERY PARA DETERMINAR FECXXX QUE SERÁ LA DE PIVOTE PARA                                                 19/12/16
+  39600       * REVISAR FECHA DE PAGO > QUE ÉSTA                                                                        19/12/16
+  39700       * SELECCIONA ENTRE LA FECHA DE ACCIDENTE O LA FECHA DE AVISO                                              19/12/16
+  39800       * MÁXIMA SI EXISTE EN CASO NO AMPARADO                                                                    19/12/16
   39801            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   39802            MOVE "OBTENIENDO FECHAS MAXIMAS" TO MENSAJE                                                          20/02/20
   39803            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -632,6 +682,10 @@
   40600            EXEC SQL                                                                                             28/02/17
   40700                INSERT INTO FECINIRES                                                                            20/02/20
   40800                SELECT  DISTINCT(C.R09CAS) NUMCAS,                                                               20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   13
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   40900                        CASE WHEN FECMAX59 > R09FEC                                                              28/02/17
   41000                             THEN FECMAX59                                                                       28/02/17
   41100                        ELSE R09FEC                                                                              28/02/17
@@ -643,14 +697,13 @@
   41700            END-EXEC.                                                                                            20/02/20
   41800            EXEC SQL                                                                                             28/02/17
   41900                DELETE FROM FECINIRES WHERE FECXXX = " "                                                         28/02/17
-  42000            END-EXEC.                                      
-      *>         Fin de proceso de obtención de fechas maximas                                                      20/02/20
+  42000            END-EXEC.                                                                                            20/02/20
   42001            MOVE SPACES                          TO MENSAJE                                                      20/02/20
   42002            MOVE "FIN OBTENIENDO FECHAS MAXIMAS" TO MENSAJE                                                      20/02/20
   42003            PERFORM GRABA-BITACORA                                                                               21/01/20
-  *> 42100       *===================V006==========================                                                        09/04/19
-  *> 42200       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
-  *> 42300       * 'NEMAGON'                                                                                               09/04/19
+  42100       *===================V006==========================                                                        09/04/19
+  42200       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
+  42300       * 'NEMAGON'                                                                                               09/04/19
   42400            EXEC SQL                                                                                             09/04/19
   42500                DELETE FROM FECINIRES WHERE                                                                      05/03/20
   42501                EXISTS                                                                                           05/03/20
@@ -658,11 +711,11 @@
   42700                 WHERE R09CAS = NUMCAS                                                                           05/03/20
   42701                 AND   R09POL = "NEMAGON")                                                                       05/03/20
   42800            END-EXEC                                                                                             20/02/20
-  *> 42900       *===================V006==========================                                                        09/04/19
+  42900       *===================V006==========================                                                        09/04/19
   42901            MOVE SPACES                            TO MENSAJE                                                    20/02/20
   42902            MOVE "INICIA GRABA TEMFMXX TEMPORALES" TO MENSAJE                                                    20/02/20
   42903            PERFORM GRABA-BITACORA                                                                               21/01/20
-  *> 43000       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              29/12/16
+  43000       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              29/12/16
   43001               EXEC SQL                                                                                          05/03/20
   43002               INSERT INTO TEMFMXX                                                                               05/03/20
   43003               WITH                                                                                              05/03/20
@@ -685,7 +738,11 @@
   43022                 GROUP BY R14CAS)                                                                                05/03/20
   43023               ,FMAXPERMH AS                                                                                     05/03/20
   43024               (SELECT  DISTINCT "IP",  R14CAS, MAX(R14FRC) FECMAX                                               05/03/20
-  43025                FROM (R09MAE59 C INNER JOIN R14DET70 ON C.R09CAS =                                               05/03/20 
+  43025                FROM (R09MAE59 C INNER JOIN R14DET70 ON C.R09CAS =                                               05/03/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   14
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   43026               R14CAS                                                                                            05/03/20
   43027                INNER JOIN R68DET51 ON R14CAS = R68CAS AND R14REC =                                              05/03/20
   43028               R68REC)                                                                                           05/03/20
@@ -739,6 +796,10 @@
   43077                                    WHERE C.R09CAS = CASNU7) AND                                                 05/03/20
   43078                   R09FEC <> " " AND R09FEC BETWEEN :FDE AND :FHA                                                05/03/20
   43080                   AND R09ACE NOT IN("30", "31", "32") AND                                                       05/03/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   15
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   43081                   R14FRC <> " " AND R14FRC <> :WFHASTACORR                                                      05/03/20
   43082                   AND R14EST <> "2" AND R68PAG = "903"                                                          05/03/20
   43083                   GROUP BY R14CAS)                                                                              05/03/20
@@ -779,24 +840,25 @@
   43122                UNION                                                                                            05/03/20
   43123                SELECT * FROM FMAXINDH                                                                           05/03/20
   43124            END-EXEC.                                                                                            05/03/20
-  *> 43125       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              05/03/20
-  *> 43126       *                                                                                                         05/03/20
+  43125       *-- %%%%%%%%%%%%%%%%%%%%%%%%                                                                              05/03/20
+  43126       *                                                                                                         05/03/20
   55600            EXEC SQL                                                                                             28/02/17
   55700                DELETE FROM TEMFMXX WHERE TEMMAX = " "                                                           28/02/17
   55800            END-EXEC.                                                                                            20/02/20
-  *> 55900       *                                                                                                         27/02/17
-  *> 56000       *==================V006===========================================                                        09/04/19
-  *> 56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                          
-  
-              
-  *> 56200       * 'NEMAGON'                                                                                               09/04/19
+  55900       *                                                                                                         27/02/17
+  56000       *==================V006===========================================                                        09/04/19
+  56100       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
+  56200       * 'NEMAGON'                                                                                               09/04/19
   56300            EXEC SQL                                                                                             09/04/19
   56400                DELETE FROM TEMFMXX WHERE TEMC45 IN                                                              09/04/19
   56500                (SELECT R09CAS FROM R09MAE                                                                       09/04/19
   56600                WHERE R09POL = "NEMAGON")                                                                        09/04/19
-
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   16
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   56700            END-EXEC                                                                                             20/02/20
-  *> 56800       *==================V006==========================================                                         09/04/19
+  56800       *==================V006==========================================                                         09/04/19
   56900            EXEC SQL                                                                                             09/04/19
   57000                 INSERT INTO TEMFMX                                                                              20/02/20
   57100                 SELECT DISTINCT TEMRUB, TEMC45, MAX(TEMMAX) FecMax                                              28/02/17
@@ -810,10 +872,10 @@
   57900                 FROM TEMFMX                                                                                     28/02/17
   58000                 GROUP BY TEMC45                                                                                 28/02/17
   58100            END-EXEC.                                                                                            20/02/20
-  *> 58200       *=========================================================*                                               08/01/17
-  *> 58300       *-- QUERYS PARA OBTENER LOS PAGOS REALIZADOS POR RUBRO EN UN                                              08/01/17
-  *> 58400       *-- PERIODO DADO DE INICIO A FIN DE MES                                                                   19/12/16
-  *> 58500       ** ==> ARCHIVO PAGOS INCAPACIDAD TEMPORAL                                                                 12/01/17
+  58200       *=========================================================*                                               08/01/17
+  58300       *-- QUERYS PARA OBTENER LOS PAGOS REALIZADOS POR RUBRO EN UN                                              08/01/17
+  58400       *-- PERIODO DADO DE INICIO A FIN DE MES                                                                   19/12/16
+  58500       ** ==> ARCHIVO PAGOS INCAPACIDAD TEMPORAL                                                                 12/01/17
   58501            MOVE SPACES                   TO MENSAJE                                                             20/02/20
   58502            MOVE "GRABANDO TEMMTO TEMPOR" TO MENSAJE                                                             20/02/20
   58503            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -848,6 +910,10 @@
   58533                 R20EFI IN("1", "2", "3") AND                                                                    05/03/20
   58534                 R58FEC >= :WFDESDECORR AND R58FEC <= :WFHASTACORR                                               05/03/20
   58535                 GROUP BY R33CAS  )                                                                              05/03/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   17
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   58536                ,PAGOSCTAH AS                                                                                    05/03/20
   58537                  (SELECT "CM" TEMRBR, R14CAS TEMC47, " " TEMFEP,                                                05/03/20
   58538                   SUM(R68MNT) TEMMNT                                                                            05/03/20
@@ -888,14 +954,27 @@
   58573                SELECT * FROM PAGOSCTA                                                                           05/03/20
   58574                UNION                                                                                            05/03/20
   58575                SELECT * FROM PAGOSINDM                                                                          05/03/20
-  58577            END-EXEC.                 
+  58577            END-EXEC.                                                                                            05/03/20
+  69700       *==================V006===========================================                                        09/04/19
+  69800       * SQL PARA ELIMINAR CASOS ASOCIADOS A LA POLIZA                                                           09/04/19
+  69900       * 'NEMAGON'                                                                                               09/04/19
+  70000            EXEC SQL                                                                                             09/04/19
+  70100                DELETE FROM TEMMTO WHERE TEMC47 IN                                                               20/02/20
+  70200                (SELECT R09CAS FROM R09MAE                                                                       09/04/19
+  70300                WHERE R09POL = "NEMAGON")                                                                        09/04/19
+  70400            END-EXEC                                                                                             20/02/20
+  70500       *==================V006==========================================                                         09/04/19
   70600                                                                                                                 09/04/19
   70700            EXEC SQL                                                                                             28/02/17
   70800                 COMMIT                                                                                          28/02/17
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   18
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   70900            END-EXEC.                                                                                            20/02/20
-  *> 71000       * /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ *                                           03/01/17
-  *> 71100       * | EJECUCIÓN DE CIERRE Y ACUMULACIÓN DE PAGOS, PROVICIONES | *                                           29/12/16
-  *> 71200       * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\////////////////////////////// *                                           03/01/17
+  71000       * /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ *                                           03/01/17
+  71100       * | EJECUCIÓN DE CIERRE Y ACUMULACIÓN DE PAGOS, PROVICIONES | *                                           29/12/16
+  71200       * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\////////////////////////////// *                                           03/01/17
   71202            MOVE SPACES                        TO MENSAJE                                                        20/02/20
   71203            MOVE "OBTENIENDO CASOS A ESTUDIAR" TO MENSAJE                                                        20/02/20
   71204            PERFORM GRABA-BITACORA                                                                               21/01/20
@@ -945,6 +1024,10 @@
   71292                          CASOSDLN-WS                                                                            06/02/20
   71293                          CASOSDLC-WS                                                                            06/02/20
   71294                          CASOSDPL-WS                                                                            06/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   19
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   71295            EXEC SQL                                                                                             30/01/20
   71296                 SELECT COUNT(*) INTO :CASOSCAN-WS                                                               20/02/20
   71297                 FROM CASTEM                                                                                     30/01/20
@@ -963,7 +1046,6 @@
   72301            MOVE "N" TO SALIR-R09                                                                                20/02/20
   72302            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   72303            MOVE "A PUNTO DE RECORRER CASOS" TO MENSAJE                                                          20/02/20
-      *>             Graba en bitácora que va a iniciar la ejecución
   72304            PERFORM GRABA-BITACORA                                                                               21/01/20
   72305            PERFORM B010-PROCESA-CADA-CASO UNTIL SALIR-R09 = "S"                                                 20/01/20
   72306            MOVE SPACES                          TO MENSAJE                                                      20/02/20
@@ -971,11 +1053,7 @@
   72308            PERFORM GRABA-BITACORA                                                                               12/02/20
   72309            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   72310            MOVE "INICIA GRABA CIFRAS DE CONTROL" TO MENSAJE                                                     20/02/20
-
-      *>             Graba en bitácora 
   72311            PERFORM GRABA-BITACORA                                                                               12/02/20
-
-      *>             Realiza conteo de casos cerrados para la ejecución 
   72312            EXEC SQL                                                                                             12/02/20
   72313                  SELECT COUNT(*) INTO :CERRADOS-WS                                                              20/02/20
   72314                  FROM BITREC                                                                                    12/02/20
@@ -983,7 +1061,6 @@
   72316                  AND BITEFI = "C"                                                                               12/02/20
   72317                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72318            END-EXEC                                                                                             20/02/20
-      *>             Realiza conteo de casos abiertos para la ejecución
   72319            EXEC SQL                                                                                             12/02/20
   72320                  SELECT COUNT(*) INTO :ABIERTOS-WS                                                              20/02/20
   72321                  FROM BITREC                                                                                    12/02/20
@@ -991,10 +1068,6 @@
   72323                  AND BITEFI = "A"                                                                               12/02/20
   72324                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72325            END-EXEC                                                                                             20/02/20
-                       
-
-      *>             Realiza conteo de casos ALC
-
   72326            EXEC SQL                                                                                             12/02/20
   72327                  SELECT COUNT(*) INTO :CASOSALC-WS                                                              20/02/20
   72328                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1003,17 +1076,18 @@
   72331                  AND   BITCO1 = "LC"                                                                            12/02/20
   72332                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72333            END-EXEC                                                                                             20/02/20
-      *>             Realiza conteo de casos ALN
   72334            EXEC SQL                                                                                             12/02/20
   72335                  SELECT COUNT(*) INTO :CASOSALN-WS                                                              20/02/20
   72336                  FROM RY1RCA, BITREC                                                                            12/02/20
   72337                  WHERE RY1CAS = BITCA2                                                                          12/02/20
   72338                  AND   RY1FMR = BITFE9                                                                          12/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   20
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   72339                  AND   BITCO1 = "LN"                                                                            12/02/20
   72340                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72341            END-EXEC                                                                                             20/02/20
-
-      *>             Realiza conteo de casos Aplicados
   72342            EXEC SQL                                                                                             12/02/20
   72343                  SELECT COUNT(*) INTO :CASOSAPL-WS                                                              20/02/20
   72344                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1021,8 +1095,7 @@
   72346                  AND   RY1FMR = BITFE9                                                                          12/02/20
   72347                  AND   BITCO1 = "PL"                                                                            12/02/20
   72348                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
-  72349            END-EXEC                                                                                             20/02/
-      *>             Realiza conteo de casos declinados       
+  72349            END-EXEC                                                                                             20/02/20
   72350            EXEC SQL                                                                                             12/02/20
   72351                  SELECT COUNT(*) INTO :CASOSDLC-WS                                                              20/02/20
   72352                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1031,7 +1104,6 @@
   72355                  AND   BITCFI = "LC"                                                                            12/02/20
   72356                  AND BITFE9 = :WFHASTACORR                                                                      20/02/20
   72357            END-EXEC                                                                                             20/02/20
-
   72358            EXEC SQL                                                                                             12/02/20
   72359                  SELECT COUNT(*) INTO :CASOSDLN-WS                                                              20/02/20
   72360                  FROM RY1RCA, BITREC                                                                            12/02/20
@@ -1050,8 +1122,6 @@
   72373            END-EXEC                                                                                             20/02/20
   72374            MOVE ZEROS TO TOTALPRO-WS TOTALGAS-WS                                                                20/02/20
   72375                          TOTALPAJ-WS TOTALSAL-WS                                                                20/02/20
-
-      *>             Inserta en la tabla de control los valores recolectados en los counts anteriores
   72376            EXEC SQL                                                                                             30/01/20
   72377                  INSERT INTO RY1CIF VALUES                                                                      20/02/20
   72378                  (:RY1FEC-WS                                                                                    30/01/20
@@ -1068,10 +1138,13 @@
   72389                  ,:CASOSDPL-WS                                                                                  06/02/20
   72390                  ,:TOTALPRO-WS                                                                                  20/02/20
   72391                  ,:TOTALPAJ-WS                                                                                  20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   21
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   72392                  ,:TOTALGAS-WS                                                                                  20/02/20
   72393                  ,:TOTALSAL-WS  )                                                                               20/02/20
   72394            END-EXEC                                                                                             20/02/20
-      *>             limpia y setea variables para ver en spool, graba en bitacora y cierra archivos
   72395            MOVE SPACES                      TO MENSAJE                                                          20/02/20
   72396            MOVE "FIN GRABA CIFRAS DE CONTROL" TO MENSAJE                                                        20/02/20
   72397            PERFORM GRABA-BITACORA                                                                               12/02/20
@@ -1079,8 +1152,6 @@
   72402            EXEC SQL                                                                                             20/01/20
   72403                 CLOSE CSELCASOS                                                                                 20/01/20
   72404            END-EXEC                                                                                             20/02/20
-
-      *>             Revisa los files status y finaliza el proceso con normalidad
   72500            PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT.                                                     11/01/17
   72600            DISPLAY                                                                                              28/02/17
   72700            "._______________________________________." UPON CONSOLE                                             28/02/17
@@ -1088,7 +1159,7 @@
   72900            "| R09RY1RCA - | Fin Normal del Programa |" UPON CONSOLE                                             28/02/17
   73000            DISPLAY                                                                                              28/02/17
   73100            "|_______________________________________|" UPON CONSOLE                                             28/02/17
-  *> 73200       *                                                                                                         01/03/17
+  73200       *                                                                                                         01/03/17
   73201            MOVE SPACES                           TO MENSAJE                                                     20/02/20
   73202            MOVE "INICIANDO GENERACION DE RY1HVR" TO MENSAJE                                                     20/02/20
   73203            PERFORM GRABA-BITACORA                                                                               05/02/20
@@ -1100,7 +1171,6 @@
   73305            MOVE SPACES                          TO MENSAJE                                                      05/02/21
   73306            MOVE "FINALIZA GENERACION DE RY2HVR" TO MENSAJE                                                      05/02/21
   73307            PERFORM GRABA-BITACORA                                                                               05/02/21
-      *>         Fin normal del programA
   73400            DISPLAY                                                                                              01/03/17
   73500            "._______________________________________." UPON CONSOLE                                             01/03/17
   73600            DISPLAY                                                                                              01/03/17
@@ -1125,13 +1195,16 @@
   73916                 COMMIT                                                                                          30/01/20
   73917            END-EXEC                                                                                             20/02/20
   74200            STOP RUN.                                                                                            20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   22
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   74300        A010-PROCESO-EXIT.                                                                                       16/02/17
   74400             EXIT.                                                                                               16/02/17
   74500                                                                                                                 10/01/17
   74600        B010-PROCESA-CADA-CASO.                                                                                  30/01/17
   75100            PERFORM VALIDA-FEC-ACC                                                                               05/02/20
-  75101            PERFORM VALIDA-DUPLICADOS                                                                            
-      *>             El caso tiene una fecha valida y no está duplicado
+  75101            PERFORM VALIDA-DUPLICADOS                                                                            05/02/20
   77100            IF FECHAVALIDA IS EQUAL "S" AND                                                                      05/02/20
   77200               DUPLICADO IS EQUAL "N" THEN                                                                       05/02/20
   77202                  PERFORM PROCESA-CASO                                                                           05/02/20
@@ -1162,7 +1235,6 @@
   79011            END-IF.                                                                                              20/02/20
   79038        END-PROCESA-CASO.                                                                                        20/02/20
   79039                                                                                                                 05/02/20
-      *>         Actualizacion de bitácora 
   79040        ACTUALIZA-BITREC.                                                                                        05/02/20
   79041            ADD 1 TO CASOSTOM-WS                                                                                 20/02/20
   79056            IF R09CTV-WS IS EQUAL "S" THEN                                                                       05/02/20
@@ -1175,8 +1247,15 @@
   79063                         ADD 1 TO CASOSDLN-WS                                                                    20/02/20
   79064            WHEN "PL"                                                                                            06/02/20
   79065                         ADD 1 TO CASOSDPL-WS                                                                    20/02/20
-  79066            END-EVALUATE                                                                                         20/02/2
-      *>             EVALUA SI EL CASO DEBE ENTRAR EN EL PROCESO DE ACTUALIZACION DE BITACORA
+  79066            END-EVALUATE                                                                                         20/02/20
+  79067 RLM   *    IF NOT ((WCASO NOT EQUAL SPACES AND R09ESR-WS  = 'A') OR                                             20/02/20
+  79068 RLM   *            (WCASO NOT EQUAL SPACES AND ACERRAR    = 'S')) THEN                                          20/02/20
+  79069 RLM   *        MOVE "N" TO ENTRA                                                                                20/02/20
+  79070 RLM   *    END-IF                                                                                               20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   23
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   79071            IF ENTRA IS EQUAL "S" THEN                                                                           14/02/20
   79072                 MOVE "N" TO VARERR                                                                              20/02/20
   79073            ELSE                                                                                                 12/02/20
@@ -1202,13 +1281,12 @@
   79093                          TOTALGAS-WS TOTALSAL-WS                                                                24/02/20
   79099        END-ACTUALIZA-BITREC.                                                                                    20/02/20
   79100                                                                                                                 05/02/20
-      *>         Valida la fecha actual
   79101        VALIDA-FEC-ACC.                                                                                          05/02/20
-  *> 79102       *---- RUTINAS PARA VERIFICAR LA FECHA DE ACCIDENTE                                                        05/02/20
+  79102       *---- RUTINAS PARA VERIFICAR LA FECHA DE ACCIDENTE                                                        05/02/20
   79103             MOVE R09FEC-WS TO WFECHA                                                                            20/02/20
-  *> 79104       *---- QDESFEC - Desinvierte DDMMAAAA                                                                      05/02/20
+  79104       *---- QDESFEC - Desinvierte DDMMAAAA                                                                      05/02/20
   79105             CALL "F009SNAP" USING WFECHA.                                                                       05/02/20
-  *> 79106       *---- QVALFEC - Valida la fecha                                                                           05/02/20
+  79106       *---- QVALFEC - Valida la fecha                                                                           05/02/20
   79107             CALL "F007SNAP" USING WFECHA INDICA.                                                                05/02/20
   79108              IF R09FEC-WS >= FDE AND R09FEC-WS <= WFHASTACORR AND                                               05/02/20
   79109                INDICA = "0" THEN                                                                                05/02/20
@@ -1217,10 +1295,9 @@
   79112                  MOVE "N" TO FECHAVALIDA                                                                        20/02/20
   79113              END-IF.                                                                                            20/02/20
   79114        END-VALIDA-FEC-ACC.                                                                                      20/02/20
-  79115           
-      *>         Validación de duplicados
+  79115                                                                                                                 05/02/20
   79116        VALIDA-DUPLICADOS.                                                                                       05/02/20
-  *> 79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
+  79117       *- REVISAR CASOS DUPLICADOS Y EXCLUIRLOS USAR RY1DUP                                                      05/02/20
   79118            MOVE "S"       TO DUPLICADO                                                                          20/02/20
   79119            MOVE R09CAS-WS TO CAS001.                                                                            20/02/20
   79120            MOVE SPACES TO WCASDUP.                                                                              20/02/20
@@ -1232,9 +1309,12 @@
   79126            IF WCASDUP IS EQUAL SPACES THEN                                                                      20/02/20
   79127                 MOVE "N" TO DUPLICADO                                                                           20/02/20
   79128            END-IF.                                                                                              20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   24
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   79129        END-VALIDA-DUPLICADOS.                                                                                   20/02/20
-
-      *>         Lee siguiente caso para procesar
+  79143                                                                                                                 05/02/20
   79144        LEE-SIGUIENTE-CASO.                                                                                      05/02/20
   79145            MOVE SPACES TO RR09MAE BITFIL-WS                                                                     24/02/20
   79146            MOVE ZEROS  TO SQLSTATE                                                                              20/02/20
@@ -1256,22 +1336,22 @@
   79162                PERFORM GRABA-BITACORA                                                                           05/02/20
   79163            END-IF.                                                                                              20/02/20
   79164        END-LEE-SIGUIENTE-CASO.                                                                                  20/02/20
-  *> 79165       *                                                                                                         17/01/17
+  79165       *                                                                                                         17/01/17
   79200        B020-REVISA-ESTADOS.                                                                                     29/01/20
   79300            MOVE SPACES TO VIVMUE OKCTV ENTRA NUEVO ACERRAR.                                                     24/02/20
-  *> 79400       *                           Determina cual fecha usa como TOpe                                            20/02/20
+  79400       *                           Determina cual fecha usa como TOpe                                            20/02/20
   79401            PERFORM CONSULTA-R08MAE                                                                              05/02/20
-  *> 81600       *-- Revisa si no existe en RY1RCA y RY1RCD, sino lo crea                                                  27/02/17
+  81600       *-- Revisa si no existe en RY1RCA y RY1RCD, sino lo crea                                                  27/02/17
   81700            MOVE SPACES TO WCASO.                                                                                20/02/20
   81800            EXEC SQL                                                                                             27/02/17
   81900               SELECT DISTINCT RY1CAS INTO:WCASO                                                                 20/02/20
   82000               FROM RY1RCA WHERE RY1CAS = :CAS001                                                                27/02/17
   82100            END-EXEC                                                                                             20/02/20
-  *> 82200       *-- Cierra o abre el caso                                                                                 18/01/17
+  82200       *-- Cierra o abre el caso                                                                                 18/01/17
   82201            PERFORM CIERRA-O-ABRE-CASO                                                                           05/02/20
   88000            PERFORM CALCULA-MONTO-A-SUMAR                                                                        20/02/20
   91001            PERFORM ACTUALIZA-R09MAE                                                                             05/02/20
-  *> 91700       *- Revisar si el caso es nuevo buscando movTOs en RY1RCA                                                  20/02/20
+  91700       *- Revisar si el caso es nuevo buscando movTOs en RY1RCA                                                  20/02/20
   91800            IF WCASO = SPACES AND R09ESR-WS = 'A' THEN                                                           20/02/20
   91900               MOVE "S" TO NUEVO                                                                                 20/02/20
   92000               MOVE "S" TO ENTRA                                                                                 20/02/20
@@ -1284,8 +1364,12 @@
   93001        END-B020-REVISA-ESTADOS.                                                                                 25/02/20
   95000        B020-EXIT.                                                                                               04/02/17
   95100             EXIT.                                                                                               04/02/17
-  *> 95101       *                                                                                                         05/02/20
+  95101       *                                                                                                         05/02/20
   95102        CIERRA-O-ABRE-CASO.                                                                                      05/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   25
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95103            MOVE "N"    TO ENTRA.                                                                                25/02/20
   95104            MOVE SPACES TO BITFIL-WS.                                                                            25/02/20
   95105            INITIALIZE ENTRA  WCONDI.                                                                            14/02/20
@@ -1293,7 +1377,7 @@
   95107               MOVE "A" TO R09ESR-WS                                                                             20/02/20
   95108               MOVE "S" TO ENTRA                                                                                 20/02/20
   95109            END-IF.                                                                                              20/02/20
-  *> 95110       *                           Verifica si Caso está Controvertido                                           05/02/20
+  95110       *                           Verifica si Caso está Controvertido                                           05/02/20
   95111            IF R09CTV-WS = "S" THEN                                                                              05/02/20
   95112               MOVE R09CTV-WS TO OKCTV                                                                           20/02/20
   95114               MOVE "S"       TO ENTRA                                                                           20/02/20
@@ -1319,13 +1403,13 @@
   95134            ELSE                                                                                                 05/02/20
   95135               IF FS-TEMFMX1 = "00" OR FS-TEMFMX1 = "04" Then                                                    05/02/20
   95136                  IF TEMMAX LESS THAN WFTOPE                                                                     20/02/20
-  *> 95137       *- Caso estaba abierTO, pero en esta corrida se va a cerrar...                                            20/02/20
+  95137       *- Caso estaba abierTO, pero en esta corrida se va a cerrar...                                            20/02/20
   95138                      IF R09ESR-WS = "A"                                                                         05/02/20
-  *> 95139       *                 Si está abierTO en SIMA, permanecerá abierTO                                            20/02/20
+  95139       *                 Si está abierTO en SIMA, permanecerá abierTO                                            20/02/20
   95140                         IF R09ESS-WS = "A" THEN                                                                 05/02/20
   95141                            MOVE "S" TO ENTRA                                                                    20/02/20
   95142                         ELSE                                                                                    11/02/20
-  *> 95143       *                    Se cerrará el caso, solo deja último cerrado                                         05/02/20
+  95143       *                    Se cerrará el caso, solo deja último cerrado                                         05/02/20
   95144                            MOVE "C" TO R09ESR-WS                                                                20/02/20
   95145                            MOVE "S" TO ENTRA                                                                    20/02/20
   95146                            MOVE "S" TO ACERRAR                                                                  20/02/20
@@ -1339,17 +1423,21 @@
   95154                      MOVE "A" TO R09ESR-WS                                                                      20/02/20
   95155                      MOVE "S" TO ENTRA                                                                          20/02/20
   95156                  END-IF                                                                                         20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   26
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95157               END-IF                                                                                            20/02/20
   95158            END-IF.                                                                                              20/02/20
   95159        END-CIERRA-O-ABRE-CASO.                                                                                  20/02/20
-  *> 95160       *                                                                                                         05/02/20
+  95160       *                                                                                                         05/02/20
   95161        CALCULA-MONTO-A-SUMAR.                                                                                   20/02/20
   95162            MOVE ZEROS TO OKMONTO.                                                                               20/02/20
   95163            EXEC SQL                                                                                             05/02/20
   95164               SELECT DISTINCT TEMMNT INTO:OKMONTO                                                               20/02/20
   95165               FROM TEMMTO WHERE TEMC47 = :CAS001                                                                20/02/20
   95166            END-EXEC                                                                                             20/02/20
-  *> 95167       *                                                                                                         05/02/20
+  95167       *                                                                                                         05/02/20
   95168            IF R09CTV-WS = "S"                                                                                   05/02/20
   95169               MOVE "S" TO ENTRA                                                                                 20/02/20
   95170               MOVE "LC" TO R09CON-WS                                                                            19/03/20
@@ -1361,7 +1449,7 @@
   95176                  MOVE "LN" TO R09CON-WS                                                                         20/02/20
   95177               END-IF                                                                                            20/02/20
   95178            END-IF.                                                                                              20/02/20
-  *> 95179       *                                                                                                         05/02/20
+  95179       *                                                                                                         05/02/20
   95180            IF R09ESR-WS IS EQUAL "C"                                                                            11/02/20
   95181            AND OKMONTO IS NOT EQUAL ZEROS THEN                                                                  20/02/20
   95182                 MOVE "A" TO R09ESR-WS                                                                           20/02/20
@@ -1382,16 +1470,20 @@
   95197               END-IF                                                                                            20/02/20
   95198            END-IF.                                                                                              20/02/20
   95199        END-CALCULA-MONTO-A-SUMAR.                                                                               20/02/20
-  *> 95200       *                                                                                                         05/02/20
+  95200       *                                                                                                         05/02/20
   95201        BUSCA-SI-ES-RENTA-MENSUAL.                                                                               05/02/20
-  *> 95202       * -- Determina SI REVISA SI TIENE RENTRA MENSUAL TRABAJADOR                                               05/02/20
-  *> 95203       * -- o Beneficiario ya que esTOs no entran en la reserva ya que                                           20/02/20
-  *> 95204       * -- se acumula en la reserva matematica                                                                  05/02/20
+  95202       * -- Determina SI REVISA SI TIENE RENTRA MENSUAL TRABAJADOR                                               05/02/20
+  95203       * -- o Beneficiario ya que esTOs no entran en la reserva ya que                                           20/02/20
+  95204       * -- se acumula en la reserva matematica                                                                  05/02/20
   95205            MOVE SPACES TO WR20IN WR54EF.                                                                        20/02/20
   95206            IF ENTRA = "S" THEN                                                                                  14/02/20
   95207               EXEC SQL                                                                                          05/02/20
   95208                    SELECT DISTINCT R20DET.R20INC INTO:WR20IN                                                    20/02/20
   95209                    FROM   R33MAE INNER JOIN R20DET ON R33FIJ = R20FIJ                                           05/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   27
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95210                    WHERE  R20EFI IN("1", "2", "3") AND                                                          05/02/20
   95211                           R33CAS = :CAS001         AND                                                          05/02/20
   95212                           R20INC IN("1", "2", "3", "4")                                                         05/02/20
@@ -1445,6 +1537,10 @@
   95260                                            :WFHASTACORR                                                         13/02/20
   95261                         FETCH FIRST 1 ROW ONLY                                                                  13/02/20
   95262                    END-EXEC                                                                                     20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   28
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95263                    IF FECHAINICIORENTA IS EQUAL SPACES THEN                                                     20/02/20
   95264                    EXEC SQL                                                                                     13/02/20
   95265                         SELECT R54INI INTO :FECHAINICIORENTA                                                    20/02/20
@@ -1498,6 +1594,10 @@
   95321               MOVE WFTOPEM TO WFTOPE                                                                            20/02/20
   95322            END-IF.                                                                                              20/02/20
   95323            IF VIVMUE = "V" OR VIVMUE = "X"                                                                      05/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   29
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95324               MOVE WFTOPEV TO WFTOPE                                                                            20/02/20
   95325            END-IF.                                                                                              20/02/20
   95326        END-CONSULTA-R08MAE.                                                                                     20/02/20
@@ -1531,36 +1631,33 @@
   95354            END-IF                                                                                               20/02/20
   95355            CLOSE R09MAE59.                                                                                      05/02/20
   95356        END-ACTUALIZA-R09MAE.                                                                                    20/02/20
-  95357       * 
-
-      *>         Proceso de acumulación de montos.
-  95358        B030-ACUMULA-MONTOS.               
-  
-      *>         1. Inicializa los punteros
-      *>         2. Mueve el caso al puntero, asigna valores maximos.
-               
+  95357       *                                                                                                         04/02/17
+  95358        B030-ACUMULA-MONTOS.                                                                                     25/02/20
   95359            PERFORM D020-INICIALIZA THRU D020-EXIT.                                                              21/01/20
   95360            MOVE R09CAS-WS TO RY1CAS OF RY1RCA01.                                                                20/02/20
   95361            MOVE HIGH-VALUES TO RY1FMR OF RY1RCA01.                                                              20/02/20
   95362            START RY1RCA01 KEY IS NOT LESS EXTERNALLY-DESCRIBED-KEY.                                             21/01/20
-  *> 95363       *    READ RY1RCA01 PRIOR  RECORD inTO WRY1RCA01                                                           20/02/20
-  95364            READ RY1RCA01 NEXT   RECORD inTO WRY1RCA01                                                           
-      *>         Si no es 00 o 04 es un error, se guarda donde se dio el erro, y sale del programa
+  95363       *    READ RY1RCA01 PRIOR  RECORD inTO WRY1RCA01                                                           20/02/20
+  95364            READ RY1RCA01 NEXT   RECORD inTO WRY1RCA01                                                           20/02/20
   95365            IF FS-RY1RCA NOT = "00" AND FS-RY1RCA NOT = "04"                                                     20/02/20
   95366                 MOVE " READ 1 RY1CA " TO LugarErro                                                              20/02/20
   95367                 PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                                 21/01/20
   95368            END-IF.                                                                                              20/02/20
   95369            IF RY1CAS OF WRY1RCA01 = R09CAS-WS                                                                   20/02/20
-  *> 95370       *       Actualiza los estados del RY1RCA con los del R09MAE                                               21/01/20
+  95370       *       Actualiza los estados del RY1RCA con los del R09MAE                                               21/01/20
   95371               MOVE R09ESS-WS TO RY1EST OF WRY1RCA01                                                             20/02/20
   95372               MOVE R09ESR-WS TO RY1ES1 OF WRY1RCA01                                                             20/02/20
   95373               IF   R09ESR-WS = "C" THEN                                                                         20/02/20
   95374                    MOVE "T" TO RY1ES3 OF WRY1RCA01                                                              20/02/20
   95375               ELSE                                                                                              20/02/20
   95376                    MOVE "P" TO RY1ES3 OF WRY1RCA01                                                              20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   30
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95377               END-IF                                                                                            20/02/20
   95378               MOVE R09CON-WS TO RY1CON OF WRY1RCA01                                                             20/02/20
-  *> 95379       *--------                                                                                                 21/01/20
+  95379       *--------                                                                                                 21/01/20
   95380               MOVE RY1CAS OF RY1RCA01 TO RY1CAD OF RY1RCD01                                                     20/02/20
   95381               MOVE RY1FMR OF RY1RCA01 TO RY1F03 OF RY1RCD01                                                     20/02/20
   95382               MOVE "A"                TO RY1COR OF RY1RCD01                                                     20/02/20
@@ -1573,38 +1670,34 @@
   95389                  PERFORM B040-CARGA-DETALLE THRU B040-EXIT UNTIL                                                21/01/20
   95390                          FIN = 1                                                                                21/01/20
   95391               END-IF                                                                                            20/02/20
-  95392            END-IF.
-      *>         Setea totales a cero                                                                                              20/02/20
+  95392            END-IF.                                                                                              20/02/20
   95393            MOVE ZEROS TO TOTALPRO-WS TOTALPAJ-WS                                                                20/02/20
   95394                          TOTALGAS-WS TOTALSAL-WS                                                                20/02/20
-  *> 95395       * Suma los rubros IT - Indice 1                                                                                                        21/01/20
+  95395       *                                                                                                         21/01/20
   95396            MOVE "IT"      TO TEMRBR.                                                                            20/02/20
   95397            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95398            READ TEMMTO Record.                                                                                  20/02/20
   95399            IF FS-TEMMTO = "00" OR FS-TEMMTO = "04" AND TEMMNT NOT = 0                                           20/02/20
   95400               MOVE TEMMNT TO TOTALPRO-WS                                                                        20/02/20
-  95401               MOVE 1 TO INDICE  
-      *>             Llama a proceso de suma de gastos                                                                                20/02/20
+  95401               MOVE 1 TO INDICE                                                                                  20/02/20
   95402               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95403       * Suma los rubros IP - Indice 2                                                                                                       21/01/20
+  95403       *                                                                                                         21/01/20
   95404            MOVE "IP"      TO TEMRBR.                                                                            20/02/20
   95405            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95406            READ TEMMTO RECORD.                                                                                  20/02/20
   95407            IF FS-TEMMTO = "00" OR FS-TEMMTO = "04" AND TEMMNT NOT = 0                                           20/02/20
   95408               MOVE TEMMNT TO TOTALPAJ-WS                                                                        20/02/20
-  95409               MOVE 2 TO INDICE                
-      *>         llama a proceso de suma de gastos                                                                  20/02/20
+  95409               MOVE 2 TO INDICE                                                                                  20/02/20
   95410               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95411       * Suma los rubros CM - Indice 3                                                                                                        21/01/20
+  95411       *                                                                                                         21/01/20
   95412            MOVE "CM"      TO TEMRBR.                                                                            20/02/20
   95413            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95414            READ TEMMTO RECORD.                                                                                  20/02/20
   95415            IF FS-TEMMTO = "00" OR FS-TEMMTO = "04" AND TEMMNT NOT = 0                                           20/02/20
   95416               MOVE TEMMNT TO TOTALGAS-WS                                                                        20/02/20
-  95417               MOVE 3 TO INDICE            
-      *>         llama a proceso de suma de gastos                                                                       20/02/20
+  95417               MOVE 3 TO INDICE                                                                                  20/02/20
   95418               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95419       * Suma los rubros IM - Indice 4                                                                                                        21/01/20
+  95419       *                                                                                                         21/01/20
   95420            MOVE "IM"      TO TEMRBR.                                                                            20/02/20
   95421            MOVE R09CAS-WS TO TEMC47.                                                                            20/02/20
   95422            READ TEMMTO RECORD.                                                                                  20/02/20
@@ -1612,20 +1705,24 @@
   95424               MOVE TEMMNT TO TOTALSAL-WS                                                                        20/02/20
   95425               MOVE 4 TO INDICE                                                                                  20/02/20
   95426               PERFORM B050-SUMA-GASTOS THRU B050-EXIT.                                                          20/02/20
-  *> 95427       * Esto no sé que hace                                                                                                        21/01/20
+  95427       *                                                                                                         21/01/20
   95428            IF OKMONTO NOT EQUAL ZEROS                                                                           20/02/20
   95429               PERFORM B060-GASTOS-ACUMULADOS THRU B060-EXIT                                                     20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   31
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95430            END-IF.                                                                                              20/02/20
-  *> 95431       *- AQUI VA SI DEJA LOS SALDOS EN CERO POR ESTAR EN MATEMATICA                                             21/01/20
-  *> 95432       *------------------------------------------------------------                                             21/01/20
+  95431       *- AQUI VA SI DEJA LOS SALDOS EN CERO POR ESTAR EN MATEMATICA                                             21/01/20
+  95432       *------------------------------------------------------------                                             21/01/20
   95433               If WR20IN >= '1' AND WR20IN <= '4'                                                                21/01/20
-  *> 95434       *                     Solo queda Cuenta Médica                                                            21/01/20
+  95434       *                     Solo queda Cuenta Médica                                                            21/01/20
   95435                  MOVE ZEROS TO RY1SAL OF WRY1RCD01A                                                             20/02/20
   95436                  MOVE ZEROS TO RY1SAL OF WRY1RCD01B                                                             20/02/20
   95437                  MOVE ZEROS TO RY1SAL OF WRY1RCD01D                                                             20/02/20
   95438                  MOVE ZEROS TO RY1SAL OF WRY1RCD01T                                                             20/02/20
   95439               END-If                                                                                            20/02/20
-  *> 95440       *--  Si es Permanente Mensual. No reserva, ya que va a Matemática                                         21/01/20
+  95440       *--  Si es Permanente Mensual. No reserva, ya que va a Matemática                                         21/01/20
   95441               If WR54EF NOT = ' '                                                                               21/01/20
   95442                  MOVE ZEROS TO RY1SAL OF WRY1RCD01A                                                             20/02/20
   95443                  MOVE ZEROS TO RY1SAL OF WRY1RCD01B                                                             20/02/20
@@ -1633,8 +1730,7 @@
   95445                  MOVE ZEROS TO RY1SAL OF WRY1RCD01D                                                             20/02/20
   95446                  MOVE ZEROS TO RY1SAL OF WRY1RCD01T                                                             20/02/20
   95447               END-If                                                                                            20/02/20
-  95448               
-      *>             Realiza todos los calculos matemáticos                                                                                                  21/01/20
+  95448                                                                                                                 21/01/20
   95449               COMPUTE RY1GAS OF WRY1RCD01T =                                                                    10/02/20
   95450                       RY1GAS OF WRY1RCD01A +                                                                    21/01/20
   95451                       RY1GAS OF WRY1RCD01B +                                                                    21/01/20
@@ -1655,8 +1751,8 @@
   95466                       RY1SAL OF WRY1RCD01B +                                                                    21/01/20
   95467                       RY1SAL OF WRY1RCD01C +                                                                    21/01/20
   95468                       RY1SAL OF WRY1RCD01D                                                                      21/01/20
-  *> 95469       *------------------------------------------------------------                                             21/01/20
-  *> 95470       *--  Grabar o regraba el registro RY1RCA y los RY1RCD                                                     21/01/20
+  95469       *------------------------------------------------------------                                             21/01/20
+  95470       *--  Grabar o regraba el registro RY1RCA y los RY1RCD                                                     21/01/20
   95471            IF (WCASO NOT EQUAL SPACES AND R09ESR-WS  = 'A') OR                                                  20/02/20
   95472               (WCASO NOT EQUAL SPACES AND ACERRAR = 'S')                                                        20/02/20
   95473               MOVE WFHASTACORR TO RY1FMR OF WRY1RCA01                                                           20/02/20
@@ -1669,21 +1765,20 @@
   95480                                   RY1FE4 OF WRY1RCD01B                                                          21/01/20
   95481                                   RY1FE4 OF WRY1RCD01C                                                          21/01/20
   95482                                   RY1FE4 OF WRY1RCD01D                                                          21/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   32
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95483                                   RY1FE4 OF WRY1RCD01T                                                          21/01/20
-  95484               MOVE R09AGE-WS TO RY1AGE OF WRY1RCA01  
-      *>             Escritura de encabezados                                                           20/02/20
+  95484               MOVE R09AGE-WS TO RY1AGE OF WRY1RCA01                                                             20/02/20
   95485               WRITE RRY1RCA01 FROM WRY1RCA01                                                                    20/02/20
   95486                     INVALID KEY                                                                                 21/01/20
   95487                     MOVE " Write Enc " TO LUGARERRO                                                             20/02/20
   95488                     PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                             21/01/20
-  95489               END-WRITE            
-  
-      *>             asigna parámetros a otro puntero                                                             20/02/20
+  95489               END-WRITE                                                                                         20/02/20
   95490               MOVE R09CAS-WS TO RY1CAD OF WRY1RCD01A                                                            20/02/20
   95491               MOVE "A"       TO RY1COR OF WRY1RCD01A                                                            20/02/20
   95492               MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01A                                                            20/02/20
-
-      *>             Escritura de detalle 
   95493               WRITE RRY1RCD01 FROM WRY1RCD01A                                                                   20/02/20
   95494                     INVALID KEY                                                                                 21/01/20
   95495                     MOVE " Write Det1" TO LUGARERRO                                                             20/02/20
@@ -1691,8 +1786,7 @@
   95497               END-WRITE                                                                                         20/02/20
   95498                  MOVE R09CAS-WS TO RY1CAD OF WRY1RCD01B                                                         20/02/20
   95499                  MOVE "B"       TO RY1COR OF WRY1RCD01B                                                         20/02/20
-  95500                  MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01B 
-                                                                           20/02/20
+  95500                  MOVE R09AGE-WS TO RY1AGD OF WRY1RCD01B                                                         20/02/20
   95501                  WRITE RRY1RCD01 FROM WRY1RCD01B                                                                20/02/20
   95502                        INVALID KEY                                                                              21/01/20
   95503                        MOVE " Write Det1" TO LUGARERRO                                                          20/02/20
@@ -1728,6 +1822,10 @@
   95533               READ RY1RCA01 RECORD                                                                              20/02/20
   95534               IF FS-RY1RCA = "00" OR FS-RY1RCA = "04"                                                           21/01/20
   95535                  REWRITE RRY1RCA01 FROM WRY1RCA01                                                               20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   33
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95536                     INVALID KEY                                                                                 21/01/20
   95537                     MOVE " ReWrite Enc " TO LUGARERRO                                                           20/02/20
   95538                     PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                             21/01/20
@@ -1781,6 +1879,10 @@
   95586               END-IF                                                                                            20/02/20
   95587                  MOVE "T" TO RY1COR OF RY1RCD01                                                                 20/02/20
   95588                  READ RY1RCD01 RECORD                                                                           20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   34
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
   95589              IF FS-RY1RCD = "00" OR FS-RY1RCD = "04"                                                            21/01/20
   95590                 REWRITE RRY1RCD01 From WRY1RCD01T                                                               21/01/20
   95591                   INVALID KEY                                                                                   21/01/20
@@ -1789,16 +1891,11 @@
   95594                 END-REWRITE                                                                                     20/02/20
   95595              END-iF                                                                                             20/02/20
   95596            END-IF.                                                                                              20/02/20
-  95597        END-B030-ACUMULA-MONTOS.     
-      *>     Fin de proceso de acumulación de montos 
-                                                                                           25/02/20
+  95597        END-B030-ACUMULA-MONTOS.                                                                                 25/02/20
   95598        B030-EXIT.                                                                                               21/01/20
   95599             EXIT.                                                                                               21/01/20
- 118400       *
-
-      *>     Inicio de proceso de carga de detalles                                                                                                          31/01/17
- 118500        B040-CARGA-DETALLE.      
-      *>     Switch de rubros                                                                                30/01/17
+ 118400       *                                                                                                         31/01/17
+ 118500        B040-CARGA-DETALLE.                                                                                      30/01/17
  118600            IF RY1COR OF RY1RCD01 = "A"                                                                          17/02/17
  118700               MOVE CORRESPONDING RRY1RCD01 TO WRY1RCD01A                                                        20/02/20
  118800               MOVE WFHASTACORR TO RY1F03 OF WRY1RCD01A                                                          20/02/20
@@ -1819,9 +1916,7 @@
  119900               MOVE CORRESPONDING RRY1RCD01 TO WRY1RCD01T                                                        20/02/20
  120000               MOVE WFHASTACORR TO RY1F03 OF WRY1RCD01T                                                          20/02/20
  120001            END-IF                                                                                               20/02/20
- 120100            READ RY1RCD01 NEXT RECORD  
- 
-      *>         Evalua códigos de error                                                                          20/02/20
+ 120100            READ RY1RCD01 NEXT RECORD                                                                            20/02/20
  120200            IF FS-RY1RCD = "00" OR FS-RY1RCD = "04"                                                              27/02/17
  120300               IF RY1CAS OF WRY1RCA01 = RY1CAD OF RY1RCD01 AND                                                   27/02/17
  120400                  RY1FMR OF WRY1RCA01 = RY1F03 OF RY1RCD01                                                       27/02/17
@@ -1836,15 +1931,15 @@
  121300                  PERFORM D010-REVISA-FILES-STATUS THRU D010-EXIT                                                27/02/17
  121400               END-IF                                                                                            20/02/20
  121500            END-IF.                                                                                              20/02/20
- 121501        END-B040-CARGA-DETALLE.
-      *>     Fin de carga detalle                                                                                  25/02/20
+ 121501        END-B040-CARGA-DETALLE.                                                                                  25/02/20
  121600        B040-EXIT.                                                                                               30/01/17
  121700             EXIT.                                                                                               30/01/17
- *> 121800       *                  
-      *>       Suma de gastos 
-      *>     Documentación de proceso de suma de gastos
-      *>     Switch basado en el índice                                                                                      30/01/17
+ 121800       *                                                                                                         30/01/17
  121900        B050-SUMA-GASTOS.                                                                                        20/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   35
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  122000            IF INDICE = 1                                                                                        10/02/20
  122100                COMPUTE RY1GAS OF WRY1RCD01A =                                                                   10/02/20
  122200                        RY1GAS OF WRY1RCD01A + TEMMNT                                                            17/02/17
@@ -1864,8 +1959,7 @@
  123600                   END-IF                                                                                        20/02/20
  123700                END-IF                                                                                           20/02/20
  123800            END-IF.                                                                                              20/02/20
- 123801        END-B050-SUMA-GASTOS.                   
-      *>     Fin suma de gastos                                                                 25/02/20
+ 123801        END-B050-SUMA-GASTOS.                                                                                    25/02/20
  124100        B050-EXIT.                                                                                               20/02/20
  124200             EXIT.                                                                                               20/02/20
  124300       *                                                                                                         14/02/17
@@ -1899,6 +1993,10 @@
  127100                                RY1GA1 OF WRY1RCD01B                                                             17/02/17
  127200               IF GASTOT >= RY1PR1 OF WRY1RCD01B  THEN                                                           20/02/20
  127300                  COMPUTE RY1PR1 OF WRY1RCD01B =                                                                 10/02/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   36
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  127400                          GASTOT + RY1PR1 OF WRY1RCD01B *                                                        20/02/20
  127500                          PAUMRU / 100                                                                           17/02/17
  127600                  COMPUTE TOTAL5 = TOTAL5 + RY1PR1 OF WRY1RCD01B                                                 20/02/20
@@ -1952,6 +2050,10 @@
  139800            IF SQLSTATE(1:2)  NOT EQUAL "00"                                                                     12/12/16
  139900            AND SQLSTATE(1:2) NOT EQUAL "01" THEN                                                                12/12/16
  140000                  DISPLAY "R09_RY1RCS - Error estado SQL: "                                                      12/12/16
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   37
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  140100               SQLSTATE                                                                                          12/12/16
  140200            END-IF.                                                                                              20/02/20
  140300        END-SQL-REVISASQLSTATE.                                                                                  20/02/20
@@ -2005,6 +2107,10 @@
  142549              CAS001 DELIMITED BY SIZE                                                                           17/01/20
  142550              INTO MENSAJE                                                                                       20/02/20
  142551              PERFORM GRABA-BITACORA                                                                             17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   38
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  142552              MOVE SPACES TO MENSAJE                                                                             20/02/20
  142553              STRING "D010-R09RY1RCA ERROR FS RY1RCD "                                                           17/01/20
  142554                             DELIMITED BY SIZE                                                                   17/01/20
@@ -2026,8 +2132,6 @@
  142800        D010-EXIT.                                                                                               11/01/17
  142900             EXIT.                                                                                               11/01/17
  143000       *                                                                                                         25/02/17
-
-      *>       INICIALIZACION DE VARIABLES
  143100        D020-INICIALIZA.                                                                                         25/02/17
  143200            MOVE ZEROS TO                                                                                        20/02/20
  143300            RY1PRO OF WRY1RCD01A RY1PRO OF WRY1RCD01B                                                            25/02/17
@@ -2051,8 +2155,7 @@
  145001        END-D020-INICIALIZA.                                                                                     25/02/20
  145100        D020-EXIT.                                                                                               25/02/17
  145200             EXIT.                                                                                               25/02/17
- 145300       
-      *>         INICIO GRABA BITACORA 
+ 145300       *                                                                                                         25/02/17
  145301        GRABA-BITACORA.                                                                                          17/01/20
  145302              ACCEPT FECHAMOMENTO    FROM DATE                                                                   20/02/20
  145303              ACCEPT HORACORR        FROM TIME                                                                   17/01/20
@@ -2061,18 +2164,17 @@
  145306                (:FECHAMOMENTO                                                                                   20/02/20
  145307                ,:HORACORR                                                                                       17/01/20
  145308                ," "                                                                                             17/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   39
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  145309                ,:MENSAJE)                                                                                       17/01/20
  145310              END-EXEC.                                                                                          20/02/20
- 145311        END-GRABA-BITACORA.     
-      *>         FIN GRABA BITACORA  
+ 145311        END-GRABA-BITACORA.                                                                                      20/02/20
  145312                                                                                                                 17/01/20
-
-      *>        Inicia proceso de recuperación de datos 
  145313        RECUPERACIONDATOS.                                                                                       20/02/20
  145314            MOVE SPACES TO FE3-WS F06-WS F08-WS ANO-WS MES-WS USU-WS                                             20/02/20
- 145315            MOVE ZEROS TO SALJUDIC-WS            
- 
-      *>         Obtiene los parámetros del archivo 
+ 145315            MOVE ZEROS TO SALJUDIC-WS                                                                            14/08/20
  145316            EXEC SQL                                                                                             17/01/20
  145317                SELECT BITF02                                                                                    20/01/20
  145318                    ,BITF03                                                                                      20/01/20
@@ -2091,8 +2193,7 @@
  145331                FROM BITREC                                                                                      17/01/20
  145332                WHERE BITFE9 = :WFHASTACORR                                                                      17/01/20
  145333                AND   BITCA2 = "PARAMETROS"                                                                      20/01/20
- 145334            END-EXEC.   
-      *>          Evalua si el sql retornó registros 
+ 145334            END-EXEC.                                                                                            20/02/20
  145335            IF SQLSTATE(1:2) EQUAL "00"                                                                          17/01/20
  145336            OR SQLSTATE(1:2) EQUAL "01" THEN                                                                     17/01/20
  145337                EXEC SQL                                                                                         17/01/20
@@ -2107,19 +2208,23 @@
  145346                IF SQLSTATE(1:2) EQUAL "00"                                                                      17/01/20
  145347                OR SQLSTATE(1:2) EQUAL "01" THEN                                                                 17/01/20
  145348                    EXEC SQL                                                                                     17/01/20
- 145349                      DELETE FROM RY2PRV                                                                         17/01/20
+ 145349                      DELETE FROM RY1PRV                                                                         17/01/20
  145350                      WHERE RY1FPV = :WFHASTACORR                                                                17/01/20
  145351                    END-EXEC                                                                                     20/02/20
  145352                    EXEC SQL                                                                                     20/01/20
- 145353                      DELETE FROM RY2RCA                                                                         20/01/20
+ 145353                      DELETE FROM RY1RCA                                                                         20/01/20
  145354                      WHERE RY1FMR = :WFHASTACORR                                                                20/01/20
  145355                    END-EXEC                                                                                     20/02/20
  145356                    EXEC SQL                                                                                     20/01/20
- 145357                      DELETE FROM RY2RCD                                                                         20/01/20
+ 145357                      DELETE FROM RY1RCD                                                                         20/01/20
  145358                      WHERE RY1F03 = :WFHASTACORR                                                                20/01/20
  145359                    END-EXEC                                                                                     20/02/20
  145360                    EXEC SQL                                                                                     20/01/20
  145361                      DELETE FROM RY1HVR                                                                         20/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   40
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  145362                      WHERE RY1AOD = SUBSTR(:WFHASTACORR , 1 , 4 )                                               20/01/20
  145363                      AND RY1MES = SUBSTR(:WFHASTACORR , 5 , 2 )                                                 20/01/20
  145364                    END-EXEC                                                                                     20/02/20
@@ -2142,10 +2247,8 @@
  145381                    END-EXEC                                                                                     20/02/20
  145382                END-IF                                                                                           20/02/20
  145383            END-IF.                                                                                              20/02/20
- 145384        END-RECUPACIONDATOS.
-      *>         Fin de recuperación de datos         
-  145385                   
-      *>     Proceso de recuperación de caso                                                                                              17/01/20
+ 145384        END-RECUPACIONDATOS.                                                                                     20/02/20
+ 145385                                                                                                                 17/01/20
  145386        RECUPERACADACASO.                                                                                        17/01/20
  145387            EXEC SQL                                                                                             17/01/20
  145388                 FETCH NEXT FROM CBITREC INTO                                                                    20/02/20
@@ -2162,9 +2265,8 @@
  145399                END-EXEC                                                                                         20/02/20
  145400            ELSE                                                                                                 17/01/20
  145401                MOVE "S" TO SALIR-BITREC                                                                         20/02/20
- 145402            END-IF.                                                                                              20/02/2
- 145403        END-RECUPERACADACASO. 
-      *>     Fin de proceso de recuperacion de caso                                                                                   20/02/20
+ 145402            END-IF.                                                                                              20/02/20
+ 145403        END-RECUPERACADACASO.                                                                                    20/02/20
  145404                                                                                                                 20/01/20
  145405        SELECCION-CASOS-INTERES.                                                                                 20/01/20
  145428            EXEC SQL                                                                                             20/01/20
@@ -2176,6 +2278,10 @@
  145434                    FETCH NEXT FROM CSELCASOS INTO :RR09MAE                                                      20/02/20
  145435                END-EXEC                                                                                         20/02/20
  145436                IF SQLSTATE(1:2) IS EQUAL "00" OR                                                                27/01/20
+  5770WDS V7R2M0  140418                  LISTADO FUENTE SEU                            05/03/21 09:22:31    SISTEMAS     PÁG.   41
+  ARCHIVO FUENTE  . . . . .  RITRPRG/QCBLSRC
+  MIEMBRO . . . . . . . . .  R09RY1RCA
+  SEQNBR*...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+... 0
  145437                   SQLSTATE(1:2) IS EQUAL "01" THEN                                                              27/01/20
  145438                      PERFORM GRABA-BITREC                                                                       27/01/20
  145439                ELSE                                                                                             27/01/20
@@ -2187,8 +2293,7 @@
  145445                UPON CONSOLE                                                                                     27/01/20
  145446            END-IF.                                                                                              20/02/20
  145447        END-SELECCION-CASOS-INTERES.                                                                             20/02/20
- 145455                    
-      *>     Inicio de grabación en bitácora                                                                                             20/01/20
+ 145455                                                                                                                 20/01/20
  145456        GRABA-BITREC.                                                                                            20/01/20
  145465            EXEC SQL                                                                                             20/02/20
  145466                INSERT INTO BITREC VALUES                                                                        20/02/20
@@ -2220,8 +2325,8 @@
  145492                     ,:SALDORCD                                                                                  23/07/20
  145493                     ,:SALJUDIC-WS)                                                                              14/08/20
  145494            END-EXEC.                                                                                            20/02/20
- 145496        END-GRABA-BITREC.                       
-      *>     Fin de grabación de bitácora                                                                 20/02/20
- *> 145506       *=================*                                                                                       13/10/15
- *> 145507       *- Fin de fuente -*                                                                                       13/10/15
- *> 145600       *=================*                                                                                       13/10/15
+ 145496        END-GRABA-BITREC.                                                                                        20/02/20
+ 145506       *=================*                                                                                       13/10/15
+ 145507       *- Fin de fuente -*                                                                                       13/10/15
+ 145600       *=================*                                                                                       13/10/15
+                                  * * * *  F I N  D E  F U E N T E  * * * *
