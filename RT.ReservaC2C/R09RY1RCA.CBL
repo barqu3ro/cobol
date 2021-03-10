@@ -154,9 +154,7 @@
   10300        01  RRY1RCA01.                                                                                           30/01/17
   10400            COPY DDS-ALL-FORMATS OF RY1RCA01.                                                                    30/01/17
   10500                                                                                                                 11/01/17
-  10600        FD  RY1RCD01.                                                                                            17/02/17
-  10700        01  RRY1RCD01.                                                                                           17/02/17
-  10800            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
+                                                                 17/02/17
   10900                                                                                                                 07/01/17
   11000        WORKING-STORAGE SECTION.                                                                                 20/02/20
   11001        01  BITFIL-WS          PIC X(10) VALUES SPACES.                                                          24/02/20
