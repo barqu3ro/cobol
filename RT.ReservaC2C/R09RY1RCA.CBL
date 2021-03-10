@@ -160,12 +160,14 @@
   10300        01  RRY1RCA01.                                                                                           30/01/17
   10400            COPY DDS-ALL-FORMATS OF RY1RCA01.                                                                    30/01/17
   10500                                                                                                                 11/01/17
+                                                                                                               07/01/17
+=======
   10600        FD  RY1RCD01.                                                                                            17/02/17
   10700        01  RRY1RCD01.                                                                                           17/02/17
-  10800            COPY DDS-ALL-FORMATS OF RY1RCD01.                                                                    17/02/17
+  10800            COPY DDS-ALL-FORMATS  OF RY1RCD01.                                                                    17/02/17
   10900                
   
-      *>     administración de variables                                                                                                 07/01/17
+
   11000        WORKING-STORAGE SECTION.                                                                                 20/02/20
   11001        01  BITFIL-WS          PIC X(10) VALUES SPACES.                                                          24/02/20
   11002        01  IND-VALIDAR-RENTA  PIC X VALUE "S".                                                                  30/03/20
