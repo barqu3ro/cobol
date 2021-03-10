@@ -596,27 +596,7 @@
   34600                 WHERE  RY1AOD = :WANOCORRIDA                                                                    28/02/17
   34700                 AND    RY1MES = :WMESCORRIDA                                                                    28/02/17
   34800            END-EXEC.                                                                                            20/02/20
-  34900            EXEC SQL                                                                                             28/02/17
-  35000                 DELETE FROM RY2HVR                                                                              28/02/17
-  35100            END-EXEC.                                                                                            20/02/20
-  35200            EXEC SQL                                                                                             28/02/17
-  35300                 DELETE FROM RY1DUP                                                                              28/02/17
-  35400            END-EXEC.                                                                                            20/02/20
-  35500            EXEC SQL                                                                                             28/02/17
-  35600                 DELETE FROM FECINIRES1                                                                          28/02/17
-  35700            END-EXEC.                                                                                            20/02/20
-  35800            EXEC SQL                                                                                             28/02/17
-  35900                 DELETE FROM FECINIRES                                                                           28/02/17
-  36000            END-EXEC.                                                                                            20/02/20
-  36100            EXEC SQL                                                                                             28/02/17
-  36200                 DELETE FROM TEMFMX                                                                              28/02/17
-  36300            END-EXEC.                                                                                            20/02/20
-  36400            EXEC SQL                                                                                             28/02/17
-  36500                 DELETE FROM TEMFMX1                                                                             28/02/17
-  36600            END-EXEC.                                                                                            20/02/20
-  36700            EXEC SQL                                                                                             28/02/17
-  36800                 DELETE FROM TEMFMXX                                                                             28/02/17
-  36900            END-EXEC.                                                                                            20/02/20
+  34900                                                                                                      20/02/20
   37000            EXEC SQL                                                                                             28/02/17
   37100                 DELETE FROM TEMMTO                                                                              20/02/20
   37200            END-EXEC.                                                                                            20/02/20
