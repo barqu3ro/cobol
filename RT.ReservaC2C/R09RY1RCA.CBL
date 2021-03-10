@@ -537,16 +537,16 @@
   29102            MOVE "FIN RY1FTOPE"    TO MENSAJE                                                                    20/02/20
   29103            PERFORM GRABA-BITACORA                                                                               06/02/20
   29200       *==================================================                                                       09/01/17
-  29300       *ACT - F.ACTUAL, USUARIO, F.CORRIDA, FCALCUL, MES.PROC, ANO.PROC.                                         20/12/16
-  29400            EXEC SQL                                                                                             27/02/17
-  29500                 UPDATE RY1PVH                                                                                   27/02/17
-  29600                 SET  RY1FE3 = :FCURRENT-WS,                                                                     27/02/17
-  29700                      RY1US4 = :WUSUARIO,                                                                        27/02/17
-  29800                      RY1F06 = :FCURRENT-WS,                                                                     27/02/17
-  29900                      RY1F08 = :WFHASTACORR,                                                                     27/02/17
-  30000                      RY1ME1 = :WMESCORRIDA,                                                                     27/02/17
-  30100                      RY1ANO = :WANOCORRIDA                                                                      27/02/17
-  30200                 WHERE RY1FPR = "20160101"                                                                       27/02/17
+  *> 29300       *ACT - F.ACTUAL, USUARIO, F.CORRIDA, FCALCUL, MES.PROC, ANO.PROC.                                         20/12/16
+  *> 29400            EXEC SQL                                                                                             27/02/17
+  *> 29500                 UPDATE RY1PVH                                                                                   27/02/17
+  *> 29600                 SET  RY1FE3 = :FCURRENT-WS,                                                                     27/02/17
+  *> 29700                      RY1US4 = :WUSUARIO,                                                                        27/02/17
+  *> 29800                      RY1F06 = :FCURRENT-WS,                                                                     27/02/17
+  *> 29900                      RY1F08 = :WFHASTACORR,                                                                     27/02/17
+  *> 30000                      RY1ME1 = :WMESCORRIDA,                                                                     27/02/17
+  *> 30100                      RY1ANO = :WANOCORRIDA                                                                      27/02/17
+  *> 30200                 WHERE RY1FPR = "20160101"                                                                       27/02/17
   30300            END-EXEC.                                                                                            20/02/20
   30400            EXEC SQL                                                                                             27/02/17
   30500                 CLOSE CPARAM                                                                                    27/02/17
