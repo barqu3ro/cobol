@@ -562,8 +562,7 @@
   31500                 WHERE RY1FE6 <= :WFHASTACORR  AND                                                               27/02/17
   31600                       RY1FE7 >= :WFHASTACORR                                                                    27/02/17
   31700            END-EXEC.                                                                                            20/02/20
-  31800            EXEC SQL                                                                                             27/02/17
-  31900                 OPEN CPARVGR                                                                                    27/02/17
+  31800                                                                                             27/02/17
   32000            END-EXEC.                                                                                            20/02/20
   32100            EXEC SQL                                                                                             27/02/17
   32200                 FETCH NEXT FROM CPARVGR INTO                                                                    20/02/20
