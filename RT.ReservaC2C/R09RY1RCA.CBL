@@ -536,17 +536,7 @@
   29101            MOVE SPACES            TO MENSAJE                                                                    20/02/20
   29102            MOVE "FIN RY1FTOPE"    TO MENSAJE                                                                    20/02/20
   29103            PERFORM GRABA-BITACORA                                                                               06/02/20
-  *> 29200       *==================================================                                                       09/01/17
-  29300       *ACT - F.ACTUAL, USUARIO, F.CORRIDA, FCALCUL, MES.PROC, ANO.PROC.                                         20/12/16
-  29400            EXEC SQL                                                                                             27/02/17
-  29500                 UPDATE RY1PVH                                                                                   27/02/17
-  29600                 SET  RY1FE3 = :FCURRENT-WS,                                                                     27/02/17
-  29700                      RY1US4 = :WUSUARIO,                                                                        27/02/17
-  29800                      RY1F06 = :FCURRENT-WS,                                                                     27/02/17
-  29900                      RY1F08 = :WFHASTACORR,                                                                     27/02/17
-  30000                      RY1ME1 = :WMESCORRIDA,                                                                     27/02/17
-  30100                      RY1ANO = :WANOCORRIDA                                                                      27/02/17
-  30200                 WHERE RY1FPR = "20160101"                                                                       27/02/17
+
   30300            END-EXEC.                                                                                            20/02/20
   30400            EXEC SQL                                                                                             27/02/17
   30500                 CLOSE CPARAM                                                                                    27/02/17
@@ -595,27 +585,7 @@
   34600                 WHERE  RY1AOD = :WANOCORRIDA                                                                    28/02/17
   34700                 AND    RY1MES = :WMESCORRIDA                                                                    28/02/17
   34800            END-EXEC.                                                                                            20/02/20
-  34900            EXEC SQL                                                                                             28/02/17
-  35000                 DELETE FROM RY2HVR                                                                              28/02/17
-  35100            END-EXEC.                                                                                            20/02/20
-  35200            EXEC SQL                                                                                             28/02/17
-  35300                 DELETE FROM RY1DUP                                                                              28/02/17
-  35400            END-EXEC.                                                                                            20/02/20
-  35500            EXEC SQL                                                                                             28/02/17
-  35600                 DELETE FROM FECINIRES1                                                                          28/02/17
-  35700            END-EXEC.                                                                                            20/02/20
-  35800            EXEC SQL                                                                                             28/02/17
-  35900                 DELETE FROM FECINIRES                                                                           28/02/17
-  36000            END-EXEC.                                                                                            20/02/20
-  36100            EXEC SQL                                                                                             28/02/17
-  36200                 DELETE FROM TEMFMX                                                                              28/02/17
-  36300            END-EXEC.                                                                                            20/02/20
-  36400            EXEC SQL                                                                                             28/02/17
-  36500                 DELETE FROM TEMFMX1                                                                             28/02/17
-  36600            END-EXEC.                                                                                            20/02/20
-  36700            EXEC SQL                                                                                             28/02/17
-  36800                 DELETE FROM TEMFMXX                                                                             28/02/17
-  36900            END-EXEC.                                                                                            20/02/20
+  34900                                                                                                      20/02/20
   37000            EXEC SQL                                                                                             28/02/17
   37100                 DELETE FROM TEMMTO                                                                              20/02/20
   37200            END-EXEC.                                                                                            20/02/20
